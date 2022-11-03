@@ -11,7 +11,7 @@ import { TechnoDetailsComponent } from './components/techno-details/techno-detai
 import { GameListComponent } from './components/game-list/game-list.component';
 import { GameDetailsComponent } from './components/game-details/game-details.component';
 import { MatSliderModule } from '@angular/material/slider';
-import { MatButtonModule } from '@angular/material/button';
+import { ButtonComponent } from './components/button/button.component';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -23,6 +23,7 @@ const routes: Routes = [
   { path: 'add-techno', component: TechnoAddComponent },
   { path: 'all-technos', component: TechnoListComponent },
   { path: 'all-games', component: GameListComponent },
+  { path: 'button', component: ButtonComponent },
 ];
 
 @NgModule({
@@ -48,6 +49,7 @@ const routes: Routes = [
     TechnoDetailsComponent,
     GameListComponent,
     GameDetailsComponent,
+    ButtonComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
