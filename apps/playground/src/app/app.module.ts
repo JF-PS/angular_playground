@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './components/home/home.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { TechnoAddComponent } from './techno-add/techno-add.component';
+import { TechnoAddComponent } from './components/techno-add/techno-add.component';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { TechnoListComponent } from './techno-list/techno-list.component';
-import { TechnoDetailsComponent } from './techno-details/techno-details.component';
+import { TechnoListComponent } from './components/techno-list/techno-list.component';
+import { TechnoDetailsComponent } from './components/techno-details/techno-details.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },

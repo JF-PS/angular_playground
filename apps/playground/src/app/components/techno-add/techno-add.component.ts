@@ -1,8 +1,9 @@
+/* eslint-disable @angular-eslint/component-selector */
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { Component, OnInit } from '@angular/core';
-import { TechnoType } from '../types';
-import { TechnoService } from '../services/techno.service';
+import { TechnoType } from '../../types';
+import { TechnoService } from '../../services/techno.service';
 
 interface FormDataType {
   value: TechnoType;
