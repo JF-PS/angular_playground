@@ -29,6 +29,7 @@ const routes: Routes = [
   { path: 'all-games', component: GameListComponent },
   { path: 'button', component: ButtonComponent },
   { path: 'all-tags', component: TagsComponent },
+  { path: '**', pathMatch: 'full', redirectTo: '/' },
 ];
 
 @NgModule({
