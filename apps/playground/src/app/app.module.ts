@@ -10,6 +10,9 @@ import { TechnoListComponent } from './components/techno-list/techno-list.compon
 import { TechnoDetailsComponent } from './components/techno-details/techno-details.component';
 import { GameListComponent } from './components/game-list/game-list.component';
 import { GameDetailsComponent } from './components/game-details/game-details.component';
+import { TagsComponent } from './components/tags/tags.component';
+import { MatChipsModule } from "@angular/material/chips";
+import{DragDropModule}from'@angular/cdk/drag-drop';
 import { MatSliderModule } from '@angular/material/slider';
 import { ButtonComponent } from './components/button/button.component';
 import { MatButtonModule } from '@angular/material/button';
@@ -25,6 +28,7 @@ const routes: Routes = [
   { path: 'all-technos', component: TechnoListComponent },
   { path: 'all-games', component: GameListComponent },
   { path: 'button', component: ButtonComponent },
+  { path: 'all-tags', component: TagsComponent },
 ];
 
 @NgModule({
@@ -39,6 +43,8 @@ const routes: Routes = [
     HttpClientModule,
     FlexLayoutModule,
     TranslateModule.forRoot()
+	MatChipsModule,
+	DragDropModule
   ],
 
   exports: [RouterModule, TechnoDetailsComponent],
@@ -51,6 +57,7 @@ const routes: Routes = [
     GameListComponent,
     GameDetailsComponent,
     ButtonComponent,
+    TagsComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
