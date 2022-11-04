@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'playground';
+  tabs= [{label:'games', content:"content"}, {label:'friends', content: ""}]
+   tabs2= [{label:'MOMO', content:"MOMO"}, {label:'EXCALIBURE', content: 'coucou'}]
 }

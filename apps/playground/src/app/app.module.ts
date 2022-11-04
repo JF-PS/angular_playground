@@ -18,6 +18,9 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { en } from './translations/en';
+import {MatTabsModule} from '@angular/material/tabs';
+import { NavtabsComponent } from './components/navtabs/navtabs.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -38,7 +41,8 @@ const routes: Routes = [
     MatCardModule,
     HttpClientModule,
     FlexLayoutModule,
-    TranslateModule.forRoot()
+    TranslateModule.forRoot(),
+    MatTabsModule,
   ],
 
   exports: [RouterModule, TechnoDetailsComponent],
@@ -51,6 +55,7 @@ const routes: Routes = [
     GameListComponent,
     GameDetailsComponent,
     ButtonComponent,
+    NavtabsComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
