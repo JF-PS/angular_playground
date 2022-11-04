@@ -43,9 +43,9 @@ const routes: Routes = [
     MatCardModule,
     HttpClientModule,
     FlexLayoutModule,
-    TranslateModule.forRoot()
-	MatChipsModule,
-	DragDropModule
+    TranslateModule.forRoot(),
+	  MatChipsModule,
+	  DragDropModule
   ],
 
   exports: [RouterModule, TechnoDetailsComponent],
