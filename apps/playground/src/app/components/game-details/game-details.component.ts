@@ -15,9 +15,17 @@ export class GameDetailsComponent {
 
   constructor() {
     this.game = {
+      developer: '',
+      freetogame_profile_url: '',
+      game_url: '',
+      genre: '',
       id: uniqueId(),
-      name: 'game',
-      description: 'Lorem ipsum lore dit',
+      platform: '',
+      publisher: '',
+      release_date: '',
+      short_description: '',
+      thumbnail: '',
+      title: '',
     };
   }
 }

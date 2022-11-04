@@ -20,7 +20,8 @@ export class GameListComponent implements OnInit {
   }
 
   getGames = () => {
-    this.allGames = this.ts.getGames();
-    console.log(this.allGames);
+    this.ts.getGameList().subscribe((res) => {
+      this.allGames = res;
+    });
   };
 }

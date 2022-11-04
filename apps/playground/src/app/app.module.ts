@@ -13,6 +13,7 @@ import { GameDetailsComponent } from './components/game-details/game-details.com
 import { MatSliderModule } from '@angular/material/slider';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -30,6 +31,7 @@ const routes: Routes = [
     MatSliderModule,
     MatButtonModule,
     MatCardModule,
+    HttpClientModule,
   ],
   exports: [RouterModule, TechnoDetailsComponent],
   declarations: [
