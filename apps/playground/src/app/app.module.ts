@@ -18,6 +18,11 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { en } from './translations/en';
+import { DropdownComponent } from './components/dropdown/dropdown.component';
+
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from "@angular/material/form-field";
+import {MatSelectModule} from '@angular/material/select';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -35,10 +40,13 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     MatSliderModule,
     MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatSelectModule,
     MatCardModule,
     HttpClientModule,
     FlexLayoutModule,
-    TranslateModule.forRoot()
+    TranslateModule.forRoot(),
   ],
 
   exports: [RouterModule, TechnoDetailsComponent],
@@ -51,6 +59,7 @@ const routes: Routes = [
     GameListComponent,
     GameDetailsComponent,
     ButtonComponent,
+    DropdownComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
