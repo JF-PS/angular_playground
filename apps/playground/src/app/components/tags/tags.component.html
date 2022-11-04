@@ -1,5 +1,5 @@
-<mat-chip-list class="example-chip" cdkDropList cdkDropListOrientation="horizontal">
-  <mat-chip class="example-box" cdkDrag>
-    {{tag}}
+<mat-chip-list class="example-chip">
+  <mat-chip class="example-box" *ngFor="let tag of tags">
+    {{ tag }}
   </mat-chip>
 </mat-chip-list>
