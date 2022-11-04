@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
+// import { HomeComponent } from './components/home/home.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TechnoAddComponent } from './components/techno-add/techno-add.component';
@@ -14,16 +14,18 @@ import { MatSliderModule } from '@angular/material/slider';
 import { ButtonComponent } from './components/button/button.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { GamePageComponent } from './pages/game-page/game-page.component';
 import { en } from './translations/en';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomePageComponent },
   { path: 'add-techno', component: TechnoAddComponent },
   { path: 'all-technos', component: TechnoListComponent },
-  { path: 'all-games', component: GameListComponent },
+  { path: 'all-games', component: GamePageComponent },
   { path: 'button', component: ButtonComponent },
 ];
 
@@ -38,18 +40,19 @@ const routes: Routes = [
     MatCardModule,
     HttpClientModule,
     FlexLayoutModule,
-    TranslateModule.forRoot()
+    TranslateModule.forRoot(),
   ],
 
   exports: [RouterModule, TechnoDetailsComponent],
   declarations: [
     AppComponent,
-    HomeComponent,
+    HomePageComponent,
     TechnoAddComponent,
     TechnoListComponent,
     TechnoDetailsComponent,
     GameListComponent,
     GameDetailsComponent,
+    GamePageComponent,
     ButtonComponent,
   ],
   providers: [],

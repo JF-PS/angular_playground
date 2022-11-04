@@ -1,8 +1,11 @@
 export const en = {
-    header : {
-        label : 'The Playground'
-    },
-    homePage : {
-        title : 'The Playground'
-    }
-}
+  header: {
+    title: 'The Playground',
+  },
+  homePage: {
+    title: 'The Home Page',
+  },
+  gamePage: {
+    title: 'The Game Page',
+  },
+};
