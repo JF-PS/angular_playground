@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-// import { HomeComponent } from './components/home/home.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TechnoAddComponent } from './components/techno-add/techno-add.component';
@@ -19,14 +18,22 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { GamePageComponent } from './pages/game-page/game-page.component';
+import { GamePageDetailsComponent } from './pages/game-page-details/game-page-details.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { EditProfilePageComponent } from './pages/edit-profile-page/edit-profile-page.component';
+import { MyProfilePageComponent } from './pages/my-profile-page/my-profile-page.component';
 import { en } from './translations/en';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'add-techno', component: TechnoAddComponent },
   { path: 'all-technos', component: TechnoListComponent },
-  { path: 'all-games', component: GamePageComponent },
+  { path: 'games', component: GamePageComponent },
+  { path: 'games/:id', component: GamePageDetailsComponent },
   { path: 'button', component: ButtonComponent },
+  { path: 'login', component: LoginPageComponent },
+  { path: 'edit-profile', component: EditProfilePageComponent },
+  { path: 'my-profile', component: MyProfilePageComponent },
 ];
 
 @NgModule({
@@ -54,6 +61,9 @@ const routes: Routes = [
     GameDetailsComponent,
     GamePageComponent,
     ButtonComponent,
+    LoginPageComponent,
+    EditProfilePageComponent,
+    MyProfilePageComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

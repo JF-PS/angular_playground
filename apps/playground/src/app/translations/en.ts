@@ -8,4 +8,13 @@ export const en = {
   gamePage: {
     title: 'The Game Page',
   },
+  loginPage: {
+    title: 'The Login Page',
+  },
+  editProfilePage: {
+    title: 'The Edit Profile Page',
+  },
+  myProfilePage: {
+    title: 'My Profile Page',
+  },
 };
