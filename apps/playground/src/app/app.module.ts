@@ -14,6 +14,8 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import {TranslateModule, TranslateService} from '@ngx-translate/core';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -32,7 +34,10 @@ const routes: Routes = [
     MatButtonModule,
     MatCardModule,
     HttpClientModule,
+    FlexLayoutModule,
+    TranslateModule.forRoot()
   ],
+
   exports: [RouterModule, TechnoDetailsComponent],
   declarations: [
     AppComponent,
@@ -46,4 +51,12 @@ const routes: Routes = [
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(translate: TranslateService) {
+    // this language will be used as a fallback when a translation isn't found in the current language
+    // translate.setTranslation(lang:'en', en);
+    translate.setDefaultLang('en');
+    // the lang to use, if the lang isn't available, it will use the current loader to get them
+    translate.use('en');
+  }
+}
