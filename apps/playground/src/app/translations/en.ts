@@ -1,5 +1,8 @@
 export const en = {
-  header: {
-    label: 'Here is my header'
-  }
+    header : {
+        label : 'The Playground'
+    },
+    homePage : {
+        title : 'The Playground'
+    }
 }
