@@ -1,9 +1,4 @@
-<h3>{{ 'header.title' | translate }}</h3>
-<a routerLink="">Accueil</a> &nbsp;
-<!-- <a routerLink="add-techno">Add techno</a> &nbsp;
-<a routerLink="all-technos">Toutes les technos</a> -->
-<a routerLink="games">All games</a> &nbsp;
-<a routerLink="login">Login</a> &nbsp;
-<a routerLink="edit-profile">Edit Profile</a> &nbsp;
-<a routerLink="my-profile">My Profile</a> &nbsp;
-<router-outlet></router-outlet>
+<div id="appContainer">
+  <project-majeur-navbar></project-majeur-navbar>
+  <router-outlet></router-outlet>
+</div>

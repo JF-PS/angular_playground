@@ -25,9 +25,11 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { EditProfilePageComponent } from './pages/edit-profile-page/edit-profile-page.component';
 import { MyProfilePageComponent } from './pages/my-profile-page/my-profile-page.component';
 import { SearchByTagPageComponent } from './pages/search-by-tag-page/search-by-tag-page.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { en } from './translations/en';
 
 const routes: Routes = [
@@ -59,6 +61,7 @@ const routes: Routes = [
     DragDropModule,
     MatInputModule,
     MatIconModule,
+    MatToolbarModule,
   ],
 
   exports: [RouterModule, TechnoDetailsComponent],
@@ -76,6 +79,7 @@ const routes: Routes = [
     LoginPageComponent,
     EditProfilePageComponent,
     MyProfilePageComponent,
+    NavbarComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
