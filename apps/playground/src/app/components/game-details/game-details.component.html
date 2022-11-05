@@ -1,10 +1,24 @@
-<div class="card">
+<mat-card class="example-card" routerLink="{{ game.id }}">
+  <div class="item-picture">
+    <img mat-card-image src="{{ game.thumbnail }}" alt="{{ game.title }}" />
+  </div>
+  <mat-card-header>
+    <mat-card-title>{{ game.title }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>{{ game.short_description }}</p>
+  </mat-card-content>
+</mat-card>
+
+<!-- <div class="card" routerLink="{{ game.id }}">
   <img
-      src="{{ game.thumbnail }}" alt="{{game.title}}" class="img-game-card"
+    src="{{ game.thumbnail }}"
+    alt="{{ game.title }}"
+    class="img-game-card"
   />
 
   <div class="card-content">
     <h1 class="title">{{ game.title }}</h1>
-    <p class="description">{{ game.short_description  }}</p>
+    <p class="description">{{ game.short_description }}</p>
   </div>
-</div>
+</div> -->

@@ -1,6 +1,18 @@
-<div  class="grid">
-  <div *ngFor="let game of allGames">
-    <project-majeur-game-details [game]="game"></project-majeur-game-details>
+<div class="content">
+  <div fxLayout="row wrap" fxLayoutGap="16px grid">
+    <div
+      fxFlex="25%"
+      fxFlex.xs="100%"
+      fxFlex.sm="33%"
+      *ngFor="let game of gameList"
+    >
+      <project-majeur-game-details [game]="game"></project-majeur-game-details>
+    </div>
   </div>
 </div>
 
+<!-- <div class="grid">
+  <div *ngFor="let game of gameList">
+    <project-majeur-game-details [game]="game"></project-majeur-game-details>
+  </div>
+</div> -->

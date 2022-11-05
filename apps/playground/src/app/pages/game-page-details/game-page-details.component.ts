@@ -2,6 +2,8 @@
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { GameService } from '../../services/game.service';
+import { GameType } from '../../types';
 
 @Component({
   selector: 'project-majeur-game-page-details',
@@ -10,13 +12,21 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class GamePageDetailsComponent implements OnInit {
   id: number | null = null;
+  gameById: GameType | null = null;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private ts: GameService) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
-      console.log(params);
-      this.id = params['id'];
+      const { id } = params;
+      this.id = id;
+      this.getGameById(id);
     });
   }
+
+  getGameById = (id: string) => {
+    this.ts.getGameById({ id }).subscribe((res) => {
+      this.gameById = res;
+    });
+  };
 }

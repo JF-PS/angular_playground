@@ -10,6 +10,19 @@ export const en = {
   },
   loginPage: {
     title: 'The Login Page',
+    loginField: {
+      label: 'Login',
+      errors: {
+        notValid: 'Please enter a valid email address',
+        empty: ' Email is required',
+      },
+    },
+    passwordField: {
+      label: 'Password',
+    },
+    submitButton: {
+      label: 'Log in',
+    },
   },
   editProfilePage: {
     title: 'The Edit Profile Page',
