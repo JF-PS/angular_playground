@@ -1,2 +1,18 @@
-<h3>{{ 'gamePage.title' | translate }}</h3>
-<project-majeur-game-list [gameList]="gameListByTag"></project-majeur-game-list>
+<!-- <h3>{{ 'gamePage.title' | translate }}</h3> -->
+<div class="">
+
+  <div class="containerTop">
+    <div class="topbar">
+      <div class="return"></div>
+      <div class="title"></div>
+      <div class="profil"></div>
+    </div>
+
+
+  </div>
+    <div class="containerContent">
+      <h3 class="titlePopular">Populaires</h3>
+      <project-majeur-game-list [gameList]="gameListByTag"></project-majeur-game-list>
+      <div class="seeMore"></div>
+    </div>
+</div>

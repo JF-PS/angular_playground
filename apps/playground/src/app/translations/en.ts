@@ -3,7 +3,7 @@ export const en = {
     title: 'The Playground',
   },
   homePage: {
-    title: 'The Home Page',
+    // title: 'The Home Page',
   },
   gamePage: {
     title: 'The Game Page',
