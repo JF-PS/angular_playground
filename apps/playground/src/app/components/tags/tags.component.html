@@ -1,5 +1,9 @@
 <mat-chip-list class="example-chip">
-  <mat-chip class="example-box" *ngFor="let tag of tags">
-    {{ tag }}
+  <mat-chip
+    class="example-box"
+    *ngFor="let tag of tags"
+    (click)="goGameByTag(tag.path)"
+  >
+    {{ tag.label }}
   </mat-chip>
 </mat-chip-list>
