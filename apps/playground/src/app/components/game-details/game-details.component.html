@@ -1,4 +1,4 @@
-<mat-card class="example-card" routerLink="{{ game.id }}">
+<mat-card class="example-card" (click)="goGameDetails(game.id)">
   <div class="item-picture">
     <img mat-card-image src="{{ game.thumbnail }}" alt="{{ game.title }}" />
   </div>
