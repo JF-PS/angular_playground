@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { GameService } from '../../services/game.service';
 import { GameType } from '../../types';
 
@@ -11,15 +12,20 @@ import { GameType } from '../../types';
 })
 export class SearchByTagPageComponent implements OnInit {
   gameListByTag: GameType[] = [];
+  category = '';
 
-  constructor(private ts: GameService) {}
+  constructor(private route: ActivatedRoute, private ts: GameService) {}
 
   ngOnInit(): void {
-    this.getGamesByTag();
+    this.route.queryParams.subscribe((params) => {
+      const { category } = params;
+      this.category = category;
+      this.getGamesByTag(category);
+    });
   }
 
-  getGamesByTag = () => {
-    this.ts.getGameList().subscribe((res) => {
+  getGamesByTag = (category: string) => {
+    this.ts.getGamesByParams({ category }).subscribe((res) => {
       this.gameListByTag = res;
     });
   };

@@ -1,6 +1,6 @@
 export const en = {
   header: {
-    title: 'The Playground',
+    title: 'Playground',
   },
   homePage: {
     // title: 'The Home Page',

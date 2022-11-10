@@ -1,0 +1,64 @@
+.main {
+  width: 100vw;
+  height: 100vh;
+  background-color: #d7b39b;
+}
+
+.title {
+  color: white;
+  font-family: 'Montserrat';
+}
+
+.topBar {
+  display: flex !important;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #d7b39b;
+}
+
+mat-icon {
+  font-size: 16px;
+  height: 16px;
+  width: 16px;
+}
+
+.return {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  background-color: #cad2c5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.containerContent {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  padding: 24px;
+  border-radius: 50px 50px 0px 0px;
+  margin-top: 24px;
+}
+
+.titlePopular {
+  font-size: 16px;
+  color: #354f52;
+  font-weight: 500;
+  margin: 8px 0px;
+}
+
+.btnSeeMore {
+  margin: auto;
+  height: 40px;
+  background-color: #cad2c5;
+  color: #354f52;
+  width: 180px;
+  border-radius: 8px;
+  padding: 4px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-size: 14px;
+}

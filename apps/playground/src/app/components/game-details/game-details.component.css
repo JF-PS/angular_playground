@@ -1,25 +1,36 @@
-/* ================================================= */
-
 .mat-card {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 10px 20px rgba(130, 130, 130, 0.2), 0 6px 6px rgba(134, 134, 134, 0.2);
   overflow: hidden;
+  height: 154px;
 }
 
 .mat-card:hover {
   cursor: pointer;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.19), 0 12px 12px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 15px 30px rgba(130, 130, 130, 0.2), 0 12px 12px rgba(134, 134, 134, 0.2);
 }
 
 .mat-card-content {
   height: 100px;
+}
+
+.description {
+  white-space: nowrap;
+  overflow: hidden;
   text-overflow: ellipsis;
+  font-size: 12px;
+  font-family: 'Montserrat';
+  color: #354f52;
 }
 
 .mat-card-title {
-  width: 100%;
-  text-overflow: ellipsis;
+  font-size: 14px;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   margin-left: -16px;
+  font-family: 'Montserrat';
+  font-weight: 600;
+  color: #354f52;
 }
 
 .mat-card > :first-child {
@@ -29,7 +40,7 @@
 .item-picture {
   width: calc(100% + 32px);
   margin: -16px -16px 16px -16px;
-  display: block;
+  /* display: block; */
   overflow: hidden;
 }
 

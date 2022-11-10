@@ -1,7 +1,7 @@
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 /* eslint-disable @typescript-eslint/no-empty-function */
-import { Component, Input, OnInit } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
+import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { GameType } from '../../types';
 import { uniqueId } from 'lodash';
 
@@ -13,7 +13,7 @@ import { uniqueId } from 'lodash';
 export class GameDetailsComponent {
   @Input() game: GameType;
 
-  constructor() {
+  constructor(private router: Router) {
     this.game = {
       developer: '',
       freetogame_profile_url: '',
@@ -27,5 +27,9 @@ export class GameDetailsComponent {
       thumbnail: '',
       title: '',
     };
+  }
+
+  goGameDetails(id: string | number) {
+    this.router.navigate(['/games/' + id]);
   }
 }

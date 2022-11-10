@@ -1,3 +1,22 @@
 <!-- <h3>{{ 'homePage.title' | translate }}</h3> -->
+<!-- <project-majeur-game-list></project-majeur-game-list> -->
+<div class="main">
+  <mat-toolbar class="topBar" color="transparent">
+    <div routerLink="login" class="return">
+      <mat-icon> account </mat-icon>
+    </div>
+    <div routerLink="" class="title">
+      <span>{{ 'header.title' | translate }}</span>
+    </div>
+    <div routerLink="games" class="return">
+      <mat-icon class="icon">arrow_back</mat-icon>
+    </div>
+  </mat-toolbar>
 
-<project-majeur-game-list></project-majeur-game-list>
+    <div class="containerContent">
+      <h3 class="titlePopular">Populaires</h3>
+      <project-majeur-game-list [gameList]="popularGames"></project-majeur-game-list>
+
+      <div class="btnSeeMore">En découvrir plus</div>
+    </div>
+</div>
