@@ -1,1 +1,16 @@
-<p>game-page-details works! {{ id }}</p>
+<div class="game__details-img">
+  <img src="{{ gameById.thumbnail }}" alt="{{ gameById.title }}">
+</div>
+
+<div class="game__details-infos">
+  <div class="game__details-infos-top">
+    <h2>{{ gameById.title }}</h2>
+    <span>+ Add</span>
+  </div>
+
+  <div class="game__details-infos-tab">
+
+    <p>Sort description {{ gameById.description }}</p>
+
+  </div>
+</div>

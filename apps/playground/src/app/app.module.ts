@@ -33,6 +33,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { en } from './translations/en';
+import {MatTabsModule} from '@angular/material/tabs';
 import { LayoutComponent } from './components/layout/layout.component';
 // import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
@@ -78,6 +79,7 @@ const routes: Routes = [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     provideFirestore(() => getFirestore()),
+    MatTabsModule
   ],
 
   declarations: [
