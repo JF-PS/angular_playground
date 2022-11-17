@@ -62,6 +62,7 @@ const routes: Routes = [
     MatInputModule,
     MatIconModule,
     MatToolbarModule,
+    FlexLayoutModule,
   ],
 
   exports: [RouterModule, TechnoDetailsComponent],
