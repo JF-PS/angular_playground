@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "playground-test-20237": {
+      "hosting": {
+        "playground": [
+          "playground-test-20237"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "playground-test-20237"
+  }
+}
