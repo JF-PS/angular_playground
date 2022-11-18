@@ -32,7 +32,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { en } from './translations/en';
 import { LayoutComponent } from './components/layout/layout.component';
-// import { CounterGamesDisplayedComponent } from './components/counter-games-displayed/counter-games-displayed.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -84,7 +83,6 @@ const routes: Routes = [
     MyProfilePageComponent,
     NavbarComponent,
     LayoutComponent,
-    // CounterGamesDisplayedComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
