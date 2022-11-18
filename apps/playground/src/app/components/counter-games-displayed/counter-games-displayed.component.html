@@ -4,11 +4,11 @@
       fxFlex="25%"
       fxFlex.xs="50%"
       fxFlex.sm="33%"
-      *ngFor="let game of gameSliceList"
+      *ngFor="let game of gameList.slice(0, 10)"
     >
       <project-majeur-game-details [game]="game"></project-majeur-game-details>
     </div>
-    <!-- {{ toggleIsActive === false && }} -->
-    <button class="btnSeeMore" (click)="seeMore()">En découvrir plus</button>
+    <div class="btnSeeMore" onclick="setIsActive(true)">En découvrir plus</div>
   </div>
 </div>
+

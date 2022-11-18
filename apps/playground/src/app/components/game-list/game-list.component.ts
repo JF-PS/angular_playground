@@ -10,11 +10,18 @@ import { GameType } from '../../types';
 })
 export class GameListComponent {
   @Input() gameList: GameType[];
-  @Input() limit: number | null = null;
+  private limit = 4;
 
+  get gameSliceList() {
+    return this.gameList.slice(0, this.limit)
+  }
 
   constructor() {
     this.gameList = [];
   }
-}
 
+  seeMore() {
+    this.limit += 4;
+  }
+
+}
