@@ -8,11 +8,38 @@
 }
 
 .mat-icon {
+  transition-duration: 500ms;
   font-size: 32px;
   width: 32px;
   height: 32px;
 }
 
+.mat-icon:hover {
+  font-size: 34px;
+  width: 34px;
+  height: 34px;
+}
+
 .mat-icon-button {
+  transition-duration: 500ms;
   width: 32px;
+}
+
+#logo {
+  transition-duration: 500ms;
+  font-size: 25px;
+}
+
+#logo:hover {
+  font-size: 27px;
+}
+
+.mat-icon-button:hover {
+  width: 34px;
+}
+
+#account,
+#logo,
+#goBack {
+  cursor: pointer;
 }

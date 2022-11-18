@@ -32,6 +32,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { MatMenuModule } from '@angular/material/menu';
 import { en } from './translations/en';
 // import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
@@ -71,6 +72,7 @@ const routes: Routes = [
     MatIconModule,
     MatToolbarModule,
     MatButtonToggleModule,
+    MatMenuModule,
     // provideFirebaseApp(() => initializeApp(environment.firebase)),
     // provideAuth(() => getAuth()),
     // provideFirestore(() => getFirestore()),
