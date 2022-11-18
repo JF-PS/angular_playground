@@ -28,6 +28,8 @@ import { EditProfilePageComponent } from './pages/edit-profile-page/edit-profile
 import { MyProfilePageComponent } from './pages/my-profile-page/my-profile-page.component';
 import { SearchByTagPageComponent } from './pages/search-by-tag-page/search-by-tag-page.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
@@ -40,6 +42,7 @@ import { environment } from '../environments/environment';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { EditFormComponent } from './components/edit-form/edit-form.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -73,9 +76,8 @@ const routes: Routes = [
     MatToolbarModule,
     MatButtonToggleModule,
     MatMenuModule,
-    // provideFirebaseApp(() => initializeApp(environment.firebase)),
-    // provideAuth(() => getAuth()),
-    // provideFirestore(() => getFirestore()),
+    MatRadioModule,
+    MatSelectModule,
     TranslateModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
@@ -99,6 +101,7 @@ const routes: Routes = [
     EditProfilePageComponent,
     MyProfilePageComponent,
     NavbarComponent,
+    EditFormComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
