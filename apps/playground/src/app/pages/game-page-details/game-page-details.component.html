@@ -5,7 +5,11 @@
 <div class="game__details-infos">
   <div class="game__details-infos-top">
     <h2>{{ gameById?.title }}</h2>
-    <span>+ Add</span>
+
+    <button mat-icon-button color="warn" aria-label="Heart icon" (click)="openDialog()">
+      <mat-icon>favorite</mat-icon>
+    </button>
+
   </div>
 
   <div class="game__details-infos-tab">
