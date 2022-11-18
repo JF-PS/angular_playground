@@ -10,6 +10,8 @@ import { GameType } from '../../types';
 })
 export class GameListComponent {
   @Input() gameList: GameType[];
+  @Input() limit: number | null = null;
+
 
   constructor() {
     this.gameList = [];
