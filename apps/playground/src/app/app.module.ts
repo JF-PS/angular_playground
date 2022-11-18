@@ -31,6 +31,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { en } from './translations/en';
+import { LayoutComponent } from './components/layout/layout.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -81,6 +82,7 @@ const routes: Routes = [
     EditProfilePageComponent,
     MyProfilePageComponent,
     NavbarComponent,
+    LayoutComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

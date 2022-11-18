@@ -1,3 +1,9 @@
-<h3>{{ 'homePage.title' | translate }}</h3>
-<project-majeur-tags [tags]="tags"></project-majeur-tags>
-<project-majeur-game-list [gameList]="popularGames"></project-majeur-game-list>
+<project-majeur-layout>
+  <project-majeur-tags [tags]="tags"></project-majeur-tags>
+<!--   if(isActive === true) {
+    <project-majeur-game-list [gameList]="popularGames"></project-majeur-game-list>
+  } else { -->
+    <project-majeur-game-list [gameList]="popularGames" [limit]=6></project-majeur-game-list>
+  <!-- } -->
+  <div class="btnSeeMore"  onclick="setIsActive(true)">En découvrir plus</div>
+</project-majeur-layout>
