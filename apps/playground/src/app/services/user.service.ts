@@ -25,6 +25,15 @@ class UserService {
     );
   }
 
+  signup(email: string, password: string): Observable<boolean> {
+    return from(this.auth.createUserWithEmailAndPassword(email, password)).pipe(
+      map((res: UserCredential) => {
+        return !!res.user;
+      }),
+      catchError(() => of(false))
+    );
+  }
+
   logout() {
     this.auth.signOut().then(() => {
       this.router.navigateByUrl('login');

@@ -14,26 +14,48 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./login-page.component.css'],
 })
 export class LoginPageComponent {
+  isLoginForm = true;
+  myConnectChoice = 'login';
+
   constructor(
-    private readonly userService: UserService
-  ) // private readonly snackbar: MatSnackBar,
-  // private readonly translate: TranslateService
-  {}
-  onSubmitLogin(data: LoginData) {
+    private readonly userService: UserService,
+    private readonly translate: TranslateService // private readonly snackbar: MatSnackBar
+  ) {}
+
+  handleSubmit = (data: LoginData) => {
+    if (this.isLoginForm) this.onSubmitLogin(data);
+    else this.onSubmitRegister(data);
+  };
+
+  onChange = (connectMethod: string) => {
+    this.isLoginForm = connectMethod === 'login';
+  };
+
+  onSubmitLogin = (data: LoginData) => {
     this.userService
       .login(data.email, data.password)
       .pipe(take(1))
       .subscribe((res) => {
         if (res) {
           console.log(res);
-          //history.back();
+          history.back();
+        } else {
+          console.error('Errors occured');
         }
-        // else {
-        //   this.snackbar.open(this.translate.instant('login.error'), '', {
-        //     panelClass: ['error-snackbar'],
-        //     duration: 3000,
-        //   });
-        // }
       });
-  }
+  };
+
+  onSubmitRegister = (data: LoginData) => {
+    this.userService
+      .signup(data.email, data.password)
+      .pipe(take(1))
+      .subscribe((res) => {
+        if (res) {
+          console.log(res);
+          history.back();
+        } else {
+          console.error('Errors occured');
+        }
+      });
+  };
 }

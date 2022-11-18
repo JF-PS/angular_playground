@@ -11,6 +11,7 @@ import { TechnoDetailsComponent } from './components/techno-details/techno-detai
 import { GameListComponent } from './components/game-list/game-list.component';
 import { GameDetailsComponent } from './components/game-details/game-details.component';
 import { TagsComponent } from './components/tags/tags.component';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatChipsModule } from '@angular/material/chips';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatSliderModule } from '@angular/material/slider';
@@ -32,9 +33,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { en } from './translations/en';
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+// import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideAuth, getAuth } from '@angular/fire/auth';
+// import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
@@ -69,6 +70,7 @@ const routes: Routes = [
     MatInputModule,
     MatIconModule,
     MatToolbarModule,
+    MatButtonToggleModule,
     // provideFirebaseApp(() => initializeApp(environment.firebase)),
     // provideAuth(() => getAuth()),
     // provideFirestore(() => getFirestore()),
