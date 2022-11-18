@@ -14,25 +14,7 @@ import { GameType } from '../../types';
 export class GamePageDetailsComponent implements OnInit {
 
   id: number | null = null;
-  title: string | null = null;
-  thumbnail: string | null = null;
-  description: string | null = null;
-
-  // TODO: Refacto de gameById
-  gameById: GameType = {
-    developer: "",
-    freetogame_profile_url: "",
-    game_url: "",
-    genre: "",
-    id: "",
-    platform: "",
-    publisher: "",
-    release_date: "",
-    short_description: "",
-    description: "",
-    thumbnail: "",
-    title: ""
-  };
+  gameById: GameType | null = null;
 
   constructor(private route: ActivatedRoute, private ts: GameService) {}
 
