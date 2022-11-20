@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "playground-prod-842c4": {
+      "hosting": {
+        "playground": [
+          "playground-prod-842c4"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "playground-prod-842c4"
+  }
+}

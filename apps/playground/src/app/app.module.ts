@@ -6,10 +6,12 @@ import { TechnoAddComponent } from './components/techno-add/techno-add.component
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { TechnoListComponent } from './components/techno-list/techno-list.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 import { TechnoDetailsComponent } from './components/techno-details/techno-details.component';
 import { GameListComponent } from './components/game-list/game-list.component';
 import { GameDetailsComponent } from './components/game-details/game-details.component';
 import { TagsComponent } from './components/tags/tags.component';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatChipsModule } from '@angular/material/chips';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatSliderModule } from '@angular/material/slider';
@@ -32,6 +34,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { en } from './translations/en';
 import { LayoutComponent } from './components/layout/layout.component';
+// import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+// import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -63,15 +71,21 @@ const routes: Routes = [
     MatInputModule,
     MatIconModule,
     MatToolbarModule,
-    FlexLayoutModule,
+    MatButtonToggleModule,
+    // provideAuth(() => getAuth()),
+    // provideFirestore(() => getFirestore()),
+    TranslateModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    provideFirestore(() => getFirestore()),
   ],
 
-  exports: [RouterModule, TechnoDetailsComponent],
   declarations: [
     AppComponent,
     HomePageComponent,
     TechnoAddComponent,
     TechnoListComponent,
+    LoginFormComponent,
     TechnoDetailsComponent,
     GameListComponent,
     GameDetailsComponent,

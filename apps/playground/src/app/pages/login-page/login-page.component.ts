@@ -2,12 +2,11 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 import { Component } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  FormControl,
-  Validators,
-} from '@angular/forms';
+import { take } from 'rxjs';
+import { LoginData } from '../../model';
+import { UserService } from '../../services';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'project-majeur-login-page',
@@ -15,51 +14,48 @@ import {
   styleUrls: ['./login-page.component.css'],
 })
 export class LoginPageComponent {
-  minPw = 8;
+  isLoginForm = true;
+  myConnectChoice = 'login';
 
-  loginForm: FormGroup = this.formBuilder.group(
-    {
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [
-        Validators.required,
-        Validators.minLength(this.minPw),
-      ]),
-      comfirmPassword: new FormControl('', [Validators.required]),
-    },
-    {
-      validator: (formGroup: FormGroup) => {
-        const { password: pwd, comfirmPassword: comfirmPwd } =
-          formGroup.controls;
-        if (pwd.value === comfirmPwd.value) return null;
-        else return { passwordMismatch: true };
-      },
-    }
-  );
+  constructor(
+    private readonly userService: UserService,
+    private readonly translate: TranslateService // private readonly snackbar: MatSnackBar
+  ) {}
 
-  get email(): FormControl {
-    return this.loginForm.get('email')! as FormControl;
-  }
+  handleSubmit = (data: LoginData) => {
+    if (this.isLoginForm) this.onSubmitLogin(data);
+    else this.onSubmitRegister(data);
+  };
 
-  get password(): FormControl {
-    return this.loginForm.get('password')! as FormControl;
-  }
+  onChange = (connectMethod: string) => {
+    this.isLoginForm = connectMethod === 'login';
+  };
 
-  get comfirmPassword(): FormControl {
-    return this.loginForm.get('comfirmPassword')! as FormControl;
-  }
+  onSubmitLogin = (data: LoginData) => {
+    this.userService
+      .login(data.email, data.password)
+      .pipe(take(1))
+      .subscribe((res) => {
+        if (res) {
+          console.log(res);
+          history.back();
+        } else {
+          console.error('Errors occured');
+        }
+      });
+  };
 
-  hide = true;
-
-  constructor(private readonly formBuilder: FormBuilder) {}
-
-  onSubmit() {
-    console.log(this.loginForm.value);
-  }
-
-  /* Called on each input in either password field */
-  onPasswordInput() {
-    if (this.loginForm.hasError('passwordMismatch'))
-      this.comfirmPassword.setErrors([{ passwordMismatch: true }]);
-    else this.comfirmPassword.setErrors(null);
-  }
+  onSubmitRegister = (data: LoginData) => {
+    this.userService
+      .signup(data.email, data.password)
+      .pipe(take(1))
+      .subscribe((res) => {
+        if (res) {
+          console.log(res);
+          history.back();
+        } else {
+          console.error('Errors occured');
+        }
+      });
+  };
 }
