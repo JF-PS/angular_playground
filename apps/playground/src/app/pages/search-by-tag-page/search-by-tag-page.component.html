@@ -1,2 +1,8 @@
-<h3>Tag: {{ category }}</h3>
-<project-majeur-game-list [gameList]="gameListByTag"></project-majeur-game-list>
+<project-majeur-layout>
+  <div class="category">
+    <h3>Tag: {{ category }}</h3>
+    <!-- <h3>Choisi ta catégorie</h3> -->
+    <!-- <project-majeur-tags [tags]="tags"></project-majeur-tags> -->
+  </div>
+  <project-majeur-game-list [gameList]="gameListByTag"></project-majeur-game-list>
+</project-majeur-layout>
