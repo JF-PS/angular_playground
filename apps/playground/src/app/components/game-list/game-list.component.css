@@ -3,10 +3,11 @@
   height: fit-content;
   background-color: white;
   border-radius: 50px 50px 0px 0px;
+  padding-bottom: 32px;
 }
 
 .btnSeeMore {
-  margin: auto;
+  margin: 8px auto;
   height: 40px;
   background-color: #cad2c5;
   color: #354f52;
