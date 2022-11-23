@@ -1,32 +1,35 @@
-<div id="loginContainer">
-  <h3>
-    {{
-      isLoginForm
-        ? ('loginPage.title' | translate)
-        : ('signUpPage.title' | translate)
-    }}
-  </h3>
+<project-majeur-layout>
+  <div id="loginContainer">
+    <h3>
+      {{
+        isLoginForm
+          ? ('loginPage.title' | translate)
+          : ('signUpPage.title' | translate)
+      }}
+    </h3>
 
-  <mat-button-toggle-group
-    #buttonGroup="matButtonToggleGroup"
-    [ngModel]="myConnectChoice"
-    (ngModelChange)="onChange($event)"
-  >
-    <mat-button-toggle value="login" [checked]="myConnectChoice === 'login'">
-      login
-    </mat-button-toggle>
-    <mat-button-toggle
-      value="register"
-      [checked]="myConnectChoice === 'register'"
-    >
-      register
-    </mat-button-toggle>
-  </mat-button-toggle-group>
 
-  <br />
-
-  <project-majeur-login-form
+    <project-majeur-login-form
     [isLoginForm]="isLoginForm"
     (submitLogin)="handleSubmit($event)"
-  ></project-majeur-login-form>
-</div>
+    ></project-majeur-login-form>
+
+    <mat-button-toggle-group
+      #buttonGroup="matButtonToggleGroup"
+      [ngModel]="myConnectChoice"
+      (ngModelChange)="onChange($event)"
+    >
+
+      <mat-button-toggle value="login" [checked]="myConnectChoice === 'login'">
+        Se connecter
+      </mat-button-toggle>
+      <mat-button-toggle
+        value="register"
+        [checked]="myConnectChoice === 'register'"
+      >
+        Créer un compte
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+
+</project-majeur-layout>

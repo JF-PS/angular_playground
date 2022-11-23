@@ -1,6 +1,6 @@
 <div id="loginContainer">
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <mat-form-field class="example-full-width" appearance="fill">
+    <mat-form-field class="example-full-width" appearance="outline">
       <mat-label>Email</mat-label>
       <input
         type="email"
@@ -17,7 +17,7 @@
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="outline">
       <mat-label>Enter your password</mat-label>
       <input
         matInput
@@ -42,7 +42,7 @@
       >
     </mat-form-field>
 
-    <mat-form-field appearance="fill" *ngIf="!isLoginForm">
+    <mat-form-field appearance="outline" *ngIf="!isLoginForm">
       <mat-label>Comfirm your password</mat-label>
       <input
         matInput
@@ -67,15 +67,40 @@
         >Passwords don't match</mat-error
       >
     </mat-form-field>
+
     <div>
       <button
         [disabled]="loginForm.invalid"
         mat-raised-button
-        color="primary"
         type="submit"
+        class="submitBtn"
       >
-        submit
+        Valider
       </button>
+
+      <div class="link">
+        <div class="noAccountYet" *ngIf="isLoginForm">
+          <p class="subInfo">Pas encore de compte ?</p>
+          <button
+            value="login"
+            mat-button
+            color="primary"
+            class="isConnectBtn"
+          >
+            Créer un compte
+          </button>
+        </div>
+        <button
+          *ngIf="!isLoginForm"
+          value="register"
+          mat-button
+          color="primary"
+          routerLink=""
+          class="isConnectBtn"
+          >
+            Se connecter
+        </button>
+      </div>
     </div>
   </form>
 </div>
