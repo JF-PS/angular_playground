@@ -8,6 +8,7 @@ interface GameType {
   publisher: string;
   release_date: string;
   short_description: string;
+  description?: string,
   thumbnail: string;
   title: string;
 }

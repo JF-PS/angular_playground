@@ -5,12 +5,14 @@ import { ActivatedRoute } from '@angular/router';
 import { GameService } from '../../services/game.service';
 import { GameType } from '../../types';
 
+
 @Component({
   selector: 'project-majeur-game-page-details',
   templateUrl: './game-page-details.component.html',
   styleUrls: ['./game-page-details.component.css'],
 })
 export class GamePageDetailsComponent implements OnInit {
+
   id: number | null = null;
   gameById: GameType | null = null;
 
