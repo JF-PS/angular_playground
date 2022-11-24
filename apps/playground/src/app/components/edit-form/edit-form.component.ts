@@ -21,12 +21,11 @@ export class EditFormComponent {
   @Output() submitProfile = new EventEmitter<ProfileData>();
 
   onSubmit() {
-    console.log(this.profileForm.value);
     const {
       playStyle = 'chill',
       description = 'Lorem ipsum ...',
       age = '10-20',
     } = this.profileForm.value;
-    this.submitProfile.emit(new ProfileData(playStyle, description, age));
+    this.submitProfile.emit(new ProfileData('', playStyle, description, age));
   }
 }

@@ -2,7 +2,7 @@
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { GameService } from '../../services/game.service';
+import { GameService } from '../../services';
 import { GameType } from '../../types';
 
 @Component({

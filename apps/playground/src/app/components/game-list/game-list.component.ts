@@ -1,6 +1,5 @@
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 import { Component, OnInit, Input } from '@angular/core';
-import { GameService } from '../../services/game.service';
 import { GameType } from '../../types';
 
 @Component({
