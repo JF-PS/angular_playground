@@ -34,6 +34,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { en } from './translations/en';
 import { MatTabsModule } from '@angular/material/tabs';
 import { LayoutComponent } from './components/layout/layout.component';
@@ -85,6 +87,7 @@ const routes: Routes = [
     provideFirestore(() => getFirestore()),
     MatTabsModule,
     MatDialogModule,
+    MatProgressBarModule,
   ],
 
   declarations: [
