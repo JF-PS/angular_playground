@@ -31,6 +31,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { en } from './translations/en';
+import { CardComponent } from './components/card/card.component';
+import { CardListComponent } from './components/card-list/card-list.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -80,6 +82,8 @@ const routes: Routes = [
     EditProfilePageComponent,
     MyProfilePageComponent,
     NavbarComponent,
+    CardComponent,
+    CardListComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
