@@ -18,7 +18,7 @@
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>Enter your password</mat-label>
+      <mat-label>Mot de passe</mat-label>
       <input
         matInput
         [type]="hide ? 'password' : 'text'"
@@ -35,15 +35,15 @@
         <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
       </button>
       <mat-error *ngIf="password.hasError('required')"
-        >Password is required</mat-error
+        >Le mot de passe est obligatoire</mat-error
       >
       <mat-error *ngIf="password.hasError('minlength')"
-        >Password must have at least {{ minPw }} characters</mat-error
+        >Le mot doit au moins avoir {{ minPw }} caractères</mat-error
       >
     </mat-form-field>
 
     <mat-form-field appearance="outline" *ngIf="!isLoginForm">
-      <mat-label>Comfirm your password</mat-label>
+      <mat-label>Confirme ton mot de passe</mat-label>
       <input
         matInput
         [type]="hide ? 'password' : 'text'"
@@ -60,11 +60,11 @@
         <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
       </button>
       <mat-error *ngIf="comfirmPassword.hasError('required')"
-        >Please confirm your password</mat-error
+        >Confirme ton mot de passe</mat-error
       >
       <mat-error
         *ngIf="comfirmPassword.invalid && !comfirmPassword.hasError('required')"
-        >Passwords don't match</mat-error
+        >Les mots de passe ne correspondent pas</mat-error
       >
     </mat-form-field>
 
