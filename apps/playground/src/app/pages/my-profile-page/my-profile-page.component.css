@@ -1,0 +1,52 @@
+.example-card {
+    max-width: 400px;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+}
+
+.friend {
+    padding: 20px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #363739;
+    color: #fff;
+    font-size: 13pt;
+    cursor: pointer;
+    width: 70px;
+}
+
+.relax {
+    padding: 20px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 20px;
+    background-color: #363739;
+    color: #fff;
+    font-size: 11pt;
+    cursor: pointer;
+    width: 100px;
+    margin: 13px;
+}
+
+.age {
+    padding: 20px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 20px;
+    background-color: #363739;
+    color: #fff;
+    font-size: 11pt;
+    cursor: pointer;
+    width: 100px;
+}
+
+p {
+    font-family: 'Times New Roman', Times, serif;
+}

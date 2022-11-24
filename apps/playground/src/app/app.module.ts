@@ -10,6 +10,7 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { TechnoDetailsComponent } from './components/techno-details/techno-details.component';
 import { GameListComponent } from './components/game-list/game-list.component';
 import { GameDetailsComponent } from './components/game-details/game-details.component';
+import { GamePageDetailsComponent } from './pages/game-page-details/game-page-details.component';
 import { TagsComponent } from './components/tags/tags.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatChipsModule } from '@angular/material/chips';
@@ -22,7 +23,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { HomePageComponent } from './pages/home-page/home-page.component';
-import { GamePageDetailsComponent } from './pages/game-page-details/game-page-details.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { EditProfilePageComponent } from './pages/edit-profile-page/edit-profile-page.component';
 import { MyProfilePageComponent } from './pages/my-profile-page/my-profile-page.component';
@@ -34,8 +34,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { NavbarComponent } from './components/navbar/navbar.component';
+
 import { MatMenuModule } from '@angular/material/menu';
+
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 import { en } from './translations/en';
+import { MatTabsModule } from '@angular/material/tabs';
+import { LayoutComponent } from './components/layout/layout.component';
 // import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 // import { provideAuth, getAuth } from '@angular/fire/auth';
@@ -43,6 +50,9 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { EditFormComponent } from './components/edit-form/edit-form.component';
+
+import { ButtonWithModalComponent } from './components/button-with-modal/button-with-modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -78,13 +88,17 @@ const routes: Routes = [
     MatMenuModule,
     MatRadioModule,
     MatSelectModule,
+    // provideAuth(() => getAuth()),
+    // provideFirestore(() => getFirestore()),
     TranslateModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     provideFirestore(() => getFirestore()),
+    MatTabsModule,
+    MatDialogModule,
+    MatProgressBarModule,
   ],
 
-  exports: [RouterModule, TechnoDetailsComponent],
   declarations: [
     AppComponent,
     HomePageComponent,
@@ -94,6 +108,7 @@ const routes: Routes = [
     TechnoDetailsComponent,
     GameListComponent,
     GameDetailsComponent,
+    GamePageDetailsComponent,
     SearchByTagPageComponent,
     ButtonComponent,
     TagsComponent,
@@ -102,6 +117,8 @@ const routes: Routes = [
     MyProfilePageComponent,
     NavbarComponent,
     EditFormComponent,
+    ButtonWithModalComponent,
+    LayoutComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

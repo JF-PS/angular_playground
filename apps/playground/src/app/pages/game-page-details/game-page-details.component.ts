@@ -4,6 +4,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GameService } from '../../services';
 import { GameType } from '../../types';
+import {MatDialog} from '@angular/material/dialog';
+import { ButtonWithModalComponent } from '../../components/button-with-modal/button-with-modal.component';
+
 
 @Component({
   selector: 'project-majeur-game-page-details',
@@ -11,16 +14,24 @@ import { GameType } from '../../types';
   styleUrls: ['./game-page-details.component.css'],
 })
 export class GamePageDetailsComponent implements OnInit {
+
   id: number | null = null;
   gameById: GameType | null = null;
 
-  constructor(private route: ActivatedRoute, private ts: GameService) {}
+  constructor(private route: ActivatedRoute, private ts: GameService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       const { id } = params;
       this.id = id;
       this.getGameById(id);
+    });
+  }
+
+  openDialog() {
+    this.dialog.open(ButtonWithModalComponent, {
+      width: '340px',
+      data: 'right click'
     });
   }
 

@@ -3,15 +3,11 @@ form {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 300px;
-}
-
-input {
   width: 100%;
 }
 
 mat-form-field {
-  width: 100%;
+  width: 100vw;
 }
 
 #loginContainer {
@@ -19,4 +15,41 @@ mat-form-field {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.submitBtn {
+  width: 100vw;
+  height: 42px;
+  background-color: #cad2c5;
+  color: #354f52;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-size: 16px;
+  font-family: 'Montserrat';
+  margin-top: 8px;
+  box-shadow: none;
+}
+
+.noAccountYet {
+  display: flex;
+  justify-content: end;
+}
+
+.isConnectBtn {
+  font-family: 'Montserrat';
+  color: #354f52;
+  font-size: 14px;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.link {
+  display: flex;
+  justify-content: end;
+}
+
+.subInfo {
+  font-size: 14px;
 }

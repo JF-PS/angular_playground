@@ -3,8 +3,6 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  apiUrl: '/api',
   firebase: {
     projectId: 'playground-prod-842c4',
     appId: '1:771862493024:web:2077fdb5b9302fecef1005',
@@ -13,6 +11,8 @@ export const environment = {
     authDomain: 'playground-prod-842c4.firebaseapp.com',
     messagingSenderId: '771862493024',
   },
+  production: false,
+  apiUrl: '/api',
 };
 
 /*

@@ -1,0 +1,27 @@
+.game__details-img,
+div img {
+  width: 100%;
+  height: 30vh;
+  object-fit: cover;
+}
+
+.game__details-infos {
+  width: 90%;
+  margin: 1rem auto;
+}
+
+.game__details-infos-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.game__details-infos-top h2 {
+  font-family: 'Poppins', sans-serif;
+}
+
+.game__details-infos-top>button {
+  background-color: #f44336;
+  color: #fff;
+  font-size: 18px;
+}

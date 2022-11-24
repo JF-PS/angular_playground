@@ -1,6 +1,6 @@
 <div id="loginContainer">
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <mat-form-field class="example-full-width" appearance="fill">
+    <mat-form-field class="example-full-width" appearance="outline">
       <mat-label>Email</mat-label>
       <input
         type="email"
@@ -17,8 +17,8 @@
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Enter your password</mat-label>
+    <mat-form-field appearance="outline">
+      <mat-label>Mot de passe</mat-label>
       <input
         matInput
         [type]="hide ? 'password' : 'text'"
@@ -35,15 +35,15 @@
         <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
       </button>
       <mat-error *ngIf="password.hasError('required')"
-        >Password is required</mat-error
+        >Le mot de passe est obligatoire</mat-error
       >
       <mat-error *ngIf="password.hasError('minlength')"
-        >Password must have at least {{ minPw }} characters</mat-error
+        >Le mot doit au moins avoir {{ minPw }} caractères</mat-error
       >
     </mat-form-field>
 
-    <mat-form-field appearance="fill" *ngIf="!isLoginForm">
-      <mat-label>Comfirm your password</mat-label>
+    <mat-form-field appearance="outline" *ngIf="!isLoginForm">
+      <mat-label>Confirme ton mot de passe</mat-label>
       <input
         matInput
         [type]="hide ? 'password' : 'text'"
@@ -60,22 +60,47 @@
         <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
       </button>
       <mat-error *ngIf="comfirmPassword.hasError('required')"
-        >Please confirm your password</mat-error
+        >Confirme ton mot de passe</mat-error
       >
       <mat-error
         *ngIf="comfirmPassword.invalid && !comfirmPassword.hasError('required')"
-        >Passwords don't match</mat-error
+        >Les mots de passe ne correspondent pas</mat-error
       >
     </mat-form-field>
+
     <div>
       <button
         [disabled]="loginForm.invalid"
         mat-raised-button
-        color="primary"
         type="submit"
+        class="submitBtn"
       >
-        submit
+        Valider
       </button>
+
+      <div class="link">
+        <div class="noAccountYet" *ngIf="isLoginForm">
+          <p class="subInfo">Pas encore de compte ?</p>
+          <button
+            value="login"
+            mat-button
+            color="primary"
+            class="isConnectBtn"
+          >
+            Créer un compte
+          </button>
+        </div>
+        <button
+          *ngIf="!isLoginForm"
+          value="register"
+          mat-button
+          color="primary"
+          routerLink=""
+          class="isConnectBtn"
+          >
+            Se connecter
+        </button>
+      </div>
     </div>
   </form>
 </div>

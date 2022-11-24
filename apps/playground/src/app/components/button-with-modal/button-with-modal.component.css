@@ -1,0 +1,53 @@
+.button__with__modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  column-gap: 1rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.rating {
+  display: flex;
+}
+
+.rating input {
+  display: none;
+}
+
+.rating label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mat-icon {
+  position: relative;
+}
+
+.mat-icon.mat-ligature-font[fontIcon]::before {
+  display: block;
+  color: #eee;
+}
+
+.mat-icon.mat-ligature-font[fontIcon]::after {
+  content: attr(fontIcon);
+  position: absolute;
+  top: 0;
+  display: block;
+  color: #f44336;
+  opacity: 0;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, .5);
+  transition: .5s;
+}
+
+.mat-icon.mat-ligature-font[fontIcon]:hover::after,
+.mat-icon.mat-ligature-font[fontIcon]:hover~.mat-icon.mat-ligature-font[fontIcon]::after {
+  opacity: 1;
+}

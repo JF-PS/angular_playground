@@ -1,0 +1,16 @@
+.tag {
+  background-color:#354f52;
+  color: white;
+  font-family: 'Montserrat';
+  display: inline-flex;
+  padding: 7px 12px;
+  border-radius: 50px;
+  align-items: center;
+  cursor: default;
+  min-height: 32px;
+  height: 1px;
+}
+
+.category {
+  margin-bottom: 32px;
+}

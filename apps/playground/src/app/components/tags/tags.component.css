@@ -5,3 +5,13 @@
 .example-chip .cdk-drop-list-dragging {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
+
+.tag {
+  background-color: #cad2c5;
+  color: #354f52;
+}
+
+.tag .mat-chip-selected {
+  background-color: #354f52 !important;
+  color: #fff !important;
+}

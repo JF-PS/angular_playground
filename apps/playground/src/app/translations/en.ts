@@ -9,7 +9,7 @@ export const en = {
     title: 'The Game Page',
   },
   loginPage: {
-    title: 'Login',
+    title: 'Se connecter',
     loginField: {
       label: 'Login',
       errors: {
@@ -24,7 +24,7 @@ export const en = {
       label: 'Log in',
     },
   },
-  signUpPage: { title: 'Sign Up' },
+  signUpPage: { title: 'Créer un compte' },
   editProfilePage: {
     title: 'The Edit Profile Page',
   },
