@@ -9,10 +9,8 @@ import { TechnoListComponent } from './components/techno-list/techno-list.compon
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { TechnoDetailsComponent } from './components/techno-details/techno-details.component';
 import { GameListComponent } from './components/game-list/game-list.component';
-
 import { GameDetailsComponent } from './components/game-details/game-details.component';
 import { GamePageDetailsComponent } from './pages/game-page-details/game-page-details.component';
-
 import { TagsComponent } from './components/tags/tags.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatChipsModule } from '@angular/material/chips';
@@ -47,6 +45,8 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { ButtonWithModalComponent } from './components/button-with-modal/button-with-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { CardComponent } from './components/card/card.component';
+import { CardListComponent } from './components/card-list/card-list.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -107,6 +107,8 @@ const routes: Routes = [
     EditProfilePageComponent,
     MyProfilePageComponent,
     NavbarComponent,
+    CardComponent,
+    CardListComponent,
     ButtonWithModalComponent,
     LayoutComponent,
   ],

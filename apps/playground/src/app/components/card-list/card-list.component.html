@@ -1,12 +1,5 @@
 <div class="content">
-  <div fxLayout="row wrap" fxLayoutGap="16px grid">
-    <div
-      fxFlex="25%"
-      fxFlex.xs="100%"
-      fxFlex.sm="33%"
-      *ngFor="let card of cardList"
-    >
-      <project-majeur-card-details [card]="card"></project-majeur-card-details>
-    </div>
+  <div class="listProfilCard" *ngFor="let card of cardList">
+    <project-majeur-card [card]="card"></project-majeur-card>
   </div>
 </div>

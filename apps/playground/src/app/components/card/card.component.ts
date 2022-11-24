@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import CardType from '../../types/card-type';
 
 @Component({
   selector: 'project-majeur-card',
@@ -6,6 +7,12 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./card.component.css'],
 })
 export class CardComponent {
-  @Input() libelle: string | null = null;
-  @Input() imageUrl: string | null = null;
+  @Input() card: CardType;
+
+  constructor() {
+    this.card = {
+      libelle: '',
+      imageUrl: '',
+    }
+  }
 }
