@@ -43,6 +43,8 @@ import { environment } from '../environments/environment';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { ButtonWithModalComponent } from './components/button-with-modal/button-with-modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -81,7 +83,8 @@ const routes: Routes = [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     provideFirestore(() => getFirestore()),
-    MatTabsModule
+    MatTabsModule,
+    MatDialogModule,
   ],
 
   declarations: [
@@ -101,6 +104,7 @@ const routes: Routes = [
     EditProfilePageComponent,
     MyProfilePageComponent,
     NavbarComponent,
+    ButtonWithModalComponent,
     LayoutComponent,
   ],
   providers: [],
