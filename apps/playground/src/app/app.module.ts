@@ -33,6 +33,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { en } from './translations/en';
+import { LayoutComponent } from './components/layout/layout.component';
 // import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 // import { provideAuth, getAuth } from '@angular/fire/auth';
@@ -71,7 +72,6 @@ const routes: Routes = [
     MatIconModule,
     MatToolbarModule,
     MatButtonToggleModule,
-    // provideFirebaseApp(() => initializeApp(environment.firebase)),
     // provideAuth(() => getAuth()),
     // provideFirestore(() => getFirestore()),
     TranslateModule.forRoot(),
@@ -80,7 +80,6 @@ const routes: Routes = [
     provideFirestore(() => getFirestore()),
   ],
 
-  exports: [RouterModule, TechnoDetailsComponent],
   declarations: [
     AppComponent,
     HomePageComponent,
@@ -97,6 +96,7 @@ const routes: Routes = [
     EditProfilePageComponent,
     MyProfilePageComponent,
     NavbarComponent,
+    LayoutComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,18 +1,13 @@
 <div class="content">
-  <div fxLayout="row wrap" fxLayoutGap="16px grid">
+  <div fxLayout="row wrap" fxLayoutGap="24px grid">
     <div
       fxFlex="25%"
-      fxFlex.xs="100%"
+      fxFlex.xs="50%"
       fxFlex.sm="33%"
-      *ngFor="let game of gameList"
+      *ngFor="let game of gameSliceList"
     >
       <project-majeur-game-details [game]="game"></project-majeur-game-details>
     </div>
+    <button class="btnSeeMore" (click)="seeMore()">En découvrir plus</button>
   </div>
 </div>
-
-<!-- <div class="grid">
-  <div *ngFor="let game of gameList">
-    <project-majeur-game-details [game]="game"></project-majeur-game-details>
-  </div>
-</div> -->

@@ -1,9 +1,26 @@
 .content {
-  padding: 32px;
+  width: auto;
+  height: fit-content;
+  background-color: white;
+  border-radius: 50px 50px 0px 0px;
+  padding-bottom: 32px;
 }
 
-/* .grid {
- display: grid;
- grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
- gap: 2rem;
-} */
+.btnSeeMore {
+  margin: 8px auto;
+  height: 40px;
+  background-color: #cad2c5;
+  color: #354f52;
+  width: 180px;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-size: 14px;
+  font-family: 'Montserrat';
+  border: none;
+}
+
+button {
+  padding: 0px !important;
+}
