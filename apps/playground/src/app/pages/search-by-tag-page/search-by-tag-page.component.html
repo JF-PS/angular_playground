@@ -1,8 +1,9 @@
 <project-majeur-layout>
   <div class="category">
-    <h3>Tag: {{ category }}</h3>
-    <!-- <h3>Choisi ta catégorie</h3> -->
-    <!-- <project-majeur-tags [tags]="tags"></project-majeur-tags> -->
+    <h3>Catégorie choisie</h3>
+    <div class="tag">
+      {{ category }}
+    </div>
   </div>
   <project-majeur-game-list [gameList]="gameListByTag"></project-majeur-game-list>
 </project-majeur-layout>
