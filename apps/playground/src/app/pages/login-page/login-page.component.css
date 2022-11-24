@@ -5,3 +5,17 @@
   justify-content: center;
   color: #354f52;
 }
+
+.svg {
+  width: 90%;
+  height: 100%;
+  justify-self: center;
+  margin: 8px 16px 40px 16px;
+}
+
+.top-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16px;
+}
