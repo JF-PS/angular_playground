@@ -1,7 +1,15 @@
 .mat-card {
   box-shadow: 0 12px 22px rgba(152, 152, 152, 0.2), 0 6px 6px rgba(152, 152, 152, 0.2);
-  height: 220px;
 }
+
+@media only screen and (max-device-width: 959px) {
+    .mat-card {height: 205px;}
+}
+
+@media only screen and (min-device-width: 960px) {
+    .mat-card {height: 330px;}
+}
+
 .mat-card:hover {
   cursor: pointer;
   box-shadow: 0 15px 30px rgba(152, 152, 152, 0.2), 0 12px 12px rgba(152, 152, 152, 0.2);
@@ -24,6 +32,7 @@
 .item-picture {
   display: block;
   overflow: hidden;
+  border-radius: 4px;
 }
 
 .content-card {
