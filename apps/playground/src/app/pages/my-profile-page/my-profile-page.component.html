@@ -28,13 +28,20 @@ height: 100%;
 
 
 
-        <mat-card-actions align="end" style="padding-right: 40px;">
-            <button mat-raised-button color="primary">Test 1</button>
-            <button mat-raised-button>Texte2</button>
-        </mat-card-actions>
+        <mat-tab-group>
+            <mat-tab label="Games" class="mat__tab__box">
+                <p>{{ gameById?.description }}</p>
 
-        <mat-card-footer>
-            <mat-progress-bar mode='determinate' value="40"></mat-progress-bar>
-        </mat-card-footer>
+            </mat-tab>
+            <mat-tab label="Friends" class="mat__tab__box">
+                <p>Player(s) cards here !</p>
+                <project-majeur-card-profil></project-majeur-card-profil>
+                <project-majeur-card-invitation></project-majeur-card-invitation>
+
+            </mat-tab>
+        </mat-tab-group>
+
+
     </mat-card>
+
 </div>

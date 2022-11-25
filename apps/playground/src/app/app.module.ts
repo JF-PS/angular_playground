@@ -33,7 +33,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { en } from './translations/en';
 import { MatTabsModule } from '@angular/material/tabs';
 import { LayoutComponent } from './components/layout/layout.component';
@@ -47,6 +47,8 @@ import { ButtonWithModalComponent } from './components/button-with-modal/button-
 import { MatDialogModule } from '@angular/material/dialog';
 import { CardComponent } from './components/card/card.component';
 import { CardListComponent } from './components/card-list/card-list.component';
+import { CardProfilComponent } from './components/card-profil/card-profil.component';
+import { CardInvitationComponent } from './components/card-invitation/card-invitation.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -111,6 +113,8 @@ const routes: Routes = [
     CardListComponent,
     ButtonWithModalComponent,
     LayoutComponent,
+    CardProfilComponent,
+    CardInvitationComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

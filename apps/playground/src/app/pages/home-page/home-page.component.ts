@@ -14,10 +14,7 @@ const { POPULARITY, RELEASE_DATE } = SortGames;
   styleUrls: ['./home-page.component.css'],
 })
 export class HomePageComponent implements OnInit {
-  cards: CardType[] = [
-    { libelle:'Counter-Strike Global-Offensive', imageUrl:'https://material.angular.io/assets/img/examples/shiba2.jpg' },
-    { libelle:'test', imageUrl:'https://material.angular.io/assets/img/examples/shiba2.jpg' },
-  ];
+  
   popularGames: GameType[] = [];
   tags: TagType[] = [
     { label: 'MMORPG', path: 'mmorpg' },

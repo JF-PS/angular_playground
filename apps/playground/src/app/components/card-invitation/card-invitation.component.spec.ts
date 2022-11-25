@@ -1,0 +1,22 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { CardInvitationComponent } from './card-invitation.component';
+
+describe('CardInvitationComponent', () => {
+  let component: CardInvitationComponent;
+  let fixture: ComponentFixture<CardInvitationComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [CardInvitationComponent],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(CardInvitationComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
