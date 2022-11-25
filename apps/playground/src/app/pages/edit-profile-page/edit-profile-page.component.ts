@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileData } from '../../model';
-import { UserService } from '../../services';
+import { UserService, UserCloudService } from '../../services';
 import { take } from 'rxjs';
 
 @Component({
@@ -11,7 +11,10 @@ import { take } from 'rxjs';
 export class EditProfilePageComponent implements OnInit {
   currentUser: ProfileData | undefined = undefined;
 
-  constructor(private readonly userService: UserService) {}
+  constructor(
+    private readonly userService: UserService,
+    private readonly userCloudService: UserCloudService
+  ) {}
 
   ngOnInit(): void {
     this.userService.profile$.subscribe((res) => {
@@ -21,8 +24,8 @@ export class EditProfilePageComponent implements OnInit {
 
   handleSubmit = (data: ProfileData) => {
     console.log(data);
-    this.userService
-      .updateProfile(data)
+    this.userCloudService
+      .updateUser(data)
       .pipe(take(1))
       .subscribe(() => {
         // if (res) {

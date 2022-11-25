@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ProfilePageModel } from '../../model';
+import { Component } from '@angular/core';
+import { ProfileData } from '../../model';
 import { Observable } from 'rxjs';
-import { ProfilePageService } from './profile-page.service';
 import { UserService } from '../../services';
 
 @Component({
@@ -9,14 +8,7 @@ import { UserService } from '../../services';
   templateUrl: './my-profile-page.component.html',
   styleUrls: ['./my-profile-page.component.css'],
 })
-export class MyProfilePageComponent implements OnInit {
-  profile$: Observable<ProfilePageModel | null> = this.profilePageService.get();
-  constructor(
-    private readonly profilePageService: ProfilePageService,
-    private readonly userService: UserService
-  ) {}
-
-  ngOnInit(): void {
-    this.userService.getUsers().subscribe(console.log);
-  }
+export class MyProfilePageComponent {
+  profile$: Observable<ProfileData | undefined> = this.userService.profile$;
+  constructor(private readonly userService: UserService) {}
 }

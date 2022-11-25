@@ -2,11 +2,11 @@
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { GameService } from '../../services';
+import { GameService, GameCloudService } from '../../services';
 import { GameType } from '../../types';
-import {MatDialog} from '@angular/material/dialog';
+import { take } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
 import { ButtonWithModalComponent } from '../../components/button-with-modal/button-with-modal.component';
-
 
 @Component({
   selector: 'project-majeur-game-page-details',
@@ -14,11 +14,15 @@ import { ButtonWithModalComponent } from '../../components/button-with-modal/but
   styleUrls: ['./game-page-details.component.css'],
 })
 export class GamePageDetailsComponent implements OnInit {
-
   id: number | null = null;
   gameById: GameType | null = null;
 
-  constructor(private route: ActivatedRoute, private ts: GameService, public dialog: MatDialog) {}
+  constructor(
+    private route: ActivatedRoute,
+    private ts: GameService,
+    public dialog: MatDialog,
+    private gameCloud: GameCloudService
+  ) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
@@ -31,7 +35,7 @@ export class GamePageDetailsComponent implements OnInit {
   openDialog() {
     this.dialog.open(ButtonWithModalComponent, {
       width: '340px',
-      data: 'right click'
+      data: 'right click',
     });
   }
 
@@ -39,5 +43,25 @@ export class GamePageDetailsComponent implements OnInit {
     this.ts.getGameById({ id }).subscribe((res) => {
       this.gameById = res;
     });
+  };
+
+  addGameToFavorite = () => {
+    if (this.gameById?.id) {
+      this.gameCloud
+        .createOrUpdateGame({
+          id: this.gameById?.id,
+          picture: this.gameById?.thumbnail,
+          title: this.gameById?.title,
+        })
+        .pipe(take(1))
+        .subscribe(() => {
+          // if (res) {
+          //   console.log(res);
+          //   history.back();
+          // } else {
+          //   console.error('Errors occured');
+          // }
+        });
+    }
   };
 }
