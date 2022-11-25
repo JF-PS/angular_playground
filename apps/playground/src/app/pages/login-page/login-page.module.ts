@@ -6,20 +6,37 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { LayoutModule } from '../../components/layout/layout.module';
+import { LoginFormComponent } from '../../components/login-form/login-form.component';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { NavbarComponent } from '../../components/navbar/navbar.component';
 
 @NgModule({
-  declarations: [LoginPageComponent],
+  declarations: [
+    LoginPageComponent,
+    LoginFormComponent,
+  ],
+
   imports: [
     CommonModule,
     TranslateModule,
+    ReactiveFormsModule,
+    FormsModule,
+
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    ReactiveFormsModule,
     MatSnackBarModule,
+    MatButtonToggleModule,
+
+    LayoutModule,
   ],
+
+  exports: [
+    LoginPageComponent,
+  ]
 })
 export class LoginPageModule {}
