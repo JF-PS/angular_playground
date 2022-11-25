@@ -2,22 +2,15 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TechnoAddComponent } from './components/techno-add/techno-add.component';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { TechnoListComponent } from './components/techno-list/techno-list.component';
-import { TechnoDetailsComponent } from './components/techno-details/techno-details.component';
-import { GameListComponent } from './components/game-list/game-list.component';
 
-import { GameDetailsComponent } from './components/game-details/game-details.component';
 import { GamePageDetailsComponent } from './pages/game-page-details/game-page-details.component';
 
-import { TagsComponent } from './components/tags/tags.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatChipsModule } from '@angular/material/chips';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatSliderModule } from '@angular/material/slider';
-import { ButtonComponent } from './components/button/button.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
@@ -43,14 +36,13 @@ import { ButtonWithModalComponent } from './components/button-with-modal/button-
 import { MatDialogModule } from '@angular/material/dialog';
 import { LoginPageModule } from './pages/login-page/login-page.module';
 import { LayoutModule } from './components/layout/layout.module';
+import { HomePageModule } from './pages/home-page/home-page.module';
+import { SearchByTagPageModule } from './pages/search-by-tag-page/search-by-tag-page.module';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
-  { path: 'add-techno', component: TechnoAddComponent },
-  { path: 'all-technos', component: TechnoListComponent },
   { path: 'games', component: SearchByTagPageComponent },
   { path: 'games/:id', component: GamePageDetailsComponent },
-  { path: 'button', component: ButtonComponent },
   {
     path: 'login',
     // loadChildren:() => ('./pages/login-page/login-page.module').then(m: LoginPageModule) => m.LoginPageModule,
@@ -90,28 +82,24 @@ const routes: Routes = [
     FlexLayoutModule,
     DragDropModule,
 
-
     LayoutModule,
     LoginPageModule,
+    HomePageModule,
+    SearchByTagPageModule,
   ],
 
   declarations: [
     AppComponent,
-    ButtonComponent,
-    ButtonWithModalComponent,
-    EditProfilePageComponent,
-    GameListComponent,
+
     GamePageDetailsComponent,
-    GameDetailsComponent,
-    HomePageComponent,
     MyProfilePageComponent,
-    TechnoAddComponent,
-    TechnoListComponent,
-    TagsComponent,
-    TechnoDetailsComponent,
-    SearchByTagPageComponent,
+    EditProfilePageComponent,
+
+    ButtonWithModalComponent,
   ],
+
   providers: [],
+
   bootstrap: [AppComponent],
 })
 export class AppModule {

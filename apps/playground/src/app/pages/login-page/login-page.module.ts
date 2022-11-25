@@ -11,7 +11,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { LayoutModule } from '../../components/layout/layout.module';
 import { LoginFormComponent } from '../../components/login-form/login-form.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
-import { NavbarComponent } from '../../components/navbar/navbar.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -31,6 +31,7 @@ import { NavbarComponent } from '../../components/navbar/navbar.component';
     MatButtonModule,
     MatSnackBarModule,
     MatButtonToggleModule,
+    MatIconModule,
 
     LayoutModule,
   ],
