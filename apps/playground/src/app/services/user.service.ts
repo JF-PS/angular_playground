@@ -4,6 +4,12 @@ import firebase from 'firebase/compat';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import UserCredential = firebase.auth.UserCredential;
 import { Router } from '@angular/router';
+import {
+  DocumentReference,
+  AngularFirestore,
+} from '@angular/fire/compat/firestore';
+import { switchMap, take } from 'rxjs';
+import { ProfileData } from '../model';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +19,8 @@ class UserService {
 
   constructor(
     private readonly auth: AngularFireAuth,
-    private readonly router: Router
+    private readonly afs: AngularFirestore,
+    private readonly router: Router // private readonly firestore: FireStoreService
   ) {}
 
   login(email: string, password: string): Observable<boolean> {
@@ -25,9 +32,26 @@ class UserService {
     );
   }
 
+  addUser(): Observable<void> {
+    return this.user$.pipe(
+      switchMap((user) => {
+        return from(
+          this.afs.collection<ProfileData>(`user`).doc(user?.uid).set({
+            login: '',
+            playStyle: 'competitive',
+            description: 'Lorem ipsum ...',
+            age: '10',
+          })
+        );
+      }),
+      take(1)
+    );
+  }
+
   signup(email: string, password: string): Observable<boolean> {
     return from(this.auth.createUserWithEmailAndPassword(email, password)).pipe(
       map((res: UserCredential) => {
+        if (res.user) this.addUser().subscribe();
         return !!res.user;
       }),
       catchError(() => of(false))
@@ -38,6 +62,16 @@ class UserService {
     this.auth.signOut().then(() => {
       this.router.navigateByUrl('login');
     });
+  }
+
+  getUsers(): Observable<ProfileData[]> {
+    return this.user$.pipe(
+      switchMap(() => {
+        const users = this.afs.collection<ProfileData>(`user`).valueChanges();
+
+        return users;
+      })
+    );
   }
 }
 
