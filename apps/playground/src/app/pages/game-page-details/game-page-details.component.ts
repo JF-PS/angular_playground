@@ -6,6 +6,7 @@ import { GameService } from '../../services/game.service';
 import { GameType } from '../../types';
 import {MatDialog} from '@angular/material/dialog';
 import { ButtonWithModalComponent } from '../../components/button-with-modal/button-with-modal.component';
+import { DialogComponent } from '../../components/dialog/dialog.component';
 
 
 @Component({
@@ -15,6 +16,7 @@ import { ButtonWithModalComponent } from '../../components/button-with-modal/but
 })
 export class GamePageDetailsComponent implements OnInit {
 
+  isStarRating = true;
   id: number | null = null;
   gameById: GameType | null = null;
 
@@ -29,11 +31,19 @@ export class GamePageDetailsComponent implements OnInit {
   }
 
   openDialog() {
-    this.dialog.open(ButtonWithModalComponent, {
+    this.dialog.open(DialogComponent, {
       width: '340px',
-      data: 'right click'
+      data: ""
     });
   }
+  
+  openStarRating() {
+    this.dialog.open(ButtonWithModalComponent, {
+      width: '340px',
+      data: ""
+    });
+  }
+  
 
   getGameById = (id: string) => {
     this.ts.getGameById({ id }).subscribe((res) => {

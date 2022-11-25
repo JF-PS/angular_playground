@@ -21,6 +21,12 @@ div img {
 }
 
 .game__details-infos-top>button {
+  background-color: #eee;
+  color: #fff;
+  font-size: 18px;
+}
+
+.game__details-infos-top>button.active {
   background-color: #f44336;
   color: #fff;
   font-size: 18px;

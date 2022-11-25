@@ -6,9 +6,19 @@
   <div class="game__details-infos-top">
     <h2>{{ gameById?.title }}</h2>
 
-    <button mat-icon-button color="warn" aria-label="Heart icon" (click)="openDialog()">
-      <mat-icon>favorite</mat-icon>
-    </button>
+    <div *ngIf="isStarRating; then openStarRatings else openDialogs"></div>
+
+    <ng-template #openDialogs>
+      <button mat-icon-button color="warn" aria-label="Heart icon" (click)="openDialog()" class="active">
+        <mat-icon>favorite</mat-icon>
+      </button>
+    </ng-template>
+
+    <ng-template #openStarRatings>
+      <button mat-icon-button aria-label="Heart icon" (click)="openStarRating()">
+        <mat-icon>favorite</mat-icon>
+      </button>
+    </ng-template>
 
   </div>
 

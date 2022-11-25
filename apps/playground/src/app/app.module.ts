@@ -35,7 +35,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { en } from './translations/en';
 import { MatTabsModule } from '@angular/material/tabs';
 import { LayoutComponent } from './components/layout/layout.component';
@@ -47,6 +47,8 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { ButtonWithModalComponent } from './components/button-with-modal/button-with-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -88,6 +90,7 @@ const routes: Routes = [
     MatTabsModule,
     MatDialogModule,
     MatProgressBarModule,
+    MatSnackBarModule,
   ],
 
   declarations: [
@@ -109,6 +112,7 @@ const routes: Routes = [
     NavbarComponent,
     ButtonWithModalComponent,
     LayoutComponent,
+    DialogComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
