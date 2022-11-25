@@ -2,17 +2,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-
 import { GamePageDetailsComponent } from './pages/game-page-details/game-page-details.component';
-
-import { MatButtonToggleModule } from '@angular/material/button-toggle';
-import { MatChipsModule } from '@angular/material/chips';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { MatSliderModule } from '@angular/material/slider';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
@@ -21,23 +14,18 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { EditProfilePageComponent } from './pages/edit-profile-page/edit-profile-page.component';
 import { MyProfilePageComponent } from './pages/my-profile-page/my-profile-page.component';
 import { SearchByTagPageComponent } from './pages/search-by-tag-page/search-by-tag-page.component';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { ReactiveFormsModule } from '@angular/forms';
-import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { en } from './translations/en';
-import { MatTabsModule } from '@angular/material/tabs';
 import { environment } from '../environments/environment';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { ButtonWithModalComponent } from './components/button-with-modal/button-with-modal.component';
-import { MatDialogModule } from '@angular/material/dialog';
 import { LoginPageModule } from './pages/login-page/login-page.module';
 import { LayoutModule } from './components/layout/layout.module';
 import { HomePageModule } from './pages/home-page/home-page.module';
 import { SearchByTagPageModule } from './pages/search-by-tag-page/search-by-tag-page.module';
+import { GamePageDetailsModule } from './pages/game-page-details/game-page-details.module';
+import { EditProfilePageModule } from './pages/edit-profile-page/edit-profile-page.module';
+import { MyProfilePageModule } from './pages/my-profile-page/my-profile-page.module';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -66,18 +54,6 @@ const routes: Routes = [
     AngularFireAuthModule,
     provideFirestore(() => getFirestore()),
 
-    MatSliderModule,
-    MatButtonModule,
-    MatCardModule,
-    MatChipsModule,
-    MatInputModule,
-    MatIconModule,
-    MatToolbarModule,
-    MatButtonToggleModule,
-    MatTabsModule,
-    MatDialogModule,
-    MatProgressBarModule,
-
     FormsModule,
     FlexLayoutModule,
     DragDropModule,
@@ -86,16 +62,13 @@ const routes: Routes = [
     LoginPageModule,
     HomePageModule,
     SearchByTagPageModule,
+    GamePageDetailsModule,
+    MyProfilePageModule,
+    EditProfilePageModule,
   ],
 
   declarations: [
     AppComponent,
-
-    GamePageDetailsComponent,
-    MyProfilePageComponent,
-    EditProfilePageComponent,
-
-    ButtonWithModalComponent,
   ],
 
   providers: [],
