@@ -1,27 +1,27 @@
-<div class="game__details-img">
-  <img src="{{ gameById?.thumbnail }}" alt="{{ gameById?.title }}">
-</div>
-
-<div class="game__details-infos">
-  <div class="game__details-infos-top">
-    <h2>{{ gameById?.title }}</h2>
-
-    <button mat-icon-button color="warn" aria-label="Heart icon" (click)="openDialog()">
-      <mat-icon>favorite</mat-icon>
-    </button>
-
+<project-majeur-layout>
+  <div top>
+    <img class="game-img" src="{{ gameById?.thumbnail }}" alt="{{ gameById?.title }}" loading="lazy">
   </div>
 
-  <div class="game__details-infos-tab">
+  <div body>
+    <div class="game-details-infos">
+        <h2 class="title">{{ gameById?.title }}</h2>
+        <button mat-icon-button color="warn" aria-label="Heart icon" (click)="openDialog()">
+          <mat-icon>favorite</mat-icon>
+        </button>
+    </div>
 
-    <mat-tab-group>
-      <mat-tab label="Description" class="mat__tab__box">
-        <p>{{ gameById?.description }}</p>
-      </mat-tab>
-      <mat-tab label="Joueurs" class="mat__tab__box">
-        <p>Player(s) cards here !</p>
-      </mat-tab>
-    </mat-tab-group>
-
+    <div class="game__details-infos-tab">
+      <mat-tab-group class="label">
+        <mat-tab class="label" label="Description">
+          <p class="description">{{ gameById?.description }}</p>
+        </mat-tab>
+        <mat-tab class="label" label="Joueurs">
+          <p>Player(s) cards here !</p>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
   </div>
-</div>
+</project-majeur-layout>
+
+
