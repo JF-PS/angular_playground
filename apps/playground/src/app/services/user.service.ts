@@ -4,10 +4,7 @@ import firebase from 'firebase/compat';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import UserCredential = firebase.auth.UserCredential;
 import { Router } from '@angular/router';
-import {
-  DocumentReference,
-  AngularFirestore,
-} from '@angular/fire/compat/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { switchMap, take } from 'rxjs';
 import { ProfileData } from '../model';
 
@@ -16,11 +13,16 @@ import { ProfileData } from '../model';
 })
 class UserService {
   user$: Observable<firebase.User | null> = this.auth.user;
+  profile$: Observable<ProfileData | undefined> = this.user$.pipe(
+    switchMap((user) =>
+      this.afs.doc<ProfileData>(`user/${user?.uid}`).valueChanges()
+    )
+  );
 
   constructor(
     private readonly auth: AngularFireAuth,
     private readonly afs: AngularFirestore,
-    private readonly router: Router // private readonly firestore: FireStoreService
+    private readonly router: Router
   ) {}
 
   login(email: string, password: string): Observable<boolean> {
@@ -68,8 +70,28 @@ class UserService {
     return this.user$.pipe(
       switchMap(() => {
         const users = this.afs.collection<ProfileData>(`user`).valueChanges();
-
         return users;
+      })
+    );
+  }
+
+  getCurrentUser(): Observable<ProfileData | undefined> {
+    return this.user$.pipe(
+      switchMap((user) => {
+        const currentUser = this.afs
+          .doc<ProfileData>(`user/${user?.uid}`)
+          .valueChanges();
+        return currentUser;
+      })
+    );
+  }
+
+  updateProfile(data: ProfileData): Observable<void> {
+    return this.user$.pipe(
+      switchMap((user) => {
+        return this.afs
+          .doc<ProfileData>(`user/${user?.uid}`)
+          .update({ ...data });
       })
     );
   }

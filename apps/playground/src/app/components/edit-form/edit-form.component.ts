@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, Input } from '@angular/core';
+import { Component, EventEmitter, Output, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { ProfileData } from '../../model';
 
@@ -7,25 +7,29 @@ import { ProfileData } from '../../model';
   templateUrl: './edit-form.component.html',
   styleUrls: ['./edit-form.component.css'],
 })
-export class EditFormComponent {
+export class EditFormComponent implements OnInit {
+  @Input() currentUser: ProfileData | undefined = undefined;
+
   constructor(private readonly formBuilder: FormBuilder) {}
 
   profileForm: FormGroup = this.formBuilder.group({
-    playStyle: new FormControl('chill'),
-    description: new FormControl(
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictumst feugiat scelerisque feugiat aliquet massa semper.'
-    ),
-    age: new FormControl('10-20'),
+    playStyle: new FormControl(''),
+    description: new FormControl(''),
+    age: new FormControl(''),
   });
 
   @Output() submitProfile = new EventEmitter<ProfileData>();
 
   onSubmit() {
-    const {
-      playStyle = 'chill',
-      description = 'Lorem ipsum ...',
-      age = '10-20',
-    } = this.profileForm.value;
+    const { playStyle, description, age } = this.profileForm.value;
     this.submitProfile.emit(new ProfileData('', playStyle, description, age));
+  }
+
+  ngOnInit(): void {
+    this.profileForm = this.formBuilder.group({
+      playStyle: new FormControl(this.currentUser?.playStyle),
+      description: new FormControl(this.currentUser?.description),
+      age: new FormControl(this.currentUser?.age),
+    });
   }
 }
