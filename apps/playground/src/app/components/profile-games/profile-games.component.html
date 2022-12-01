@@ -1,0 +1,14 @@
+<div class="card__profil">
+    <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="" height="65px">
+    <h2>Grabiltz</h2>
+    <div class="stars">
+        <div class="button__with__modal">
+
+            <div class="star-rating-container star-rating-animation" fxLayout="row" fxLayoutAlign="start center">
+                <div *ngFor="let star of stars" [ngClass]="[star.class]">
+                    <mat-icon aria-hidden="false" aria-label="star icon" fontIcon="{{star.icon}}"></mat-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

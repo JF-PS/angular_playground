@@ -49,6 +49,7 @@ import { CardComponent } from './components/card/card.component';
 import { CardListComponent } from './components/card-list/card-list.component';
 import { CardProfilComponent } from './components/card-profil/card-profil.component';
 import { CardInvitationComponent } from './components/card-invitation/card-invitation.component';
+import { ProfileGamesComponent } from './components/profile-games/profile-games.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -115,6 +116,7 @@ const routes: Routes = [
     LayoutComponent,
     CardProfilComponent,
     CardInvitationComponent,
+    ProfileGamesComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
