@@ -36,7 +36,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { en } from './translations/en';
 import { MatTabsModule } from '@angular/material/tabs';
 import { LayoutComponent } from './components/layout/layout.component';
@@ -56,7 +55,14 @@ const routes: Routes = [
   { path: 'games', component: SearchByTagPageComponent },
   { path: 'games/:id', component: GamePageDetailsComponent },
   { path: 'button', component: ButtonComponent },
-  { path: 'login', component: LoginPageComponent },
+  {
+    path: 'login',
+    component: LoginPageComponent,
+    // loadChildren: () =>
+    //   import('./pages/login-page/login-page.component').then(
+    //     (m) => m.LoginPageComponent
+    //   ),
+  },
   { path: 'edit-profile', component: EditProfilePageComponent },
   { path: 'my-profile', component: MyProfilePageComponent },
 ];
