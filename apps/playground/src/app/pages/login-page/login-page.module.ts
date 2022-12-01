@@ -8,10 +8,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { LayoutModule } from '../../components/layout/layout.module';
 import { LoginFormComponent } from '../../components/login-form/login-form.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatIconModule } from '@angular/material/icon';
+import { LayoutModule } from '../../components/layout/layout.module';
 
 @NgModule({
   declarations: [

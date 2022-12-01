@@ -24,8 +24,9 @@ import { LayoutModule } from './components/layout/layout.module';
 import { HomePageModule } from './pages/home-page/home-page.module';
 import { SearchByTagPageModule } from './pages/search-by-tag-page/search-by-tag-page.module';
 import { GamePageDetailsModule } from './pages/game-page-details/game-page-details.module';
-import { EditProfilePageModule } from './pages/edit-profile-page/edit-profile-page.module';
 import { MyProfilePageModule } from './pages/my-profile-page/my-profile-page.module';
+import { EditProfilePageModule } from './pages/edit-profile-page/edit-profile-page.module';
+
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },

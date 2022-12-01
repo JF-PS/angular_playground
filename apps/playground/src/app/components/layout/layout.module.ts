@@ -5,6 +5,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { TranslateModule } from '@ngx-translate/core';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { LayoutComponent } from './layout.component';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { LayoutComponent } from './layout.component';
 
     MatToolbarModule,
     MatIconModule,
+    MatMenuModule,
   ],
 
   exports: [
