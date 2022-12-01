@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { ProfileData } from '../../model';
+import {
+  UserService,
+  UserCloudService,
+  GameCloudService,
+} from '../../services';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'project-majeur-edit-profile-page',
@@ -6,7 +13,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edit-profile-page.component.css'],
 })
 export class EditProfilePageComponent implements OnInit {
-  constructor() {}
+  currentUser: ProfileData | undefined = undefined;
 
-  ngOnInit(): void {}
+  constructor(
+    private readonly userService: UserService,
+    private readonly userCloudService: UserCloudService,
+    private gameCloud: GameCloudService
+  ) {}
+
+  ngOnInit(): void {
+    this.userService.profile$.subscribe((res) => {
+      this.currentUser = res;
+    });
+  }
+
+  handleSubmit = (data: ProfileData) => {
+    console.log(data);
+    this.userCloudService
+      .updateUser(data)
+      .pipe(take(1))
+      .subscribe(() => {
+        // if (res) {
+        //   console.log(res);
+        // } else {
+        //   console.error('Errors occured');
+        // }
+      });
+  };
 }

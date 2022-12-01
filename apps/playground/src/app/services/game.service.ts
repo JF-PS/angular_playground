@@ -11,7 +11,7 @@ import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root',
 })
-export class GameService {
+class GameService {
   constructor(private httpClient: HttpClient) {}
 
   getGameById(queryParams: queryParamType = ''): Observable<GameType> {
@@ -28,3 +28,5 @@ export class GameService {
     return this.httpClient.get<GameType[]>(`${environment.apiUrl}/games${uri}`);
   }
 }
+
+export default GameService;

@@ -28,12 +28,21 @@ import { EditProfilePageComponent } from './pages/edit-profile-page/edit-profile
 import { MyProfilePageComponent } from './pages/my-profile-page/my-profile-page.component';
 import { SearchByTagPageComponent } from './pages/search-by-tag-page/search-by-tag-page.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { NavbarComponent } from './components/navbar/navbar.component';
+
+import { MatMenuModule } from '@angular/material/menu';
+
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+<<<<<<< HEAD
+=======
+
+>>>>>>> develop
 import { en } from './translations/en';
 import { MatTabsModule } from '@angular/material/tabs';
 import { LayoutComponent } from './components/layout/layout.component';
@@ -43,6 +52,8 @@ import { environment } from '../environments/environment';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { EditFormComponent } from './components/edit-form/edit-form.component';
+
 import { ButtonWithModalComponent } from './components/button-with-modal/button-with-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CardComponent } from './components/card/card.component';
@@ -82,6 +93,9 @@ const routes: Routes = [
     MatIconModule,
     MatToolbarModule,
     MatButtonToggleModule,
+    MatMenuModule,
+    MatRadioModule,
+    MatSelectModule,
     // provideAuth(() => getAuth()),
     // provideFirestore(() => getFirestore()),
     TranslateModule.forRoot(),
@@ -110,8 +124,12 @@ const routes: Routes = [
     EditProfilePageComponent,
     MyProfilePageComponent,
     NavbarComponent,
+<<<<<<< HEAD
     CardComponent,
     CardListComponent,
+=======
+    EditFormComponent,
+>>>>>>> develop
     ButtonWithModalComponent,
     LayoutComponent,
     CardProfilComponent,
