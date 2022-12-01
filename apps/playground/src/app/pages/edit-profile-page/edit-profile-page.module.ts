@@ -6,7 +6,7 @@ import { EditFormComponent } from '../../components/edit-form/edit-form.componen
 import { LayoutModule } from '../../components/layout/layout.module';
 import { EditProfilePageComponent } from './edit-profile-page.component';
 
-import {MatRadioModule} from '@angular/material/radio';
+import { MatRadioModule } from '@angular/material/radio';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
