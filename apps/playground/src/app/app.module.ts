@@ -36,21 +36,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
 import { MatMenuModule } from '@angular/material/menu';
-
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
+import {  MatProgressSpinnerModule  } from '@angular/material/progress-spinner';
 
->>>>>>> develop
-=======
-
->>>>>>> develop
-=======
-
->>>>>>> develop
 import { en } from './translations/en';
 import { MatTabsModule } from '@angular/material/tabs';
 import { LayoutComponent } from './components/layout/layout.component';
@@ -61,7 +49,6 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { EditFormComponent } from './components/edit-form/edit-form.component';
-
 import { ButtonWithModalComponent } from './components/button-with-modal/button-with-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CardComponent } from './components/card/card.component';
@@ -69,6 +56,7 @@ import { CardListComponent } from './components/card-list/card-list.component';
 import { CardProfilComponent } from './components/card-profil/card-profil.component';
 import { CardInvitationComponent } from './components/card-invitation/card-invitation.component';
 import { ProfileGamesComponent } from './components/profile-games/profile-games.component';
+import {MatMenuModule} from '@angular/material/menu';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -104,6 +92,7 @@ const routes: Routes = [
     MatMenuModule,
     MatRadioModule,
     MatSelectModule,
+
     // provideAuth(() => getAuth()),
     // provideFirestore(() => getFirestore()),
     TranslateModule.forRoot(),
@@ -132,20 +121,16 @@ const routes: Routes = [
     EditProfilePageComponent,
     MyProfilePageComponent,
     NavbarComponent,
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     CardComponent,
     CardListComponent,
-=======
+
     EditFormComponent,
->>>>>>> develop
-=======
+
     EditFormComponent,
->>>>>>> develop
-=======
+
     EditFormComponent,
->>>>>>> develop
+
     ButtonWithModalComponent,
     LayoutComponent,
     CardProfilComponent,
