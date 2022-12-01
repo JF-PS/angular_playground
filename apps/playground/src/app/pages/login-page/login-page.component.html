@@ -94,25 +94,6 @@
           (submitLogin)="handleSubmit($event)"
         ></project-majeur-login-form>
 
-        <mat-button-toggle-group
-          #buttonGroup="matButtonToggleGroup"
-          [ngModel]="myConnectChoice"
-          (ngModelChange)="onChange($event)"
-        >
-          <mat-button-toggle
-            value="login"
-            [checked]="myConnectChoice === 'login'"
-          >
-            Se connecter
-          </mat-button-toggle>
-          <mat-button-toggle
-            value="register"
-            [checked]="myConnectChoice === 'register'"
-          >
-            Créer un compte
-          </mat-button-toggle>
-        </mat-button-toggle-group>
-
         <div class="link">
           <div class="noAccountYet" *ngIf="isLoginForm">
             <p class="subInfo">Pas encore de compte ?</p>
@@ -121,6 +102,7 @@
               mat-button
               color="primary"
               class="isConnectBtn"
+              (click)="onChange('register')"
             >
               Créer un compte
             </button>
@@ -130,8 +112,8 @@
             value="register"
             mat-button
             color="primary"
-            routerLink=""
             class="isConnectBtn"
+            (click)="onChange('login')"
           >
             Se connecter
           </button>
