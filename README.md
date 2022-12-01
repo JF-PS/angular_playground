@@ -17,3 +17,7 @@ npm run ng -- deploy
 https://playground-prod-842c4.web.app
 
 https://console.firebase.google.com/u/0/
+
+##### add pwa :
+
+npm install @angular/pwa && npx nx g @angular/pwa:ng-add

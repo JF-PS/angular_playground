@@ -26,7 +26,7 @@ import { SearchByTagPageModule } from './pages/search-by-tag-page/search-by-tag-
 import { GamePageDetailsModule } from './pages/game-page-details/game-page-details.module';
 import { MyProfilePageModule } from './pages/my-profile-page/my-profile-page.module';
 import { EditProfilePageModule } from './pages/edit-profile-page/edit-profile-page.module';
-
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -53,6 +53,12 @@ const routes: Routes = [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     provideFirestore(() => getFirestore()),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000',
+    }),
 
     FormsModule,
     FlexLayoutModule,
