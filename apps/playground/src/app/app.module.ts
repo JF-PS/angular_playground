@@ -34,25 +34,20 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { NavbarComponent } from './components/navbar/navbar.component';
-
 import { MatMenuModule } from '@angular/material/menu';
-
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-
 import { en } from './translations/en';
 import { MatTabsModule } from '@angular/material/tabs';
 import { LayoutComponent } from './components/layout/layout.component';
-// import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-// import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { EditFormComponent } from './components/edit-form/edit-form.component';
-
 import { ButtonWithModalComponent } from './components/button-with-modal/button-with-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -97,6 +92,12 @@ const routes: Routes = [
     MatTabsModule,
     MatDialogModule,
     MatProgressBarModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000',
+    }),
   ],
 
   declarations: [
