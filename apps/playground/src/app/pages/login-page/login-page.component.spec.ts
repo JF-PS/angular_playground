@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TranslateService } from '@ngx-translate/core';
 import { of } from 'rxjs';
-import { UserService } from '../../services';
+import UserService from '../../services/user.service';
 
 import { LoginPageComponent } from './login-page.component';
 
@@ -29,12 +29,4 @@ describe('LoginPageComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  it('test register', () => {
-    userService.signup = jest.fn().mockReturnValue( of(true) );
-
-    fixture.detectChanges();
-    expect(component.isLoginForm).toEqual(true);
-    expect(component.myConnectChoice).toEqual('register');
-  })
 });
