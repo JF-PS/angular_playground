@@ -47,7 +47,6 @@ const routes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
-    RouterModule,
     HttpClientModule,
     TranslateModule.forRoot(),
 

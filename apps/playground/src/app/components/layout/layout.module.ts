@@ -6,6 +6,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { LayoutComponent } from './layout.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { MatMenuModule } from '@angular/material/menu';
   ],
 
   imports: [
+    RouterModule,
     CommonModule,
     TranslateModule,
 

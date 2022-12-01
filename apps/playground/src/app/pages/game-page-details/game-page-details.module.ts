@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { TranslateModule } from '@ngx-translate/core';
@@ -23,6 +24,7 @@ import { GamePageDetailsComponent } from './game-page-details.component';
 
     MatTabsModule,
     MatIconModule,
+    MatDialogModule,
   ],
 
   exports: [
