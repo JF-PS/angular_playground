@@ -41,6 +41,10 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> develop
 =======
 
 >>>>>>> develop
@@ -130,8 +134,12 @@ const routes: Routes = [
     NavbarComponent,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     CardComponent,
     CardListComponent,
+=======
+    EditFormComponent,
+>>>>>>> develop
 =======
     EditFormComponent,
 >>>>>>> develop
