@@ -1,8 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { GameService } from '../../services/game.service';
-import GameType from '../../types/game-type';
-
 import { HomePageComponent } from './home-page.component';
 
 describe('HomePageComponent', () => {
