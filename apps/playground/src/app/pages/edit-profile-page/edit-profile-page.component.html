@@ -1,4 +1,9 @@
-<h3>{{ 'editProfilePage.title' | translate }}</h3>
+<!-- <h3>{{ 'editProfilePage.title' | translate }}</h3> -->
 <project-majeur-layout>
-  <div body><project-majeur-edit-form></project-majeur-edit-form></div>
+  <div body *ngIf="currentUser">
+    <project-majeur-edit-form
+      [currentUser]="currentUser"
+      (submitProfile)="handleSubmit($event)"
+    ></project-majeur-edit-form>
+  </div>
 </project-majeur-layout>
