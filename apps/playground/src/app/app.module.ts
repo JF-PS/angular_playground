@@ -9,10 +9,8 @@ import { TechnoListComponent } from './components/techno-list/techno-list.compon
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { TechnoDetailsComponent } from './components/techno-details/techno-details.component';
 import { GameListComponent } from './components/game-list/game-list.component';
-
 import { GameDetailsComponent } from './components/game-details/game-details.component';
 import { GamePageDetailsComponent } from './pages/game-page-details/game-page-details.component';
-
 import { TagsComponent } from './components/tags/tags.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatChipsModule } from '@angular/material/chips';
@@ -30,13 +28,18 @@ import { EditProfilePageComponent } from './pages/edit-profile-page/edit-profile
 import { MyProfilePageComponent } from './pages/my-profile-page/my-profile-page.component';
 import { SearchByTagPageComponent } from './pages/search-by-tag-page/search-by-tag-page.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { NavbarComponent } from './components/navbar/navbar.component';
+
+import { MatMenuModule } from '@angular/material/menu';
+
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { en } from './translations/en';
+import {  MatProgressSpinnerModule  } from '@angular/material/progress-spinner';
+iimport { en } from './translations/en';
 import { MatTabsModule } from '@angular/material/tabs';
 import { LayoutComponent } from './components/layout/layout.component';
 // import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
@@ -45,6 +48,8 @@ import { environment } from '../environments/environment';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { EditFormComponent } from './components/edit-form/edit-form.component';
+
 import { ButtonWithModalComponent } from './components/button-with-modal/button-with-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -81,6 +86,9 @@ const routes: Routes = [
     MatIconModule,
     MatToolbarModule,
     MatButtonToggleModule,
+    MatMenuModule,
+    MatRadioModule,
+    MatSelectModule,
     // provideAuth(() => getAuth()),
     // provideFirestore(() => getFirestore()),
     TranslateModule.forRoot(),
@@ -110,6 +118,7 @@ const routes: Routes = [
     EditProfilePageComponent,
     MyProfilePageComponent,
     NavbarComponent,
+    EditFormComponent,
     ButtonWithModalComponent,
     LayoutComponent,
     DialogComponent,

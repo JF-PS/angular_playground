@@ -1,44 +1,26 @@
 import { Injectable } from '@angular/core';
-import { catchError, from, map, Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import firebase from 'firebase/compat';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import UserCredential = firebase.auth.UserCredential;
-import { Router } from '@angular/router';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { switchMap } from 'rxjs';
+import { ProfileData } from '../model';
 
 @Injectable({
   providedIn: 'root',
 })
 class UserService {
   user$: Observable<firebase.User | null> = this.auth.user;
+  profile$: Observable<ProfileData | undefined> = this.user$.pipe(
+    switchMap((user) =>
+      this.afs.doc<ProfileData>(`user/${user?.uid}`).valueChanges()
+    )
+  );
 
   constructor(
     private readonly auth: AngularFireAuth,
-    private readonly router: Router
+    private readonly afs: AngularFirestore
   ) {}
-
-  login(email: string, password: string): Observable<boolean> {
-    return from(this.auth.signInWithEmailAndPassword(email, password)).pipe(
-      map((res: UserCredential) => {
-        return !!res.user;
-      }),
-      catchError(() => of(false))
-    );
-  }
-
-  signup(email: string, password: string): Observable<boolean> {
-    return from(this.auth.createUserWithEmailAndPassword(email, password)).pipe(
-      map((res: UserCredential) => {
-        return !!res.user;
-      }),
-      catchError(() => of(false))
-    );
-  }
-
-  logout() {
-    this.auth.signOut().then(() => {
-      this.router.navigateByUrl('login');
-    });
-  }
 }
 
 export default UserService;

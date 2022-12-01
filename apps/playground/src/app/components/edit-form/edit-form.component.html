@@ -1,0 +1,42 @@
+<div id="loginContainer">
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <!-- <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input
+        type="email"
+        matInput
+        type="text"
+        formControlName="email"
+        placeholder="Ex. pat@example.com"
+      />
+    </mat-form-field> -->
+
+    <mat-radio-group aria-label="Select an option" formControlName="playStyle">
+      <mat-radio-button value="chill">Chill</mat-radio-button>
+      <mat-radio-button value="competitive">Competitive</mat-radio-button>
+    </mat-radio-group>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Playstyle</mat-label>
+      <textarea
+        matInput
+        placeholder="Ex. It makes me feel..."
+        formControlName="description"
+      ></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>My Age</mat-label>
+      <select matNativeControl formControlName="age">
+        <option value="10" selected>10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+        <option value="40">40</option>
+      </select>
+    </mat-form-field>
+
+    <div>
+      <button mat-raised-button color="primary" type="submit">save</button>
+    </div>
+  </form>
+</div>

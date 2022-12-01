@@ -4,8 +4,7 @@
 import { Component } from '@angular/core';
 import { take } from 'rxjs';
 import { LoginData } from '../../model';
-import { UserService } from '../../services';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthService } from '../../services';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -18,7 +17,7 @@ export class LoginPageComponent {
   myConnectChoice = 'login';
 
   constructor(
-    private readonly userService: UserService,
+    private readonly authService: AuthService,
     private readonly translate: TranslateService // private readonly snackbar: MatSnackBar
   ) {}
 
@@ -32,7 +31,7 @@ export class LoginPageComponent {
   };
 
   onSubmitLogin = (data: LoginData) => {
-    this.userService
+    this.authService
       .login(data.email, data.password)
       .pipe(take(1))
       .subscribe((res) => {
@@ -46,7 +45,7 @@ export class LoginPageComponent {
   };
 
   onSubmitRegister = (data: LoginData) => {
-    this.userService
+    this.authService
       .signup(data.email, data.password)
       .pipe(take(1))
       .subscribe((res) => {
