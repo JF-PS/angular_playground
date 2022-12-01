@@ -5,7 +5,6 @@ import { UserService } from '../services';
 import { ProfileData } from '../model';
 
 const initUser = {
-  login: '',
   playStyle: 'competitive',
   description: 'Lorem ipsum ...',
   age: '10',
@@ -24,7 +23,10 @@ class UserCloudService {
     return this.userService.user$.pipe(
       switchMap((user) => {
         return from(
-          this.afs.collection<ProfileData>(`user`).doc(user?.uid).set(initUser)
+          this.afs
+            .collection<ProfileData>(`user`)
+            .doc(user?.uid)
+            .set({ login: `${user?.email}`, ...initUser })
         );
       }),
       take(1)

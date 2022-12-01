@@ -7,6 +7,7 @@ import { GameType } from '../../types';
 import { take } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { ButtonWithModalComponent } from '../../components/button-with-modal/button-with-modal.component';
+import { UserGameData } from '../../model';
 
 @Component({
   selector: 'project-majeur-game-page-details',
@@ -16,6 +17,7 @@ import { ButtonWithModalComponent } from '../../components/button-with-modal/but
 export class GamePageDetailsComponent implements OnInit {
   id: number | null = null;
   gameById: GameType | null = null;
+  playerList: UserGameData[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -29,13 +31,21 @@ export class GamePageDetailsComponent implements OnInit {
       const { id } = params;
       this.id = id;
       this.getGameById(id);
+      this.gameCloud.getGamePlayers(id).subscribe((players) => {
+        console.log(players);
+        this.playerList = players;
+      });
     });
   }
 
   openDialog() {
-    this.dialog.open(ButtonWithModalComponent, {
+    const dialogRef = this.dialog.open(ButtonWithModalComponent, {
       width: '340px',
       data: 'right click',
+    });
+
+    dialogRef.afterClosed().subscribe((userRatingGameLevel) => {
+      this.addGameToFavorite(userRatingGameLevel);
     });
   }
 
@@ -45,7 +55,7 @@ export class GamePageDetailsComponent implements OnInit {
     });
   };
 
-  addGameToFavorite = () => {
+  addGameToFavorite = (userRatingGameLevel: number) => {
     if (this.gameById?.id) {
       this.gameCloud
         .createOrUpdateGame({

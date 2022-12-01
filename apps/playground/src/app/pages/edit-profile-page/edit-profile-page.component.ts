@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileData } from '../../model';
-import { UserService, UserCloudService } from '../../services';
+import {
+  UserService,
+  UserCloudService,
+  GameCloudService,
+} from '../../services';
 import { take } from 'rxjs';
 
 @Component({
@@ -13,7 +17,8 @@ export class EditProfilePageComponent implements OnInit {
 
   constructor(
     private readonly userService: UserService,
-    private readonly userCloudService: UserCloudService
+    private readonly userCloudService: UserCloudService,
+    private gameCloud: GameCloudService
   ) {}
 
   ngOnInit(): void {
