@@ -12,7 +12,7 @@ import { Component, Input } from '@angular/core';
 export class ButtonWithModalComponent {
 
   infoSpan: HTMLElement | null = document.getElementById('levelCount');
-  isAddFavorite = true;
+
   selectedRating = 0;
   stars = [
     {
