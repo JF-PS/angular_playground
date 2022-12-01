@@ -34,7 +34,7 @@ mat-form-field {
 
 .noAccountYet {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .isConnectBtn {
@@ -47,7 +47,7 @@ mat-form-field {
 
 .link {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .subInfo {
