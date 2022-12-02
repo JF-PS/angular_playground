@@ -20,31 +20,31 @@ export class ButtonWithModalComponent {
       id: 1,
       icon: 'star',
       class: 'star-gray star-hover star',
-      level: 'Level 1',
+      level: 'Débutant',
     },
     {
       id: 2,
       icon: 'star',
       class: 'star-gray star-hover star',
-      level: 'Level 2',
+      level: 'Débutant',
     },
     {
       id: 3,
       icon: 'star',
       class: 'star-gray star-hover star',
-      level: 'Level 3',
+      level: 'Intermédiaire',
     },
     {
       id: 4,
       icon: 'star',
       class: 'star-gray star-hover star',
-      level: 'Level 4',
+      level: 'Avancé',
     },
     {
       id: 5,
       icon: 'star',
       class: 'star-gray star-hover star',
-      level: 'Level 5',
+      level: 'Pro',
     },
   ];
 

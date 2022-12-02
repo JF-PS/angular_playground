@@ -15,9 +15,13 @@ import { UserGameData } from '../../model';
   styleUrls: ['./game-page-details.component.css'],
 })
 export class GamePageDetailsComponent implements OnInit {
+
   id: number | null = null;
   gameById: GameType | null = null;
   playerList: UserGameData[] = [];
+
+  img = "https://img.freepik.com/photos-gratuite/portrait-homme-blanc-isole_53876-40306.jpg?w=2000";
+  libelle = "Mathieu";
 
   constructor(
     private route: ActivatedRoute,
@@ -26,6 +30,12 @@ export class GamePageDetailsComponent implements OnInit {
     private gameCloud: GameCloudService
   ) {}
 
+  
+  getPseudoByEmail(email: string) {
+    const i = email.indexOf("@");
+    return email.substring(0, i);
+  }
+    
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       const { id } = params;

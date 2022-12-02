@@ -5,10 +5,10 @@
 
   <div body>
     <div class="game-details-infos">
-        <h2 class="title">{{ gameById?.title }}</h2>
-        <button mat-icon-button color="warn" aria-label="Heart icon" (click)="openDialog()">
-          <mat-icon>favorite</mat-icon>
-        </button>
+      <h2 class="title">{{ gameById?.title }}</h2>
+      <button mat-icon-button color="warn" aria-label="Heart icon" (click)="openDialog()">
+        <mat-icon>favorite</mat-icon>
+      </button>
     </div>
 
     <div class="game__details-infos-tab">
@@ -17,11 +17,15 @@
           <p class="description">{{ gameById?.description }}</p>
         </mat-tab>
         <mat-tab class="label" label="Joueurs">
-          <p>Player(s) cards here !</p>
+          <div class="players-cards" *ngFor="let player of playerList">
+            <project-majeur-card-profil *ngIf="player.login !== 'undefined'" [libelle]="getPseudoByEmail(player.login)"
+              [image]="player.picture">
+            </project-majeur-card-profil>
+          </div>
+          <project-majeur-card-profil [libelle]="libelle" [image]="img" [rating]="4">
+          </project-majeur-card-profil>
         </mat-tab>
       </mat-tab-group>
     </div>
   </div>
 </project-majeur-layout>
-
-

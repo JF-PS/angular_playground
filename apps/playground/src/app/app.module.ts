@@ -64,11 +64,11 @@ const routes: Routes = [
     SearchByTagPageModule,
     GamePageDetailsModule,
     MyProfilePageModule,
-    EditProfilePageModule,
+    EditProfilePageModule
   ],
 
   declarations: [
-    AppComponent,
+    AppComponent
   ],
 
   providers: [],
