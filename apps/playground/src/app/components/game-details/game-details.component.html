@@ -1,6 +1,6 @@
 <mat-card class="example-card" (click)="goGameDetails(game.id)">
   <div class="item-picture">
-    <img mat-card-image src="{{ game.thumbnail }}" alt="{{ game.title }}"/>
+    <img mat-card-image src="{{ game.thumbnail }}" alt="{{ game.title }}" loading="lazy"/>
   </div>
   <div class="content-card">
     <p class="title">{{ game.title }}</p>

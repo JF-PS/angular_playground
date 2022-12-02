@@ -27,15 +27,17 @@ import { EditProfilePageModule } from './pages/edit-profile-page/edit-profile-pa
 import { ServiceWorkerModule } from '@angular/service-worker';
 
 const routes: Routes = [
-  { path: '', component: HomePageComponent },
+  { path: '', component: HomePageComponent, pathMatch: 'full' },
   { path: 'games', component: SearchByTagPageComponent },
   { path: 'games/:id', component: GamePageDetailsComponent },
   {
     path: 'login',
-    // loadChildren:() => ('./pages/login-page/login-page.module').then(m: LoginPageModule) => m.LoginPageModule,
-    component: LoginPageComponent
+    loadChildren:() => import('./pages/login-page/login-page.module').then(m => m.LoginPageModule),
+    // canActivate: [UnloggedUsersOnlyGuard],
   },
-  { path: 'edit-profile', component: EditProfilePageComponent },
+  { path: 'edit-profile',
+    loadChildren:() => import('./pages/edit-profile-page/edit-profile-page.module').then(m => m.EditProfilePageModule),
+  },
   { path: 'my-profile', component: MyProfilePageComponent },
 ];
 
@@ -44,9 +46,9 @@ const routes: Routes = [
     ReactiveFormsModule,
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(routes),
     HttpClientModule,
     TranslateModule.forRoot(),
+    RouterModule.forRoot(routes),
 
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
