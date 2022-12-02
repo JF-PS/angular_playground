@@ -4,3 +4,4 @@ export { default as GameService } from './game.service';
 export { default as UserCloudService } from './user-cloud.service';
 export { default as GameCloudService } from './game-cloud.service';
 export { default as AuthService } from './auth.service';
+export { default as PictureService } from './picture.service';

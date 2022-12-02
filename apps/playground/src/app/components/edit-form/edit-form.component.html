@@ -1,5 +1,20 @@
 <div id="loginContainer">
   <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div>
+      <webcam
+        [trigger]="trigger$"
+        (imageCapture)="handleSnapshot($event)"
+      ></webcam>
+      <button mat-raised-button (click)="takePhoto()">Click !</button>
+    </div>
+
+    <div
+      class="rack-photo-preview"
+      [ngClass]="{ 'preview-hidden': !hasPreview() }"
+    >
+      <img alt="A beautiful photo" #filePreview src="#" class="photo-preview" />
+    </div>
+
     <mat-radio-group aria-label="Select an option" formControlName="playStyle">
       <mat-radio-button value="chill">Chill</mat-radio-button>
       <mat-radio-button value="competitive">Competitive</mat-radio-button>
