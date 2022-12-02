@@ -2,26 +2,14 @@
   <h4>J'évalue mon niveau</h4>
   <div class="content">
     <div class="rating">
-      <div
-        class="star-rating-container star-rating-animation"
-        fxLayout="row"
-        fxLayoutAlign="start center"
-      >
-        <div
-          *ngFor="let star of stars"
-          [ngClass]="[star.class]"
-          (click)="selectStar(star.id)"
-        >
-          <mat-icon
-            aria-hidden="false"
-            aria-label="star icon"
-            fontIcon="{{ star.icon }}"
-          ></mat-icon>
+      <div class="star-rating-container star-rating-animation" fxLayout="row" fxLayoutAlign="start center">
+        <div *ngFor="let star of stars" [ngClass]="[star.class]" (click)="selectStar(star.id)">
+          <mat-icon aria-hidden="false" aria-label="star icon" fontIcon="{{ star.icon }}"></mat-icon>
         </div>
       </div>
     </div>
     <div class="flex__btn">
-      <span id="levelCount">I'm beginner</span>
+      <span id="levelCount">débutant</span>
       <button mat-button (click)="closeDialog()">OK</button>
     </div>
   </div>

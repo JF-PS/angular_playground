@@ -48,6 +48,7 @@ import { EditFormComponent } from './components/edit-form/edit-form.component';
 import { ButtonWithModalComponent } from './components/button-with-modal/button-with-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { CardProfilComponent } from './components/card-profil/card-profil.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -120,6 +121,7 @@ const routes: Routes = [
     EditFormComponent,
     ButtonWithModalComponent,
     LayoutComponent,
+    CardProfilComponent
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -49,6 +49,11 @@ export class GamePageDetailsComponent implements OnInit {
     });
   }
 
+  getPseudoByEmail(email: string){
+    const i = email.indexOf("@");
+    return email.substring(0, i);
+  }
+
   getGameById = (id: string) => {
     this.ts.getGameById({ id }).subscribe((res) => {
       this.gameById = res;
