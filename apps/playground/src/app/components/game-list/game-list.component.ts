@@ -1,12 +1,13 @@
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
-import { BreakpointObserver } from '@angular/cdk/layout';
-import { Component, OnInit, Input } from '@angular/core';
+// import { BreakpointObserver } from '@angular/cdk/layout';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { GameType } from '../../types';
 
 @Component({
   selector: 'project-majeur-game-list',
   templateUrl: './game-list.component.html',
   styleUrls: ['./game-list.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GameListComponent {
   @Input() gameList: GameType[];
@@ -28,6 +29,4 @@ export class GameListComponent {
   seeMore() {
     this.limit += 4;
   }
-
-
 }

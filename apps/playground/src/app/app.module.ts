@@ -8,8 +8,6 @@ import { GamePageDetailsComponent } from './pages/game-page-details/game-page-de
 import { HttpClientModule } from '@angular/common/http';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { HomePageComponent } from './pages/home-page/home-page.component';
-import { LoginPageComponent } from './pages/login-page/login-page.component';
-import { EditProfilePageComponent } from './pages/edit-profile-page/edit-profile-page.component';
 import { MyProfilePageComponent } from './pages/my-profile-page/my-profile-page.component';
 import { SearchByTagPageComponent } from './pages/search-by-tag-page/search-by-tag-page.component';
 import { en } from './translations/en';
@@ -17,13 +15,11 @@ import { environment } from '../environments/environment';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { LoginPageModule } from './pages/login-page/login-page.module';
 import { LayoutModule } from './components/layout/layout.module';
 import { HomePageModule } from './pages/home-page/home-page.module';
 import { SearchByTagPageModule } from './pages/search-by-tag-page/search-by-tag-page.module';
 import { GamePageDetailsModule } from './pages/game-page-details/game-page-details.module';
 import { MyProfilePageModule } from './pages/my-profile-page/my-profile-page.module';
-import { EditProfilePageModule } from './pages/edit-profile-page/edit-profile-page.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
 const routes: Routes = [
@@ -61,12 +57,10 @@ const routes: Routes = [
     }),
 
     LayoutModule,
-    LoginPageModule,
     HomePageModule,
     SearchByTagPageModule,
     GamePageDetailsModule,
     MyProfilePageModule,
-    EditProfilePageModule,
   ],
 
   declarations: [
