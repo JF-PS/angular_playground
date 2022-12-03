@@ -33,8 +33,12 @@ const routes: Routes = [
   },
   { path: 'edit-profile',
     loadChildren:() => import('./pages/edit-profile-page/edit-profile-page.module').then(m => m.EditProfilePageModule),
+    // canActivate: [UnloggedUsersOnlyGuard],
   },
-  { path: 'my-profile', component: MyProfilePageComponent },
+  { path: 'my-profile',
+    component: MyProfilePageComponent,
+    // canActivate: [UnloggedUsersOnlyGuard],
+   },
 ];
 
 @NgModule({
