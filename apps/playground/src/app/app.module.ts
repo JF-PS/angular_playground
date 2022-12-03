@@ -33,7 +33,7 @@ const routes: Routes = [
   {
     path: 'login',
     // loadChildren:() => ('./pages/login-page/login-page.module').then(m: LoginPageModule) => m.LoginPageModule,
-    component: LoginPageComponent
+    component: LoginPageComponent,
   },
   { path: 'edit-profile', component: EditProfilePageComponent },
   { path: 'my-profile', component: MyProfilePageComponent },
@@ -67,9 +67,7 @@ const routes: Routes = [
     EditProfilePageModule,
   ],
 
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
 
   providers: [],
 

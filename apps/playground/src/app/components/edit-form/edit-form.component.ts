@@ -68,9 +68,12 @@ export class EditFormComponent implements OnInit {
     this.filePreview.nativeElement.src = $event.imageAsDataUrl;
     const base64Img = $event.imageAsBase64;
     const filename = `${this.currentUser?.id}`;
-    this.pictureService.uploadPicture(filename, base64Img).subscribe((res) => {
-      this.profilePicture = res;
-    });
+    this.pictureService
+      .uploadPicture(filename, base64Img)
+      .subscribe((uploadUrl) => {
+        console.log(uploadUrl);
+        this.profilePicture = uploadUrl;
+      });
   }
 
   takePhoto = () => {

@@ -11,13 +11,23 @@
   <div body>
     <div class="game-details-infos">
       <h2 class="title">{{ gameById?.title }}</h2>
+
       <button
-        mat-icon-button
-        color="warn"
-        aria-label="Heart icon"
-        (click)="openDialog()"
+        *ngIf="!isFavorite"
+        mat-raised-button
+        color="primary"
+        (click)="openAddFavoriteModal()"
       >
-        <mat-icon>favorite</mat-icon>
+        Ajouter
+      </button>
+
+      <button
+        *ngIf="isFavorite"
+        mat-raised-button
+        color="warn"
+        (click)="openRemoveFavoriteModal()"
+      >
+        Retirer
       </button>
     </div>
 
@@ -27,8 +37,12 @@
           <p class="description">{{ gameById?.description }}</p>
         </mat-tab>
         <mat-tab class="label" label="Joueurs">
-          <p>Player(s) cards here !</p>
-          <project-majeur-card-profil></project-majeur-card-profil>
+          <p *ngIf="!playerList.length">Aucun joueur trouver</p>
+
+          <div class="players-cards" *ngFor="let player of playerList">
+            <project-majeur-card-profil [player]="player">
+            </project-majeur-card-profil>
+          </div>
         </mat-tab>
       </mat-tab-group>
     </div>

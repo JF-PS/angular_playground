@@ -1,16 +1,13 @@
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 
-/**
- * @title Button with modal
- */
 @Component({
-  selector: 'project-majeur-button-with-modal',
-  templateUrl: './button-with-modal.component.html',
-  styleUrls: ['./button-with-modal.component.css'],
+  selector: 'project-majeur-add-favorite-modal',
+  templateUrl: './add-favorite-modal.component.html',
+  styleUrls: ['./add-favorite-modal.component.css'],
 })
-export class ButtonWithModalComponent {
-  constructor(public dialogRef: MatDialogRef<ButtonWithModalComponent>) {}
+export class AddFavoriteModalComponent {
+  constructor(public dialogRef: MatDialogRef<AddFavoriteModalComponent>) {}
 
   selectedRating: number | null = null;
   stars = [

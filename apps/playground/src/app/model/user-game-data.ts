@@ -1,5 +1,9 @@
 class UserGameData {
-  constructor(readonly picture: string, readonly login: string) {}
+  constructor(
+    readonly id: string,
+    readonly login: string,
+    readonly levelRating: number
+  ) {}
 }
 
 export default UserGameData;
