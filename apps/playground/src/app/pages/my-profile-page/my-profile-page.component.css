@@ -1,12 +1,18 @@
+.user-infos {
+    display: flex;
+    justify-content: center;
+}
+
 .topContainer {
     padding: 0px 16px;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
 }
 
 .imgContainer {
     display: flex;
     flex-direction: row;
     width: 100%;
+    justify-content: center;
 }
 
 .img {
@@ -20,6 +26,12 @@
 h2 {
    color: #354f52;
    margin-top: 0px;
+   font-size: 22px;
+}
+
+.pseudoPart {
+    align-items: center;
+    height: 100%;
 }
 
 .tags {
@@ -28,16 +40,16 @@ h2 {
 }
 
 .tag {
-
-  background-color:#354f52;
-  color: white;
-  font-family: 'Montserrat';
-  display: inline-flex;
-  padding: 7px 12px;
-  border-radius: 50px;
-  align-items: center;
-  min-height: 32px;
-  height: 1px;
+    min-width: 80px;
+    justify-content: center;
+    background-color:#354f52;
+    color: white;
+    font-family: 'Montserrat';
+    display: inline-flex;
+    border-radius: 50px;
+    align-items: center;
+    min-height: 28px;
+    height: 1px;
 }
 
 .description {
