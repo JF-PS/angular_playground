@@ -31,7 +31,6 @@ class UserCloudService {
             .set({
               id: `${user?.uid}`,
               login: `${user?.email}`,
-              picture: null,
               ...initUser,
             })
         );

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TakePhotoPageComponent } from './take-photo-page.component';
+import { TakePhotoPageComponent } from './take-photo-page.module';
 
 describe('TakePhotoPageComponent', () => {
   let component: TakePhotoPageComponent;

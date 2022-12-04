@@ -21,6 +21,10 @@ import { SearchByTagPageModule } from './pages/search-by-tag-page/search-by-tag-
 import { GamePageDetailsModule } from './pages/game-page-details/game-page-details.module';
 import { MyProfilePageModule } from './pages/my-profile-page/my-profile-page.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { TakePhotoPageModule } from './pages/take-photo-page/take-photo-page.module';
+import { TakePhotoPageComponent } from './pages/take-photo-page/take-photo-page.component';
+import { EditProfilePageModule } from './pages/edit-profile-page/edit-profile-page.module';
+import { EditProfilePageComponent } from './pages/edit-profile-page/edit-profile-page.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent, pathMatch: 'full' },
@@ -28,17 +32,28 @@ const routes: Routes = [
   { path: 'games/:id', component: GamePageDetailsComponent },
   {
     path: 'login',
-    loadChildren:() => import('./pages/login-page/login-page.module').then(m => m.LoginPageModule),
+    loadChildren: () =>
+      import('./pages/login-page/login-page.module').then(
+        (m) => m.LoginPageModule
+      ),
     // canActivate: [UnloggedUsersOnlyGuard],
   },
-  { path: 'edit-profile',
-    loadChildren:() => import('./pages/edit-profile-page/edit-profile-page.module').then(m => m.EditProfilePageModule),
+  { path: 'edit-profile', component: EditProfilePageComponent },
+  { path: 'my-profile', component: MyProfilePageComponent },
+  { path: 'take-photo', component: TakePhotoPageComponent },
+  {
+    path: 'edit-profile',
+    loadChildren: () =>
+      import('./pages/edit-profile-page/edit-profile-page.module').then(
+        (m) => m.EditProfilePageModule
+      ),
     // canActivate: [UnloggedUsersOnlyGuard],
   },
-  { path: 'my-profile',
+  {
+    path: 'my-profile',
     component: MyProfilePageComponent,
     // canActivate: [UnloggedUsersOnlyGuard],
-   },
+  },
 ];
 
 @NgModule({
@@ -65,6 +80,8 @@ const routes: Routes = [
     SearchByTagPageModule,
     GamePageDetailsModule,
     MyProfilePageModule,
+    EditProfilePageModule,
+    TakePhotoPageModule,
   ],
 
   declarations: [AppComponent],

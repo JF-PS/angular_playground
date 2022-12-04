@@ -10,14 +10,13 @@ import { CardProfilComponent } from '../../components/card-profil/card-profil.co
 import { LayoutModule } from '../../components/layout/layout.module';
 import { GamePageDetailsComponent } from './game-page-details.component';
 import { MatButtonModule } from '@angular/material/button';
-import { ProfilePictureComponent } from '../../profile-picture/profile-picture.component';
 import { NavbarModule } from '../../components/navbar/navbar.module';
+import { ProfilePictureModule } from '../../components/profile-picture/profile-picture.module';
 
 @NgModule({
   declarations: [
     GamePageDetailsComponent,
     CardProfilComponent,
-    ProfilePictureComponent,
     AddFavoriteModalComponent,
     RemoveFavoriteModalComponent,
   ],
@@ -32,6 +31,7 @@ import { NavbarModule } from '../../components/navbar/navbar.module';
     MatIconModule,
     MatDialogModule,
     MatButtonModule,
+    ProfilePictureModule,
   ],
   exports: [GamePageDetailsComponent],
 })

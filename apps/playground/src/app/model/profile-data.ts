@@ -4,8 +4,7 @@ class ProfileData {
     readonly login: string,
     readonly playStyle: string,
     readonly description: string,
-    readonly age: string,
-    readonly picture: string | null
+    readonly age: string
   ) {}
 }
 

@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { EditFormComponent } from '../../components/edit-form/edit-form.component';
-
+import { MatIconModule } from '@angular/material/icon';
 import { LayoutModule } from '../../components/layout/layout.module';
 import { EditProfilePageComponent } from './edit-profile-page.component';
 import { WebcamModule } from 'ngx-webcam';
@@ -37,6 +37,8 @@ import { NavbarModule } from '../../components/navbar/navbar.module';
     MatFormFieldModule,
     WebcamModule,
     MatButtonModule,
+    MatIconModule,
+    RouterModule,
   ],
 
   exports: [EditProfilePageComponent],
