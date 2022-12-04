@@ -1,23 +1,20 @@
 .topContainer {
     padding: 0px 16px;
-    margin: 16px 0px 32px 0px;
+    margin-bottom: 32px;
 }
 
 .imgContainer {
-    display: grid;
-    grid-template-columns: 30% 1fr;
-    gap: 32px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
 }
 
 .img {
-    width: 100%;
+    width: 100px;
     height: 100px;
     border-radius: 50%;
-    background-color: white;
-}
-
-.pseudoPart {
-    width: 100%;
+    background-color: #354f52;
+    margin-right: 32px;
 }
 
 h2 {
@@ -27,8 +24,7 @@ h2 {
 
 .tags {
     display: flex;
-    justify-content: space-between;
-    width: 100%;
+    gap: 16px;
 }
 
 .tag {
@@ -47,7 +43,6 @@ h2 {
 .description {
     font-size: 16px;
     font-family: 'Montserrat';
-    color: #354f52;
-    font-weight: 500;
+    color: #fff;
 }
 
