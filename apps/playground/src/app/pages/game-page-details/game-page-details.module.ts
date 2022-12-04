@@ -11,6 +11,7 @@ import { LayoutModule } from '../../components/layout/layout.module';
 import { GamePageDetailsComponent } from './game-page-details.component';
 import { MatButtonModule } from '@angular/material/button';
 import { ProfilePictureComponent } from '../../profile-picture/profile-picture.component';
+import { NavbarModule } from '../../components/navbar/navbar.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,10 @@ import { ProfilePictureComponent } from '../../profile-picture/profile-picture.c
   imports: [
     CommonModule,
     TranslateModule,
+
     LayoutModule,
+    NavbarModule,
+
     MatTabsModule,
     MatIconModule,
     MatDialogModule,
