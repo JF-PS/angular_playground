@@ -13,6 +13,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatIconModule } from '@angular/material/icon';
 import { LayoutModule } from '../../components/layout/layout.module';
 import { RouterModule } from '@angular/router';
+import { NavbarModule } from '../../components/navbar/navbar.module';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { RouterModule } from '@angular/router';
     MatIconModule,
 
     LayoutModule,
+    NavbarModule,
   ],
 
   exports: [

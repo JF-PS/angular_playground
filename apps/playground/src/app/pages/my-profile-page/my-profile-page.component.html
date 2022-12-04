@@ -2,29 +2,31 @@
   <div top>
     <div class="topContainer">
       <div class="imgContainer">
-        <div class="img"></div>
+        <div class="img">
+          <!-- {{currentUser?.picture}} -->
+        </div>
         <div class="pseudoPart">
-          <h2>Pseudo</h2>
+          <h2>{{currentUser?.login}}</h2>
           <div class="tags">
-            <div class="tag">Débutant</div>
-            <div class="tag">15-20 ans</div>
+            <div class="tag">{{currentUser?.playStyle}}</div>
+            <div class="tag">{{currentUser?.age}}</div>
           </div>
         </div>
       </div>
-      <p class="description">
-        J'adore découvrir de nouveaux de jeux et partager ma passion avec d'autres.
-      </p>
+      <p class="description">{{currentUser?.description}}</p>
     </div>
   </div>
 
   <div body>
-    <mat-tab-group>
-      <mat-tab label="Mes jeux">
-        <p>Retrouve ici tous les jeux auxquels tu joues ! </p>
-      </mat-tab>
-      <mat-tab label="Mes ami.es">
-        <p>Retrouve ici tes ami.es ! </p>
-      </mat-tab>
-    </mat-tab-group>
+    <div class="game__details-infos-tab">
+      <mat-tab-group class="label">
+        <mat-tab class="label" label="Mes jeux">
+          <p>Retrouve ici tous les jeux auxquels tu joues ! </p>
+        </mat-tab>
+        <mat-tab class="label" label="Mes ami.es">
+          <p>Retrouve ici tes ami.es ! </p>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
   </div>
 </project-majeur-layout>

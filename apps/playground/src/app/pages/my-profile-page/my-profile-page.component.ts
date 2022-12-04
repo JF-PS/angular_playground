@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+// import { Observable } from 'rxjs';
 import { ProfileData, PlayerGameData } from '../../model';
 import { UserService, GameCloudService } from '../../services';
 @Component({
@@ -8,7 +8,8 @@ import { UserService, GameCloudService } from '../../services';
   styleUrls: ['./my-profile-page.component.css'],
 })
 export class MyProfilePageComponent implements OnInit {
-  profile$: Observable<ProfileData | undefined> = this.userService.profile$;
+  currentUser : ProfileData | undefined = undefined;
+  // profile$: Observable<ProfileData | undefined> = this.userService.profile$;
   favoritesGames: PlayerGameData[] = [];
 
   constructor(
@@ -20,6 +21,10 @@ export class MyProfilePageComponent implements OnInit {
     this.gameCloud.getFavoriteGames().subscribe((myGameList) => {
       console.log(myGameList);
       this.favoritesGames = myGameList;
+    });
+
+    this.userService.profile$.subscribe((res) => {
+      this.currentUser = res;
     });
   }
 }
