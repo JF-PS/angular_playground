@@ -1,23 +1,45 @@
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  width: 300px;
-  height: 40vh;
-}
-
-input {
-  width: 100%;
-}
-
-mat-form-field {
-  width: 100%;
-}
-
 #loginContainer {
   flex-direction: column;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #354f52;
+}
+
+button {
+  font-family: 'Montserrat';
+  font-weight: 500;
+  box-shadow: none !important;
+}
+
+.save-btn {
+  color: #354f52;
+  background-color: #cad2c5;
+  width: 40%;
+  align-self: center;
+}
+
+.take-pic-btn {
+  color: #354f52;
+  border: 1px solid #354f52;
+  align-self: center;
+  margin: 16px 0px 24px 0px;
+}
+
+.input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.radio {
+  padding-bottom: 1.25em;
+  align-self: center;
+  display: flex;
+  gap: 24px;
+}
+
+form {
+  height: 100%;
+  width: 100%;
 }

@@ -1,46 +1,50 @@
 <div id="loginContainer">
+  <h3>Modifier mon profil</h3>
   <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-    <div>
+    <!-- si prendre pas active alors display: none -->
+    <!-- <div class="take-pic-section">
       <webcam
         [trigger]="trigger$"
         (imageCapture)="handleSnapshot($event)"
-      ></webcam>
-      <button mat-raised-button (click)="takePhoto()">Click !</button>
-    </div>
+      ></webcam> -->
 
-    <div
-      class="rack-photo-preview"
+      <!-- pas deux photos tu prends une photo ça affiche la photo et btn reprendre photo -->
+      <!-- <div
       [ngClass]="{ 'preview-hidden': !hasPreview() }"
-    >
-      <img alt="A beautiful photo" #filePreview src="#" class="photo-preview" />
+      >
+        <img alt="A beautiful photo" #filePreview src="#" />
+      </div>
+    </div> -->
+
+    <div class="input-section">
+      <button mat-raised-button (click)="takePhoto()" class="take-pic-btn">Prendre une photo</button>
+
+      <mat-radio-group aria-label="Select an option" formControlName="playStyle" class="radio">
+        <mat-radio-button value="chill">Tranquille</mat-radio-button>
+        <mat-radio-button value="competitive">Compétition</mat-radio-button>
+      </mat-radio-group>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Style de jeu</mat-label>
+        <textarea
+          matInput
+          placeholder="Ex. It makes me feel..."
+          formControlName="description"
+        ></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Âge</mat-label>
+        <select matNativeControl formControlName="age">
+          <option value="10" selected>10</option>
+          <option value="20">20</option>
+          <option value="30">30</option>
+          <option value="40">40</option>
+        </select>
+      </mat-form-field>
+
+      <button mat-raised-button class="save-btn" type="submit">Sauvegarder</button>
     </div>
 
-    <mat-radio-group aria-label="Select an option" formControlName="playStyle">
-      <mat-radio-button value="chill">Chill</mat-radio-button>
-      <mat-radio-button value="competitive">Competitive</mat-radio-button>
-    </mat-radio-group>
-
-    <mat-form-field class="example-full-width">
-      <mat-label>Playstyle</mat-label>
-      <textarea
-        matInput
-        placeholder="Ex. It makes me feel..."
-        formControlName="description"
-      ></textarea>
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-      <mat-label>My Age</mat-label>
-      <select matNativeControl formControlName="age">
-        <option value="10" selected>10</option>
-        <option value="20">20</option>
-        <option value="30">30</option>
-        <option value="40">40</option>
-      </select>
-    </mat-form-field>
-
-    <div>
-      <button mat-raised-button color="primary" type="submit">save</button>
-    </div>
   </form>
 </div>

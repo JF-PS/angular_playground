@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
+import { NavbarModule } from '../../components/navbar/navbar.module';
 
 @NgModule({
   declarations: [EditProfilePageComponent, EditFormComponent],
@@ -30,6 +31,8 @@ import { MatButtonModule } from '@angular/material/button';
     ]),
 
     LayoutModule,
+    NavbarModule,
+
     MatRadioModule,
     MatFormFieldModule,
     WebcamModule,
