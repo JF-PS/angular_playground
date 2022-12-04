@@ -1,52 +1,53 @@
-.example-card {
-    max-width: 400px;
-    margin-bottom: 8px;
-    text-align: center;
+.topContainer {
+    padding: 0px 16px;
+    margin: 16px 0px 32px 0px;
 }
 
-.example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
+.imgContainer {
+    display: grid;
+    grid-template-columns: 30% 1fr;
+    gap: 32px;
 }
 
-.friend {
-    padding: 20px;
-    position: absolute;
-    right: 0;
-    text-align: center;
-    border-radius: 10px;
-    background-color: #363739;
-    color: #fff;
-    font-size: 13pt;
-    cursor: pointer;
-    width: 70px;
+.img {
+    width: 100%;
+    height: 100px;
+    border-radius: 50%;
+    background-color: white;
 }
 
-.relax {
-    padding: 20px;
-    display: inline-block;
-    text-align: center;
-    border-radius: 20px;
-    background-color: #363739;
-    color: #fff;
-    font-size: 11pt;
-    cursor: pointer;
-    width: 100px;
-    margin: 13px;
+.pseudoPart {
+    width: 100%;
 }
 
-.age {
-    padding: 20px;
-    display: inline-block;
-    text-align: center;
-    border-radius: 20px;
-    background-color: #363739;
-    color: #fff;
-    font-size: 11pt;
-    cursor: pointer;
-    width: 100px;
+h2 {
+   color: #354f52;
+   margin-top: 0px;
 }
 
-p {
-    font-family: 'Times New Roman', Times, serif;
+.tags {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
+
+.tag {
+
+  background-color:#354f52;
+  color: white;
+  font-family: 'Montserrat';
+  display: inline-flex;
+  padding: 7px 12px;
+  border-radius: 50px;
+  align-items: center;
+  min-height: 32px;
+  height: 1px;
+}
+
+.description {
+    font-size: 16px;
+    font-family: 'Montserrat';
+    color: #354f52;
+    font-weight: 500;
+}
+
