@@ -1,14 +1,34 @@
 <project-majeur-layout>
   <div top>
-    <img class="game-img" src="{{ gameById?.thumbnail }}" alt="{{ gameById?.title }}" loading="lazy">
+    <img
+      class="game-img"
+      src="{{ gameById?.thumbnail }}"
+      alt="{{ gameById?.title }}"
+      loading="lazy"
+    />
   </div>
 
   <div body>
     <div class="game-details-infos">
-        <h2 class="title">{{ gameById?.title }}</h2>
-        <button mat-icon-button color="warn" aria-label="Heart icon" (click)="openDialog()">
-          <mat-icon>favorite</mat-icon>
-        </button>
+      <h2 class="title">{{ gameById?.title }}</h2>
+
+      <button
+        *ngIf="!isFavorite"
+        mat-raised-button
+        color="primary"
+        (click)="openAddFavoriteModal()"
+      >
+        Ajouter
+      </button>
+
+      <button
+        *ngIf="isFavorite"
+        mat-raised-button
+        color="warn"
+        (click)="openRemoveFavoriteModal()"
+      >
+        Retirer
+      </button>
     </div>
 
     <div class="game__details-infos-tab">
@@ -17,11 +37,14 @@
           <p class="description">{{ gameById?.description }}</p>
         </mat-tab>
         <mat-tab class="label" label="Joueurs">
-          <p>Player(s) cards here !</p>
+          <p *ngIf="!playerList.length">Aucun joueur trouver</p>
+
+          <div class="players-cards" *ngFor="let player of playerList">
+            <project-majeur-card-profil [player]="player">
+            </project-majeur-card-profil>
+          </div>
         </mat-tab>
       </mat-tab-group>
     </div>
   </div>
 </project-majeur-layout>
-
-

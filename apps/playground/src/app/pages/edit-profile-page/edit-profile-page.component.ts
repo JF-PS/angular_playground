@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileData } from '../../model';
-import {
-  UserService,
-  UserCloudService,
-  GameCloudService,
-} from '../../services';
+import { UserService, UserCloudService } from '../../services';
 import { take } from 'rxjs';
 
 @Component({
@@ -17,8 +13,7 @@ export class EditProfilePageComponent implements OnInit {
 
   constructor(
     private readonly userService: UserService,
-    private readonly userCloudService: UserCloudService,
-    private gameCloud: GameCloudService
+    private readonly userCloudService: UserCloudService
   ) {}
 
   ngOnInit(): void {
@@ -28,16 +23,6 @@ export class EditProfilePageComponent implements OnInit {
   }
 
   handleSubmit = (data: ProfileData) => {
-    console.log(data);
-    this.userCloudService
-      .updateUser(data)
-      .pipe(take(1))
-      .subscribe(() => {
-        // if (res) {
-        //   console.log(res);
-        // } else {
-        //   console.error('Errors occured');
-        // }
-      });
+    this.userCloudService.updateUser(data).pipe(take(1)).subscribe();
   };
 }

@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Supprimer de vos Favoris</h1>
+<div mat-dialog-content>
+  Êtes vous sûr de vouloir retirer ce jeux de votre liste ?
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Annuler</button>
+  <button
+    mat-button
+    mat-dialog-close
+    cdkFocusInitial
+    (click)="SubmitRemoveFavorite()"
+  >
+    Comfirmer
+  </button>
+</div>

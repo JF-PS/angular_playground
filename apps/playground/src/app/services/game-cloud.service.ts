@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { from, Observable, switchMap, take } from 'rxjs';
 import { UserService } from '../services';
-import { PlayerGameData, UserGameData, ProfileData } from '../model';
+import { GameData, PlayerGameData, UserGameData, ProfileData } from '../model';
 
 @Injectable({
   providedIn: 'root',
@@ -17,10 +17,8 @@ class GameCloudService {
    * Add a Game to firestore cloud game collection.
    * @param playerGameData
    */
-  createGame(playerGameData: PlayerGameData) {
-    this.afs
-      .doc<PlayerGameData>(`game/${playerGameData?.id}`)
-      .set(playerGameData);
+  createGame(gameData: GameData) {
+    this.afs.doc<GameData>(`game/${gameData?.id}`).set(gameData);
   }
 
   /**
@@ -39,19 +37,21 @@ class GameCloudService {
    * @param profileData
    */
   AddUserLoginToGame(
-    playerGameData: PlayerGameData,
-    profileData: ProfileData | undefined
+    gameData: GameData,
+    profileData: ProfileData | undefined,
+    levelRating: number
   ): Observable<void> {
     return this.userService.user$.pipe(
       switchMap((user) => {
-        if (user) this.AddGameToUserLogin(playerGameData, user.uid);
+        if (user)
+          this.AddGameToUserLogin({ ...gameData, levelRating }, user.uid);
         return from(
           this.afs
-            .doc<UserGameData>(`game/${playerGameData?.id}/users/${user?.uid}`)
+            .doc<UserGameData>(`game/${gameData?.id}/users/${user?.uid}`)
             .set({
-              picture:
-                'https://cengage.force.com/resource/1607465003000/loginIcon',
+              id: `${user?.uid}`,
               login: `${user?.email}`,
+              levelRating,
               // profileData?.login === undefined ? '' : profileData?.login
             })
         );
@@ -65,11 +65,14 @@ class GameCloudService {
    * Add a game to the games list of the connected user
    * @param playerGameData
    */
-  createOrUpdateGame(playerGameData: PlayerGameData): Observable<void> {
+  createOrUpdateGame(
+    GameData: GameData,
+    levelRating: number
+  ): Observable<void> {
     return this.userService.profile$.pipe(
       switchMap((profile) => {
-        this.createGame(playerGameData);
-        return this.AddUserLoginToGame(playerGameData, profile);
+        this.createGame(GameData);
+        return this.AddUserLoginToGame(GameData, profile, levelRating);
       }),
       take(1)
     );
@@ -90,6 +93,16 @@ class GameCloudService {
     return this.afs
       .collection<UserGameData>(`game/${gameId}/users`)
       .valueChanges();
+  }
+
+  removeFavoriteUserGame(gameId: number): Observable<unknown> {
+    return this.userService.user$.pipe(
+      switchMap((user) => {
+        this.afs.doc(`user/${user?.uid}/games/${gameId}`).delete();
+        return this.afs.doc(`game/${gameId}/users/${user?.uid}`).delete();
+      }),
+      take(1)
+    );
   }
 }
 

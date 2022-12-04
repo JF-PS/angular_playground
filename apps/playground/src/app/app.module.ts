@@ -67,9 +67,7 @@ const routes: Routes = [
     MyProfilePageModule,
   ],
 
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
 
   providers: [],
 

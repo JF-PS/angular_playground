@@ -23,3 +23,21 @@ mat-icon {
   width: 22px;
   height: 22px;
 }
+
+#title {
+  cursor: pointer;
+  transition-duration: 500ms;
+}
+
+mat-icon:hover {
+  width: '200px';
+}
+
+#back {
+  cursor: pointer;
+  transition-duration: 500ms;
+}
+#account {
+  cursor: pointer;
+  transition-duration: 500ms;
+}
