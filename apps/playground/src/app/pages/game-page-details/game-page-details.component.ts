@@ -21,6 +21,7 @@ export class GamePageDetailsComponent implements OnInit {
   gameById: GameType | null = null;
   playerList: UserGameData[] = [];
   isFavorite = false;
+  isUserLoged = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -44,6 +45,7 @@ export class GamePageDetailsComponent implements OnInit {
         this.playerList = players;
         this.userService.user$.subscribe((user) => {
           if (user) {
+            this.isUserLoged = true;
             const userLoginIsPlayer = players.filter(
               (player) => player.id === user.uid
             )[0];

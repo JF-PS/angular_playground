@@ -21,3 +21,20 @@ mat-form-field {
   align-items: center;
   justify-content: center;
 }
+
+.buttonForm {
+  width: 100%;
+}
+
+#picture-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+mat-radio-group {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

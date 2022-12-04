@@ -25,6 +25,8 @@ import { GamePageDetailsModule } from './pages/game-page-details/game-page-detai
 import { MyProfilePageModule } from './pages/my-profile-page/my-profile-page.module';
 import { EditProfilePageModule } from './pages/edit-profile-page/edit-profile-page.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { TakePhotoPageModule } from './pages/take-photo-page/take-photo-page.module';
+import { TakePhotoPageComponent } from './pages/take-photo-page/take-photo-page.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -37,6 +39,7 @@ const routes: Routes = [
   },
   { path: 'edit-profile', component: EditProfilePageComponent },
   { path: 'my-profile', component: MyProfilePageComponent },
+  { path: 'take-photo', component: TakePhotoPageComponent },
 ];
 
 @NgModule({
@@ -65,6 +68,7 @@ const routes: Routes = [
     GamePageDetailsModule,
     MyProfilePageModule,
     EditProfilePageModule,
+    TakePhotoPageModule,
   ],
 
   declarations: [AppComponent],

@@ -13,7 +13,7 @@
       <h2 class="title">{{ gameById?.title }}</h2>
 
       <button
-        *ngIf="!isFavorite"
+        *ngIf="!isFavorite && isUserLoged"
         mat-raised-button
         color="primary"
         (click)="openAddFavoriteModal()"
@@ -22,7 +22,7 @@
       </button>
 
       <button
-        *ngIf="isFavorite"
+        *ngIf="isFavorite && isUserLoged"
         mat-raised-button
         color="warn"
         (click)="openRemoveFavoriteModal()"
