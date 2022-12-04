@@ -12,6 +12,8 @@ import { LoginFormComponent } from '../../components/login-form/login-form.compo
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatIconModule } from '@angular/material/icon';
 import { LayoutModule } from '../../components/layout/layout.module';
+import { RouterModule } from '@angular/router';
+import { NavbarModule } from '../../components/navbar/navbar.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,12 @@ import { LayoutModule } from '../../components/layout/layout.module';
     TranslateModule,
     ReactiveFormsModule,
     FormsModule,
+    RouterModule.forChild([
+      {
+        path: '',
+        component: LoginPageComponent,
+      },
+    ]),
 
     MatCardModule,
     MatFormFieldModule,
@@ -34,6 +42,7 @@ import { LayoutModule } from '../../components/layout/layout.module';
     MatIconModule,
 
     LayoutModule,
+    NavbarModule,
   ],
 
   exports: [

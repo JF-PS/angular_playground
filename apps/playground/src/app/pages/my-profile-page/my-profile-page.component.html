@@ -1,29 +1,32 @@
 <project-majeur-layout>
-  <div top>
-    <mat-card>
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>Pseudoname</mat-card-title>
-        <mat-card-subtitle>boss of</mat-card-subtitle>
-        <span class="friend">+ Friend</span>
-      </mat-card-header>
-
-      <div>
-        <span class="relax">Competitve</span>
-        <span class="age">15-20 y/o</span>
+  <div class="user-infos" top>
+    <div class="topContainer">
+      <div class="imgContainer">
+        <div class="img">
+          <!-- {{currentUser?.picture}} -->
+        </div>
+        <div class="pseudoPart">
+          <h2>{{currentUser?.login}}</h2>
+          <div class="tags">
+            <div class="tag">{{currentUser?.playStyle}}</div>
+            <div class="tag">{{currentUser?.age}}</div>
+          </div>
+        </div>
       </div>
+      <p class="description">{{currentUser?.description}}</p>
+    </div>
+  </div>
 
-      <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book. It has survived not only five
-        centuries, but also the leap into electronic typesetting, remaining
-        essentially unchanged. It was popularised in the 1960s with the release
-        of Letraset sheets containing Lorem Ipsum passages, and more recently
-        with desktop publishing software like Aldus PageMaker including versions
-        of Lorem Ipsum.
-      </p>
-    </mat-card>
+  <div body>
+    <div class="game__details-infos-tab">
+      <mat-tab-group class="label">
+        <mat-tab class="label" label="Mes jeux">
+          <p>Retrouve ici tous les jeux auxquels tu joues ! </p>
+        </mat-tab>
+        <mat-tab class="label" label="Mes ami.es">
+          <p>Retrouve ici tes ami.es ! </p>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
   </div>
 </project-majeur-layout>

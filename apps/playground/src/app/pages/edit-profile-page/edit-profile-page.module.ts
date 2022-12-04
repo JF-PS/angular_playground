@@ -10,8 +10,8 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [EditProfilePageComponent, EditFormComponent],
@@ -22,6 +22,13 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     FormsModule,
     MatInputModule,
+    RouterModule.forChild([
+      {
+        path: '',
+        component: EditProfilePageComponent,
+      },
+    ]),
+
     LayoutModule,
     MatRadioModule,
     MatFormFieldModule,
