@@ -44,6 +44,7 @@
 @media only screen and (max-device-width: 480px) {
   .mobile {
     display: block;
+    height: 100%;
   }
   .desktop {
     display: none;
