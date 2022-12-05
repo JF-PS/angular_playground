@@ -22,14 +22,28 @@ import { GamePageDetailsModule } from './pages/game-page-details/game-page-detai
 import { MyProfilePageModule } from './pages/my-profile-page/my-profile-page.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { TakePhotoPageModule } from './pages/take-photo-page/take-photo-page.module';
-import { TakePhotoPageComponent } from './pages/take-photo-page/take-photo-page.component';
 import { EditProfilePageModule } from './pages/edit-profile-page/edit-profile-page.module';
-import { EditProfilePageComponent } from './pages/edit-profile-page/edit-profile-page.component';
 
 const routes: Routes = [
-  { path: '', component: HomePageComponent, pathMatch: 'full' },
-  { path: 'games', component: SearchByTagPageComponent },
-  { path: 'games/:id', component: GamePageDetailsComponent },
+  {
+    path: '',
+    component: HomePageComponent,
+    pathMatch: 'full'
+    // canActivate: [UnloggedUsersOnlyGuard],
+  },
+
+  {
+    path: 'games',
+    component: SearchByTagPageComponent,
+    // canActivate: [UnloggedUsersOnlyGuard],
+  },
+
+  {
+    path: 'games/:id',
+    component: GamePageDetailsComponent,
+    // canActivate: [UnloggedUsersOnlyGuard],
+   },
+
   {
     path: 'login',
     loadChildren: () =>
@@ -38,21 +52,29 @@ const routes: Routes = [
       ),
     // canActivate: [UnloggedUsersOnlyGuard],
   },
-  { path: 'edit-profile', component: EditProfilePageComponent },
-  { path: 'my-profile', component: MyProfilePageComponent },
-  { path: 'take-photo', component: TakePhotoPageComponent },
+
   {
     path: 'edit-profile',
     loadChildren: () =>
       import('./pages/edit-profile-page/edit-profile-page.module').then(
         (m) => m.EditProfilePageModule
       ),
-    // canActivate: [UnloggedUsersOnlyGuard],
+    // canActivate: [LoggedUsersOnlyGuard],
   },
+
   {
     path: 'my-profile',
     component: MyProfilePageComponent,
-    // canActivate: [UnloggedUsersOnlyGuard],
+    // canActivate: [LoggedUsersOnlyGuard],
+  },
+
+  {
+    path: 'take-photo',
+    loadChildren: () =>
+      import('./pages/take-photo-page/take-photo-page.module').then(
+        (m) => m.TakePhotoPageModule,
+      ),
+    // canActivate: [LoggedUsersOnlyGuard],
   },
 ];
 

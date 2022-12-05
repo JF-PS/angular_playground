@@ -16,10 +16,17 @@ import { ProfilePictureModule } from '../../components/profile-picture/profile-p
     CommonModule,
     TranslateModule,
     ReactiveFormsModule,
+    RouterModule.forChild([
+      {
+        path: '',
+        component: TakePhotoPageComponent,
+      },
+    ]),
+
     LayoutModule,
     WebcamModule,
+
     MatButtonModule,
-    RouterModule,
     ProfilePictureModule,
   ],
 
