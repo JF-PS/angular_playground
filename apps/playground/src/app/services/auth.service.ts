@@ -9,7 +9,7 @@ import { UserCloudService } from '.';
 @Injectable({
   providedIn: 'root',
 })
-class AuthService {
+export class AuthService {
   constructor(
     private readonly auth: AngularFireAuth,
     private readonly userCloud: UserCloudService,

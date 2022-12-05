@@ -23,6 +23,7 @@ import { MyProfilePageModule } from './pages/my-profile-page/my-profile-page.mod
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { TakePhotoPageModule } from './pages/take-photo-page/take-photo-page.module';
 import { EditProfilePageModule } from './pages/edit-profile-page/edit-profile-page.module';
+import { LoggedUsersOnlyGuard } from './services/logged-users-only.guard';
 
 const routes: Routes = [
   {
@@ -59,13 +60,13 @@ const routes: Routes = [
       import('./pages/edit-profile-page/edit-profile-page.module').then(
         (m) => m.EditProfilePageModule
       ),
-    // canActivate: [LoggedUsersOnlyGuard],
+    canActivate: [LoggedUsersOnlyGuard],
   },
 
   {
     path: 'my-profile',
     component: MyProfilePageComponent,
-    // canActivate: [LoggedUsersOnlyGuard],
+    canActivate: [LoggedUsersOnlyGuard],
   },
 
   {
@@ -74,7 +75,7 @@ const routes: Routes = [
       import('./pages/take-photo-page/take-photo-page.module').then(
         (m) => m.TakePhotoPageModule,
       ),
-    // canActivate: [LoggedUsersOnlyGuard],
+    canActivate: [LoggedUsersOnlyGuard],
   },
 ];
 
