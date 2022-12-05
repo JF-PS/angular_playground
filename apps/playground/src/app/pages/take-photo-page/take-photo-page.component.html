@@ -6,7 +6,7 @@
       (imageCapture)="handleSnapshot($event)"
       (width)="(width)"
     ></webcam>
-    <button mat-raised-button (click)="takePhoto()" id="photoButton">
+    <button mat-raised-button (click)="takePhoto()" class="take-picture-button">
       Prendre une photo
     </button>
 
@@ -14,7 +14,7 @@
       class="rack-photo-preview"
       [ngClass]="{ 'preview-hidden': !hasPreview() }"
     >
-      <img alt="A beautiful photo" #filePreview src="#" class="photo-preview" />
+      <img alt="Photo de profil" #filePreview src="#" class="photo-preview" />
       <!-- <project-majeur-profile-picture
       #filePreview
     ></project-majeur-profile-picture> -->
