@@ -27,7 +27,11 @@ import { EditProfilePageModule } from './pages/edit-profile-page/edit-profile-pa
 import { EditProfilePageComponent } from './pages/edit-profile-page/edit-profile-page.component';
 
 const routes: Routes = [
-  { path: '', component: HomePageComponent, pathMatch: 'full' },
+  {
+    path: '',
+    component: HomePageComponent,
+    pathMatch: 'full',
+  },
   { path: 'games', component: SearchByTagPageComponent },
   { path: 'games/:id', component: GamePageDetailsComponent },
   {
@@ -36,9 +40,9 @@ const routes: Routes = [
       import('./pages/login-page/login-page.module').then(
         (m) => m.LoginPageModule
       ),
-    // canActivate: [UnloggedUsersOnlyGuard],
+    //   // canActivate: [UnloggedUsersOnlyGuard],
   },
-  { path: 'edit-profile', component: EditProfilePageComponent },
+  // { path: 'edit-profile', component: EditProfilePageComponent },
   { path: 'my-profile', component: MyProfilePageComponent },
   { path: 'take-photo', component: TakePhotoPageComponent },
   {
@@ -80,7 +84,7 @@ const routes: Routes = [
     SearchByTagPageModule,
     GamePageDetailsModule,
     MyProfilePageModule,
-    EditProfilePageModule,
+    // EditProfilePageModule,
     TakePhotoPageModule,
   ],
 
