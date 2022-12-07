@@ -41,16 +41,16 @@ class GameCloudService {
     profileData: ProfileData | undefined,
     levelRating: number
   ): Observable<void> {
-    return this.userService.user$.pipe(
+    return this.userService.profile$.pipe(
       switchMap((user) => {
         if (user)
-          this.AddGameToUserLogin({ ...gameData, levelRating }, user.uid);
+          this.AddGameToUserLogin({ ...gameData, levelRating }, user.id);
         return from(
           this.afs
-            .doc<UserGameData>(`game/${gameData?.id}/users/${user?.uid}`)
+            .doc<UserGameData>(`game/${gameData?.id}/users/${user?.id}`)
             .set({
-              id: `${user?.uid}`,
-              login: `${user?.email}`,
+              id: `${user?.id}`,
+              login: `${user?.login}`,
               levelRating,
               // profileData?.login === undefined ? '' : profileData?.login
             })

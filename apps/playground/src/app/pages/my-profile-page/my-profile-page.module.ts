@@ -8,6 +8,7 @@ import { CardGameComponent } from '../../components/card-game/card-game.componen
 import { LayoutModule } from '../../components/layout/layout.module';
 import { MyProfilePageComponent } from './my-profile-page.component';
 import { MatIconModule } from '@angular/material/icon';
+import { ProfilePictureModule } from '../../components/profile-picture/profile-picture.module';
 
 @NgModule({
   declarations: [MyProfilePageComponent, CardGameComponent],
@@ -20,6 +21,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatCardModule,
     MatProgressBarModule,
     MatTabsModule,
+    ProfilePictureModule,
   ],
 
   exports: [MyProfilePageComponent],

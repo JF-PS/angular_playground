@@ -44,15 +44,17 @@ export class LoginPageComponent {
   };
 
   onSubmitRegister = (data: LoginData) => {
-    this.authService
-      .signup(data.email, data.password)
-      .pipe(take(1))
-      .subscribe((res) => {
-        if (res) {
-          history.back();
-        } else {
-          console.error('Errors occured');
-        }
-      });
+    if (data?.login) {
+      this.authService
+        .signup(data.email, data.password, data?.login)
+        .pipe(take(1))
+        .subscribe((res) => {
+          if (res) {
+            history.back();
+          } else {
+            console.error('Errors occured');
+          }
+        });
+    }
   };
 }

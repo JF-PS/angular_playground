@@ -19,7 +19,8 @@ export class LoginFormComponent {
 
   loginForm: FormGroup = this.formBuilder.group(
     {
-      email: new FormControl('test@test.com', [
+      login: new FormControl('login'),
+      email: new FormControl('email@email.com', [
         Validators.required,
         Validators.email,
       ]),
@@ -42,6 +43,10 @@ export class LoginFormComponent {
     }
   );
 
+  get login(): FormControl {
+    return this.loginForm.get('login')! as FormControl;
+  }
+
   get email(): FormControl {
     return this.loginForm.get('email')! as FormControl;
   }
@@ -61,8 +66,8 @@ export class LoginFormComponent {
   }
 
   onSubmit() {
-    const { email = '', password = '' } = this.loginForm.value;
-    this.submitLogin.emit(new LoginData(email, password));
+    const { email = '', password = '', login = null } = this.loginForm.value;
+    this.submitLogin.emit(new LoginData(email, password, login));
   }
 
   /* Called on each input in either password field */

@@ -25,10 +25,10 @@ class AuthService {
     );
   }
 
-  signup(email: string, password: string): Observable<boolean> {
+  signup(email: string, password: string, login: string): Observable<boolean> {
     return from(this.auth.createUserWithEmailAndPassword(email, password)).pipe(
       map((res: UserCredential) => {
-        if (res.user) this.userCloud.createUser().subscribe();
+        if (res.user) this.userCloud.createUser(login).subscribe();
         return !!res.user;
       }),
       catchError(() => of(false))

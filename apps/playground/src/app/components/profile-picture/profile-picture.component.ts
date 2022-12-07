@@ -9,13 +9,15 @@ const defaultProfilePicture =
   styleUrls: ['./profile-picture.component.css'],
 })
 export class ProfilePictureComponent implements OnInit {
-  @Input() playerId: string | null = null;
-  @Input() alt = 'profile';
+  @Input() playerId: string | undefined = undefined;
+  @Input() alt: string | undefined = 'profile';
   @Input() height = '60';
   @Input() width = '60';
+  @Input() isCircle = false;
   src = defaultProfilePicture;
 
   ngOnInit(): void {
+    console.log(this.playerId);
     if (this.playerId) {
       const calculateUrl = `https://firebasestorage.googleapis.com/v0/b/playground-prod-842c4.appspot.com/o/${this.playerId}.jpeg?alt=media`;
       this.src = calculateUrl;

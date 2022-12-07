@@ -1,9 +1,9 @@
-<div class="card-game" (click)="goToGame()">
-  <div>
+<div class="card-game">
+  <div (click)="goToGame()" class="hover">
     <img class="game-picture" [src]="game.picture" [alt]="game.title" />
   </div>
 
-  <div>
+  <div (click)="goToGame()" class="hover">
     <h3>{{ game.title }}</h3>
 
     <div
@@ -21,9 +21,13 @@
     </div>
   </div>
 
-  <div class="button-container" *ngIf="isEdition">
-    <button mat-fab color="primary" (click)="deleteGame()">
-      <mat-icon>delete</mat-icon>
-    </button>
-  </div>
+  <button
+    mat-fab
+    color="primary"
+    (click)="deleteGame()"
+    class="hover"
+    *ngIf="isEdition"
+  >
+    <mat-icon>delete</mat-icon>
+  </button>
 </div>
