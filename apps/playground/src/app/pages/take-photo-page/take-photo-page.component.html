@@ -6,18 +6,41 @@
       (imageCapture)="handleSnapshot($event)"
       (width)="(width)"
     ></webcam>
-    <button mat-raised-button (click)="takePhoto()" class="take-picture-button">
-      Prendre une photo
-    </button>
+
+    <div>
+      <button
+        mat-raised-button
+        (click)="takePhoto()"
+        class="take-picture-button"
+      >
+        Prendre une photo
+      </button>
+
+      &nbsp;
+      <input type="file" accept="image/jpeg" (change)="onSelectFile($event)" />
+    </div>
 
     <div
       class="rack-photo-preview"
       [ngClass]="{ 'preview-hidden': !hasPreview() }"
     >
-      <img alt="Photo de profil" #filePreview src="#" class="photo-preview" />
+      <img
+        alt="Photo de profil"
+        #filePreview
+        [src]="src"
+        class="photo-preview"
+      />
       <!-- <project-majeur-profile-picture
       #filePreview
     ></project-majeur-profile-picture> -->
     </div>
+
+    <button
+      mat-raised-button
+      (click)="SubmitPicture()"
+      class="take-picture-button"
+    >
+      Enregistrer
+    </button>
   </div>
 </project-majeur-layout>

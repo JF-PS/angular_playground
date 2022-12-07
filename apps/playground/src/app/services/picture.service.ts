@@ -16,6 +16,10 @@ class PictureService {
     const u8arr = this.toByteArray(base64Img);
     const filename = `${name}.jpeg`;
     const file: File = new File([u8arr], filename, { type: 'image/jpeg' });
+    return this.uploadFile(filename, file);
+  };
+
+  uploadFile = (filename: string, file: File): Observable<string> => {
     const fileRef = this.storage.ref(filename);
     return this.storage
       .upload(filename, file)
