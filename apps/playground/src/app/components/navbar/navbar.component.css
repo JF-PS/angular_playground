@@ -1,7 +1,7 @@
 .navbar {
   justify-content: space-between;
   align-items: center;
-  background-color: #d7b39b;
+  background-color: transparent;
   color: white;
   font-family: 'Montserrat';
   font-size: 18px;
@@ -22,4 +22,22 @@ mat-icon {
   font-size: 22px;
   width: 22px;
   height: 22px;
+}
+
+#title {
+  cursor: pointer;
+  transition-duration: 500ms;
+}
+
+mat-icon:hover {
+  width: '200px';
+}
+
+#back {
+  cursor: pointer;
+  transition-duration: 500ms;
+}
+#account {
+  cursor: pointer;
+  transition-duration: 500ms;
 }

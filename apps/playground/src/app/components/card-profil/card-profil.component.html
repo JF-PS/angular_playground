@@ -1,17 +1,24 @@
-<!-- <mat-card class="example-card">
-
-    <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>Grabitz</mat-card-title>
-        <p> > </p>
-    </mat-card-header>
-
-</mat-card> -->
-
 <div class="card__profil">
-    <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="" height="65px">
-    <h2>Grabiltz</h2>
-    <div class="arrow">
-        &#707;
+  <project-majeur-profile-picture
+    [playerId]="player.id"
+    [alt]="player.login"
+  ></project-majeur-profile-picture>
+
+  <div class="star-rating-wrapper">
+    <h3>{{ player.login }}</h3>
+
+    <div
+      class="star-rating-container star-rating-animation"
+      fxLayout="row"
+      fxLayoutAlign="start center"
+    >
+      <div *ngFor="let star of stars" [ngClass]="[star.class]">
+        <mat-icon
+          aria-hidden="false"
+          aria-label="star icon"
+          fontIcon="{{ star.icon }}"
+        ></mat-icon>
+      </div>
     </div>
+  </div>
 </div>

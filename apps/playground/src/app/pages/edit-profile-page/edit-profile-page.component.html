@@ -1,8 +1,39 @@
-<project-majeur-layout>
-  <div body *ngIf="currentUser">
-    <project-majeur-edit-form
-      [currentUser]="currentUser"
-      (submitProfile)="handleSubmit($event)"
-    ></project-majeur-edit-form>
+<div class="mobile">
+  <project-majeur-layout>
+    <div class="top-layout-mobile" top>
+      <img
+        src="assets/images/update-profile.svg"
+        alt="login-image"
+        loading="lazy"
+      />
+    </div>
+    <div body *ngIf="currentUser">
+      <project-majeur-edit-form
+        [currentUser]="currentUser"
+        (submitProfile)="handleSubmit($event)"
+      ></project-majeur-edit-form>
+    </div>
+  </project-majeur-layout>
+</div>
+
+<div class="desktop">
+  <project-majeur-navbar></project-majeur-navbar>
+  <div body *ngIf="currentUser" class="grid-desktop">
+    <div class="img-container">
+      <img
+        src="assets/images/update-profile.svg"
+        alt="login-image"
+        loading="lazy"
+        class="img-desktop"
+      />
+    </div>
+
+    <div class="form">
+      <project-majeur-edit-form
+        class="form-layout"
+        [currentUser]="currentUser"
+        (submitProfile)="handleSubmit($event)"
+      ></project-majeur-edit-form>
+    </div>
   </div>
-</project-majeur-layout>
+</div>

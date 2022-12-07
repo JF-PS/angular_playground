@@ -1,27 +1,99 @@
-<project-majeur-layout>
-  <div top>
-    <img class="game-img" src="{{ gameById?.thumbnail }}" alt="{{ gameById?.title }}" loading="lazy">
-  </div>
-
-  <div body>
-    <div class="game-details-infos">
-        <h2 class="title">{{ gameById?.title }}</h2>
-        <button mat-icon-button color="warn" aria-label="Heart icon" (click)="openDialog()">
-          <mat-icon>favorite</mat-icon>
-        </button>
+<div class="mobile">
+  <project-majeur-layout>
+    <div top>
+      <img
+        class="game-img-mobile"
+        src="{{ gameById?.thumbnail }}"
+        alt="{{ gameById?.title }}"
+        loading="lazy"
+      />
     </div>
 
-    <div class="game__details-infos-tab">
-      <mat-tab-group class="label">
-        <mat-tab class="label" label="Description">
+    <div body>
+      <div class="game-details-infos">
+        <h2 class="title">{{ gameById?.title }}</h2>
+
+        <button
+          *ngIf="!isFavorite"
+          mat-raised-button
+          class="addGame"
+          (click)="openAddFavoriteModal()"
+        >
+          Ajouter
+        </button>
+
+        <button
+          *ngIf="isFavorite"
+          mat-raised-button
+          class="removeGame"
+          (click)="openRemoveFavoriteModal()"
+        >
+          Retirer
+        </button>
+      </div>
+
+      <mat-tab-group>
+        <mat-tab label="Description">
           <p class="description">{{ gameById?.description }}</p>
         </mat-tab>
-        <mat-tab class="label" label="Joueurs">
-          <p>Player(s) cards here !</p>
+        <mat-tab label="Joueurs">
+          <p *ngIf="!playerList.length">Aucun joueur trouver</p>
+
+          <div class="players-cards" *ngFor="let player of playerList">
+            <project-majeur-card-profil [player]="player">
+            </project-majeur-card-profil>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </project-majeur-layout>
+</div>
+
+<div class="desktop">
+  <project-majeur-navbar></project-majeur-navbar>
+  <div class="grid-desktop">
+    <img
+      class="game-img-desktop"
+      src="{{ gameById?.thumbnail }}"
+      alt="{{ gameById?.title }}"
+      loading="lazy"
+    />
+    <div class="layout">
+      <div class="game-details-infos">
+        <h2 class="title">{{ gameById?.title }}</h2>
+
+        <button
+          *ngIf="!isFavorite"
+          mat-raised-button
+          class="addGame"
+          (click)="openAddFavoriteModal()"
+        >
+          Ajouter
+        </button>
+
+        <button
+          *ngIf="isFavorite"
+          mat-raised-button
+          class="removeGame"
+          (click)="openRemoveFavoriteModal()"
+        >
+          Retirer
+        </button>
+      </div>
+
+      <mat-tab-group>
+        <mat-tab label="Description">
+          <p class="description">{{ gameById?.description }}</p>
+        </mat-tab>
+        <mat-tab label="Joueurs">
+          <p *ngIf="!playerList.length">Aucun joueur trouver</p>
+
+          <div class="players-cards" *ngFor="let player of playerList">
+            <project-majeur-card-profil [player]="player">
+            </project-majeur-card-profil>
+          </div>
         </mat-tab>
       </mat-tab-group>
     </div>
   </div>
-</project-majeur-layout>
-
-
+</div>

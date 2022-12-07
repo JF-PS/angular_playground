@@ -1,0 +1,15 @@
+<div class="dialog">
+  <p class="content">Êtes vous sûr de vouloir retirer ce jeux de votre liste ?</p>
+  <div mat-dialog-actions class="actions-dialog">
+    <button mat-button mat-dialog-close class="cancel">Annuler</button>
+    <button
+      mat-button
+      mat-dialog-close
+      cdkFocusInitial
+      class="valid"
+      (click)="SubmitRemoveFavorite()"
+    >
+      Confirmer
+    </button>
+  </div>
+</div>

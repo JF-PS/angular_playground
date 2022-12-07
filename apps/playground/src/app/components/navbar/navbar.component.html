@@ -1,15 +1,17 @@
 <mat-toolbar class="navbar">
-  <div (click)="goBack()" class="button-icon">
+  <div (click)="goBack()" class="button-icon" id="back">
     <mat-icon>arrow_back</mat-icon>
   </div>
-  <div>
-    <span>{{ 'header.title' | translate }}</span>
+  <div id="title">
+    <span routerLink="/">{{ 'header.title' | translate }}</span>
   </div>
-  <div [matMenuTriggerFor]="menu" class="button-icon">
+  <div [matMenuTriggerFor]="menu" class="button-icon" id="account">
     <mat-icon> account_circle </mat-icon>
     <mat-menu #menu="matMenu">
       <button mat-menu-item routerLink="/login">Connexion / Déconnexion</button>
-      <button mat-menu-item routerLink="/edit-profile">Modifier mon profil</button>
+      <button mat-menu-item routerLink="/edit-profile">
+        Modifier mon profil
+      </button>
       <button mat-menu-item routerLink="/my-profile">Profil</button>
     </mat-menu>
   </div>

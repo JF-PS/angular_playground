@@ -3,22 +3,21 @@
   height: fit-content;
   background-color: white;
   border-radius: 50px 50px 0px 0px;
-  padding-bottom: 32px;
+  display: flex;
+  flex-direction: column;
 }
 
 .btnSeeMore {
-  margin: 8px auto;
+  margin: 32px auto 0px auto;
   height: 40px;
   background-color: #cad2c5;
   color: #354f52;
   width: 180px;
   border-radius: 8px;
-  justify-content: center;
-  align-items: center;
-  display: flex;
   font-size: 14px;
   font-family: 'Montserrat';
   border: none;
+  font-weight: 500;
 }
 
 button {

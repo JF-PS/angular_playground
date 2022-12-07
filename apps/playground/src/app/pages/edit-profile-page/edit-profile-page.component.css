@@ -1,0 +1,68 @@
+/* both */
+.svg {
+  width: 90%;
+  height: 30%;
+  justify-self: center;
+  margin: 8px 16px 40px 16px;
+}
+
+.form-layout {
+  width: 100%;
+  padding: 24px;
+}
+
+/* desktop */
+.desktop {
+  height: 100%;
+}
+
+.grid-desktop {
+  display: grid;
+  grid-template-columns: 40% 1fr;
+  height: 100%;
+}
+
+/* mobile */
+.top-layout-mobile {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+  height: 20%;
+}
+
+.form {
+  background-color: white;
+  border-radius: 50px 0px 0px 50px;
+  display: flex;
+  justify-content: center;
+  height: 88%;
+  align-items: center;
+  width: 100%;
+}
+
+.img-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 88%;
+}
+
+.img-desktop {
+  height: 100%;
+  width: 90%;
+
+}
+/* responsive */
+.mobile {
+  display: none;
+}
+
+@media only screen and (max-device-width: 480px) {
+  .mobile {
+    display: block;
+    height: 100%;
+  }
+  .desktop {
+    display: none;
+  }
+}

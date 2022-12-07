@@ -8,7 +8,7 @@
         loading="lazy"
       />
     </div>
-    <div body class="body-layout">
+    <div body>
       <div id="loginContainer">
         <h3>
           {{
@@ -22,26 +22,6 @@
           [isLoginForm]="isLoginForm"
           (submitLogin)="handleSubmit($event)"
         ></project-majeur-login-form>
-
-        <mat-button-toggle-group
-          #buttonGroup="matButtonToggleGroup"
-          [ngModel]="myConnectChoice"
-          (ngModelChange)="onChange($event)"
-        >
-          <mat-button-toggle
-            value="login"
-            [checked]="myConnectChoice === 'login'"
-          >
-            Se connecter
-          </mat-button-toggle>
-          <mat-button-toggle
-            value="register"
-            [checked]="myConnectChoice === 'register'"
-          >
-            Créer un compte
-          </mat-button-toggle>
-        </mat-button-toggle-group>
-
         <div class="link">
           <div class="noAccountYet" *ngIf="isLoginForm">
             <p class="subInfo">Pas encore de compte ?</p>
@@ -50,20 +30,23 @@
               mat-button
               color="primary"
               class="isConnectBtn"
+              (click)="onChange('register')"
             >
               Créer un compte
             </button>
           </div>
-          <button
-            *ngIf="!isLoginForm"
-            value="register"
-            mat-button
-            color="primary"
-            routerLink=""
-            class="isConnectBtn"
-          >
-            Se connecter
-          </button>
+          <div class="noAccountYet" *ngIf="!isLoginForm">
+            <p class="subInfo">Déjà un compte ?</p>
+            <button
+              value="register"
+              mat-button
+              color="primary"
+              class="isConnectBtn"
+              (click)="onChange('login')"
+            >
+              Se connecter
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -71,7 +54,7 @@
 </div>
 
 <div class="desktop">
-  <!-- <project-majeur-navbar></project-majeur-navbar> -->
+  <project-majeur-navbar></project-majeur-navbar>
   <div class="grid-desktop">
     <img
       class="svg"
@@ -107,16 +90,18 @@
               Créer un compte
             </button>
           </div>
-          <button
-            *ngIf="!isLoginForm"
-            value="register"
-            mat-button
-            color="primary"
-            class="isConnectBtn"
-            (click)="onChange('login')"
-          >
-            Se connecter
-          </button>
+          <div class="noAccountYet" *ngIf="!isLoginForm">
+            <p class="subInfo">Déjà un compte ?</p>
+            <button
+              value="register"
+              mat-button
+              color="primary"
+              class="isConnectBtn"
+              (click)="onChange('login')"
+            >
+              Se connecter
+            </button>
+          </div>
         </div>
       </div>
     </div>

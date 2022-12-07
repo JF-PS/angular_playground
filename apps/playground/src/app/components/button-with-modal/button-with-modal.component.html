@@ -21,8 +21,14 @@
       </div>
     </div>
     <div class="flex__btn">
-      <span id="levelCount">I'm beginner</span>
-      <button mat-button (click)="closeDialog()">OK</button>
+      <span id="levelCount">{{ currentLevel }}</span>
+      <button
+        mat-button
+        (click)="SubmitLevelRating()"
+        [disabled]="!selectedRating"
+      >
+        OK
+      </button>
     </div>
   </div>
 </div>

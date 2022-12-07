@@ -1,12 +1,24 @@
 <div id="loginContainer">
-  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-    <mat-radio-group aria-label="Select an option" formControlName="playStyle">
+  <h3>Modifier mon profil</h3>
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="input-section">
+    <button
+      mat-raised-button
+      class="outline-button"
+      routerLink="/take-photo"
+    >
+      <div routerLink="/take-photo"class="content-camera-button">
+        <mat-icon class="icon-button">photo_camera</mat-icon>
+        <span>Changer ma photo</span>
+      </div>
+    </button>
+
+    <mat-radio-group aria-label="Select an option" formControlName="playStyle" class="radio">
       <mat-radio-button value="chill">Chill</mat-radio-button>
       <mat-radio-button value="competitive">Competitive</mat-radio-button>
     </mat-radio-group>
 
-    <mat-form-field class="example-full-width">
-      <mat-label>Playstyle</mat-label>
+    <mat-form-field appearance="outline">
+      <mat-label>Style de jeu</mat-label>
       <textarea
         matInput
         placeholder="Ex. It makes me feel..."
@@ -14,8 +26,8 @@
       ></textarea>
     </mat-form-field>
 
-    <mat-form-field appearance="fill">
-      <mat-label>My Age</mat-label>
+    <mat-form-field appearance="outline">
+      <mat-label>Âge</mat-label>
       <select matNativeControl formControlName="age">
         <option value="10" selected>10</option>
         <option value="20">20</option>
@@ -24,8 +36,8 @@
       </select>
     </mat-form-field>
 
-    <div>
-      <button mat-raised-button color="primary" type="submit">save</button>
-    </div>
+    <button mat-raised-button class="save-btn" type="submit">
+      Sauvegarder
+    </button>
   </form>
 </div>

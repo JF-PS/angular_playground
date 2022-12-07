@@ -1,0 +1,26 @@
+#container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#webcam {
+  border: 5px solid #cad2c5;
+  border-radius: 8px;
+}
+
+.mirrored {
+  width: 40px !important;
+  height: 40px !important;
+}
+
+.mat-raised-button {
+  color: #354f52;
+  background-color: #cad2c5;
+  align-self: center;
+  cursor: pointer;
+  font-family: 'Montserrat';
+  margin: 16px 0px;
+}

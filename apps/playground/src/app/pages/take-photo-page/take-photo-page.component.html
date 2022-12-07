@@ -1,1 +1,23 @@
-<p>take-photo-page works!</p>
+<project-majeur-layout>
+  <div id="container">
+    <webcam
+      id="webcam"
+      [trigger]="trigger$"
+      (imageCapture)="handleSnapshot($event)"
+      (width)="(width)"
+    ></webcam>
+    <button mat-raised-button (click)="takePhoto()" class="take-picture-button">
+      Prendre une photo
+    </button>
+
+    <div
+      class="rack-photo-preview"
+      [ngClass]="{ 'preview-hidden': !hasPreview() }"
+    >
+      <img alt="Photo de profil" #filePreview src="#" class="photo-preview" />
+      <!-- <project-majeur-profile-picture
+      #filePreview
+    ></project-majeur-profile-picture> -->
+    </div>
+  </div>
+</project-majeur-layout>

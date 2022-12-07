@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+
 import { ProfileData } from '../../model';
 
 @Component({
@@ -22,7 +23,17 @@ export class EditFormComponent implements OnInit {
 
   onSubmit() {
     const { playStyle, description, age } = this.profileForm.value;
-    this.submitProfile.emit(new ProfileData('', playStyle, description, age));
+    if (this.currentUser?.id) {
+      this.submitProfile.emit(
+        new ProfileData(
+          this.currentUser?.id,
+          this.currentUser?.login,
+          playStyle,
+          description,
+          age
+        )
+      );
+    }
   }
 
   ngOnInit(): void {

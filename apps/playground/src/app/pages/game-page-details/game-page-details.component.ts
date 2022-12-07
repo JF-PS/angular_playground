@@ -6,8 +6,10 @@ import { GameService, GameCloudService } from '../../services';
 import { GameType } from '../../types';
 import { take } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
-import { ButtonWithModalComponent } from '../../components/button-with-modal/button-with-modal.component';
+import { AddFavoriteModalComponent } from '../../components/add-favorite-modal/add-favorite-modal.component';
+import { RemoveFavoriteModalComponent } from '../../components/remove-favorite-modal/remove-favorite-modal.component';
 import { UserGameData } from '../../model';
+import { UserService } from '../../services';
 
 @Component({
   selector: 'project-majeur-game-page-details',
@@ -18,13 +20,21 @@ export class GamePageDetailsComponent implements OnInit {
   id: number | null = null;
   gameById: GameType | null = null;
   playerList: UserGameData[] = [];
+  isFavorite = false;
+  isUserLoged = false;
 
   constructor(
     private route: ActivatedRoute,
     private ts: GameService,
     public dialog: MatDialog,
-    private gameCloud: GameCloudService
+    private gameCloud: GameCloudService,
+    private readonly userService: UserService
   ) {}
+
+  getPseudoByEmail(email: string) {
+    const i = email.indexOf('@');
+    return email.substring(0, i);
+  }
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
@@ -32,20 +42,39 @@ export class GamePageDetailsComponent implements OnInit {
       this.id = id;
       this.getGameById(id);
       this.gameCloud.getGamePlayers(id).subscribe((players) => {
-        console.log(players);
         this.playerList = players;
+        this.userService.user$.subscribe((user) => {
+          if (user) {
+            this.isUserLoged = true;
+            const userLoginIsPlayer = players.filter(
+              (player) => player.id === user.uid
+            )[0];
+            if (userLoginIsPlayer) this.isFavorite = true;
+          }
+        });
       });
     });
   }
 
-  openDialog() {
-    const dialogRef = this.dialog.open(ButtonWithModalComponent, {
+  openAddFavoriteModal() {
+    const dialogRef = this.dialog.open(AddFavoriteModalComponent, {
       width: '340px',
       data: 'right click',
     });
 
     dialogRef.afterClosed().subscribe((userRatingGameLevel) => {
-      this.addGameToFavorite(userRatingGameLevel);
+      if (userRatingGameLevel) this.addGameToFavorite(userRatingGameLevel);
+    });
+  }
+
+  openRemoveFavoriteModal() {
+    const dialogRef = this.dialog.open(RemoveFavoriteModalComponent, {
+      width: '340px',
+      data: 'right click',
+    });
+
+    dialogRef.afterClosed().subscribe((isComfirmAction) => {
+      if (isComfirmAction) this.removeGameToFavorite();
     });
   }
 
@@ -58,20 +87,28 @@ export class GamePageDetailsComponent implements OnInit {
   addGameToFavorite = (userRatingGameLevel: number) => {
     if (this.gameById?.id) {
       this.gameCloud
-        .createOrUpdateGame({
-          id: this.gameById?.id,
-          picture: this.gameById?.thumbnail,
-          title: this.gameById?.title,
-        })
+        .createOrUpdateGame(
+          {
+            id: this.gameById?.id,
+            picture: this.gameById?.thumbnail,
+            title: this.gameById?.title,
+          },
+          userRatingGameLevel
+        )
         .pipe(take(1))
         .subscribe(() => {
-          // if (res) {
-          //   console.log(res);
-          //   history.back();
-          // } else {
-          //   console.error('Errors occured');
-          // }
+          this.isFavorite = true;
         });
     }
+  };
+
+  removeGameToFavorite = () => {
+    if (this.id)
+      this.gameCloud
+        .removeFavoriteUserGame(this.id)
+        .pipe(take(1))
+        .subscribe(() => {
+          this.isFavorite = false;
+        });
   };
 }
