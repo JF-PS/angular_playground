@@ -43,17 +43,17 @@ export class MyProfilePageComponent implements OnInit {
 
     this.route.params.subscribe((params) => {
       const { id = null } = params;
-      if (!id) {
-        this.userService.profile$.subscribe((userLoged) => {
+      this.userService.profile$.subscribe((userLoged) => {
+        if (!id || userLoged?.id === id) {
           this.isUserLoged = true;
           this.currentUser = userLoged;
-        });
-      } else {
-        this.userCloudService.getUser(id).subscribe((user) => {
-          this.isUserLoged = false;
-          this.currentUser = user;
-        });
-      }
+        } else {
+          this.userCloudService.getUser(id).subscribe((user) => {
+            this.isUserLoged = false;
+            this.currentUser = user;
+          });
+        }
+      });
     });
   }
 
