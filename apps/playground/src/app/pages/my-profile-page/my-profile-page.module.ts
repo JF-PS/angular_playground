@@ -4,28 +4,24 @@ import { MatCardModule } from '@angular/material/card';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { TranslateModule } from '@ngx-translate/core';
-
+import { CardGameComponent } from '../../components/card-game/card-game.component';
 import { LayoutModule } from '../../components/layout/layout.module';
 import { MyProfilePageComponent } from './my-profile-page.component';
-
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
-  declarations: [
-    MyProfilePageComponent,
-  ],
+  declarations: [MyProfilePageComponent, CardGameComponent],
 
   imports: [
     CommonModule,
     TranslateModule,
-
+    MatIconModule,
     LayoutModule,
     MatCardModule,
     MatProgressBarModule,
     MatTabsModule,
   ],
 
-  exports: [
-    MyProfilePageComponent,
-  ]
+  exports: [MyProfilePageComponent],
 })
 export class MyProfilePageModule {}

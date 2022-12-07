@@ -39,7 +39,7 @@
         <mat-tab label="Joueurs">
           <p *ngIf="!playerList.length">Aucun joueur trouver</p>
 
-          <div class="players-cards" *ngFor="let player of playerList">
+          <div *ngFor="let player of playerList">
             <project-majeur-card-profil [player]="player">
             </project-majeur-card-profil>
           </div>
@@ -88,7 +88,7 @@
         <mat-tab label="Joueurs">
           <p *ngIf="!playerList.length">Aucun joueur trouver</p>
 
-          <div class="players-cards" *ngFor="let player of playerList">
+          <div *ngFor="let player of playerList">
             <project-majeur-card-profil [player]="player">
             </project-majeur-card-profil>
           </div>

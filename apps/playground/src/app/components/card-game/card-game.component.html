@@ -1,11 +1,10 @@
-<div class="card__profil" (click)="goToProfileUser()">
-  <project-majeur-profile-picture
-    [playerId]="player.id"
-    [alt]="player.login"
-  ></project-majeur-profile-picture>
+<div class="card-game" (click)="goToGame()">
+  <div>
+    <img class="game-picture" [src]="game.picture" [alt]="game.title" />
+  </div>
 
-  <div class="star-rating-wrapper">
-    <h3>{{ player.login }}</h3>
+  <div>
+    <h3>{{ game.title }}</h3>
 
     <div
       class="star-rating-container star-rating-animation"
@@ -20,5 +19,11 @@
         ></mat-icon>
       </div>
     </div>
+  </div>
+
+  <div class="button-container" *ngIf="isEdition">
+    <button mat-fab color="primary" (click)="deleteGame()">
+      <mat-icon>delete</mat-icon>
+    </button>
   </div>
 </div>

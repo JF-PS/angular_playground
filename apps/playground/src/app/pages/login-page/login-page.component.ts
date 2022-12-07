@@ -36,7 +36,6 @@ export class LoginPageComponent {
       .pipe(take(1))
       .subscribe((res) => {
         if (res) {
-          console.log(res);
           history.back();
         } else {
           console.error('Errors occured');
@@ -50,7 +49,6 @@ export class LoginPageComponent {
       .pipe(take(1))
       .subscribe((res) => {
         if (res) {
-          console.log(res);
           history.back();
         } else {
           console.error('Errors occured');

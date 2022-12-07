@@ -10,6 +10,7 @@ import { AddFavoriteModalComponent } from '../../components/add-favorite-modal/a
 import { RemoveFavoriteModalComponent } from '../../components/remove-favorite-modal/remove-favorite-modal.component';
 import { UserGameData } from '../../model';
 import { UserService } from '../../services';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'project-majeur-game-page-details',
@@ -28,7 +29,8 @@ export class GamePageDetailsComponent implements OnInit {
     private ts: GameService,
     public dialog: MatDialog,
     private gameCloud: GameCloudService,
-    private readonly userService: UserService
+    private readonly userService: UserService,
+    private toastr: ToastrService
   ) {}
 
   getPseudoByEmail(email: string) {
@@ -98,6 +100,9 @@ export class GamePageDetailsComponent implements OnInit {
         .pipe(take(1))
         .subscribe(() => {
           this.isFavorite = true;
+          this.toastr.success(
+            `Ajout de ${this.gameById?.title} à la liste de vos favoris`
+          );
         });
     }
   };
@@ -109,6 +114,9 @@ export class GamePageDetailsComponent implements OnInit {
         .pipe(take(1))
         .subscribe(() => {
           this.isFavorite = false;
+          this.toastr.success(
+            `Suppression de ${this.gameById?.title} de vos Favoris comfirmé`
+          );
         });
   };
 }

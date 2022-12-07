@@ -13,7 +13,6 @@ export class TagsComponent {
   constructor(private router: Router) {}
 
   goGameByTag(category: string = '') {
-    console.log(category);
     this.router.navigate(['/games'], { queryParams: { category } });
   }
 }

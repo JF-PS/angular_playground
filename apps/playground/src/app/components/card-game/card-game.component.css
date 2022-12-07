@@ -1,29 +1,32 @@
-.card__profil {
-  max-width: 100%;
+.game-picture {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.button-container {
+  border-radius: 50%;
+}
+
+.card-game {
+  width: 95%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  column-gap: 4rem;
-  padding: 0 1rem 0;
-  overflow: hidden;
-  margin-bottom: 16px;
-  margin-top: 12px;
+  border: 1px solid black;
+  margin-top: 16px;
   background-color: #d6e2cf;
   border: none;
   border-radius: 16px;
   box-shadow: 0 8px 8px rgba(152, 152, 152, 0.2);
+  padding-right: 10px;
+  padding-left: 10px;
+  overflow: hidden !important;
 }
 
-.card__profil:hover {
+.card-game:hover {
   cursor: pointer;
-}
-
-.card__profil img {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin: 8px 0;
 }
 
 h3 {
@@ -69,14 +72,6 @@ h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.star-rating-wrapper {
-  display: flex;
-  flex-direction: column;
-  row-gap: 1rem;
-  flex: 1;
-  flex-wrap: nowrap;
 }
 
 .star-rating-container {

@@ -25,6 +25,7 @@ import { TakePhotoPageModule } from './pages/take-photo-page/take-photo-page.mod
 import { TakePhotoPageComponent } from './pages/take-photo-page/take-photo-page.component';
 import { EditProfilePageModule } from './pages/edit-profile-page/edit-profile-page.module';
 import { EditProfilePageComponent } from './pages/edit-profile-page/edit-profile-page.component';
+import { ToastrModule } from 'ngx-toastr';
 
 const routes: Routes = [
   {
@@ -44,6 +45,7 @@ const routes: Routes = [
   },
   // { path: 'edit-profile', component: EditProfilePageComponent },
   { path: 'my-profile', component: MyProfilePageComponent },
+  { path: 'profile/:id', component: MyProfilePageComponent },
   { path: 'take-photo', component: TakePhotoPageComponent },
   {
     path: 'edit-profile',
@@ -86,6 +88,7 @@ const routes: Routes = [
     MyProfilePageModule,
     // EditProfilePageModule,
     TakePhotoPageModule,
+    ToastrModule.forRoot(),
   ],
 
   declarations: [AppComponent],

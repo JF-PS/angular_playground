@@ -15,7 +15,6 @@ export class TechnoService {
   createTechno = (techno: TechnoType) => {
     const newTechno = { id: uniqueId(), ...techno, createdAt: Date.now() };
     this.technos = [newTechno, ...this.technos];
-    console.log(this.technos);
   };
 
   getTechno = () => {

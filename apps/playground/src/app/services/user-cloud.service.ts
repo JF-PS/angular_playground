@@ -48,6 +48,10 @@ class UserCloudService {
       })
     );
   }
+
+  getUser(userId: string): Observable<ProfileData | undefined> {
+    return this.afs.doc<ProfileData>(`user/${userId}`).valueChanges();
+  }
 }
 
 export default UserCloudService;
