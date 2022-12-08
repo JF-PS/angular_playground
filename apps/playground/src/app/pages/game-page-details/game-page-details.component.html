@@ -13,23 +13,25 @@
       <div class="game-details-infos">
         <h2 class="title">{{ gameById?.title }}</h2>
 
-        <button
-          *ngIf="!isFavorite"
-          mat-raised-button
-          class="addGame"
-          (click)="openAddFavoriteModal()"
-        >
-          Ajouter
-        </button>
+        <div *ngIf="isUserLoged">
+          <button
+            *ngIf="!isFavorite"
+            mat-raised-button
+            class="addGame"
+            (click)="openAddFavoriteModal()"
+          >
+            Ajouter
+          </button>
 
-        <button
-          *ngIf="isFavorite"
-          mat-raised-button
-          class="removeGame"
-          (click)="openRemoveFavoriteModal()"
-        >
-          Retirer
-        </button>
+          <button
+            *ngIf="isFavorite"
+            mat-raised-button
+            class="removeGame"
+            (click)="openRemoveFavoriteModal()"
+          >
+            Retirer
+          </button>
+        </div>
       </div>
 
       <mat-tab-group>
@@ -62,23 +64,25 @@
       <div class="game-details-infos">
         <h2 class="title">{{ gameById?.title }}</h2>
 
-        <button
-          *ngIf="!isFavorite"
-          mat-raised-button
-          class="addGame"
-          (click)="openAddFavoriteModal()"
-        >
-          Ajouter
-        </button>
+        <div *ngIf="isUserLoged">
+          <button
+            *ngIf="!isFavorite"
+            mat-raised-button
+            class="addGame"
+            (click)="openAddFavoriteModal()"
+          >
+            Ajouter
+          </button>
 
-        <button
-          *ngIf="isFavorite"
-          mat-raised-button
-          class="removeGame"
-          (click)="openRemoveFavoriteModal()"
-        >
-          Retirer
-        </button>
+          <button
+            *ngIf="isFavorite"
+            mat-raised-button
+            class="removeGame"
+            (click)="openRemoveFavoriteModal()"
+          >
+            Retirer
+          </button>
+        </div>
       </div>
 
       <mat-tab-group>

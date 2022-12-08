@@ -21,8 +21,6 @@ import { SearchByTagPageModule } from './pages/search-by-tag-page/search-by-tag-
 import { GamePageDetailsModule } from './pages/game-page-details/game-page-details.module';
 import { MyProfilePageModule } from './pages/my-profile-page/my-profile-page.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { TakePhotoPageModule } from './pages/take-photo-page/take-photo-page.module';
-import { TakePhotoPageComponent } from './pages/take-photo-page/take-photo-page.component';
 import { ToastrModule } from 'ngx-toastr';
 import { LoggedUsers } from './services/unlogged-users.service';
 
@@ -40,17 +38,17 @@ const routes: Routes = [
       import('./pages/login-page/login-page.module').then(
         (m) => m.LoginPageModule
       ),
-    // canActivate: [LoggedUsers],
+    canActivate: [LoggedUsers],
   },
   {
     path: 'my-profile',
     component: MyProfilePageComponent,
-    // canActivate: [LoggedUsers],
+    canActivate: [LoggedUsers],
   },
   {
     path: 'profile/:id',
     component: MyProfilePageComponent,
-    // canActivate: [LoggedUsers],
+    canActivate: [LoggedUsers],
   },
   {
     path: 'take-photo',
@@ -58,7 +56,7 @@ const routes: Routes = [
       import('./pages/take-photo-page/take-photo-page.module').then(
         (m) => m.TakePhotoPageModule
       ),
-    // canActivate: [LoggedUsers],
+    canActivate: [LoggedUsers],
   },
   {
     path: 'edit-profile',
@@ -66,7 +64,7 @@ const routes: Routes = [
       import('./pages/edit-profile-page/edit-profile-page.module').then(
         (m) => m.EditProfilePageModule
       ),
-    // canActivate: [LoggedUsers],
+    canActivate: [LoggedUsers],
   },
 ];
 

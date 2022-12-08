@@ -16,7 +16,6 @@ export class ProfilePictureComponent implements OnInit {
   src = defaultProfilePicture;
 
   ngOnInit(): void {
-    console.log(this.playerId);
     if (this.playerId) {
       const calculateUrl = `https://firebasestorage.googleapis.com/v0/b/playground-prod-842c4.appspot.com/o/${this.playerId}.jpeg?alt=media`;
       this.src = calculateUrl;

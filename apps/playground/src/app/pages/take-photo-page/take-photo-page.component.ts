@@ -46,11 +46,6 @@ export class TakePhotoPageComponent implements OnInit {
     this.trigger$.next();
   };
 
-  hasPreview() {
-    const preview = this.filePreview?.nativeElement?.src;
-    return preview && !preview.includes('#');
-  }
-
   onSelectFile = ($event: any) => {
     const currentFile = $event.target.files[0];
     const reader = new FileReader();

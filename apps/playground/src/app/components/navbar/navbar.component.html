@@ -8,11 +8,18 @@
   <div [matMenuTriggerFor]="menu" class="button-icon" id="account">
     <mat-icon> account_circle </mat-icon>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item routerLink="/login">Connexion / Déconnexion</button>
-      <button mat-menu-item routerLink="/edit-profile">
+      <button *ngIf="!isUserLoged" mat-menu-item routerLink="/login">
+        Connexion
+      </button>
+      <button *ngIf="isUserLoged" mat-menu-item (click)="logout()">
+        Déconnexion
+      </button>
+      <button *ngIf="isUserLoged" mat-menu-item routerLink="/edit-profile">
         Modifier mon profil
       </button>
-      <button mat-menu-item routerLink="/my-profile">Profil</button>
+      <button *ngIf="isUserLoged" mat-menu-item routerLink="/my-profile">
+        Profil
+      </button>
     </mat-menu>
   </div>
 </mat-toolbar>

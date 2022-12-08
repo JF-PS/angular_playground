@@ -47,6 +47,7 @@ export class GamePageDetailsComponent implements OnInit {
         this.playerList = players;
         this.userService.user$.subscribe((user) => {
           if (user) {
+            console.log(user);
             this.isUserLoged = true;
             const userLoginIsPlayer = players.filter(
               (player) => player.id === user.uid
@@ -55,29 +56,34 @@ export class GamePageDetailsComponent implements OnInit {
           }
         });
       });
+      console.log(this.isUserLoged);
     });
   }
 
   openAddFavoriteModal() {
-    const dialogRef = this.dialog.open(AddFavoriteModalComponent, {
-      width: '340px',
-      data: 'right click',
-    });
+    if (this.isUserLoged) {
+      const dialogRef = this.dialog.open(AddFavoriteModalComponent, {
+        width: '340px',
+        data: 'right click',
+      });
 
-    dialogRef.afterClosed().subscribe((userRatingGameLevel) => {
-      if (userRatingGameLevel) this.addGameToFavorite(userRatingGameLevel);
-    });
+      dialogRef.afterClosed().subscribe((userRatingGameLevel) => {
+        if (userRatingGameLevel) this.addGameToFavorite(userRatingGameLevel);
+      });
+    }
   }
 
   openRemoveFavoriteModal() {
-    const dialogRef = this.dialog.open(RemoveFavoriteModalComponent, {
-      width: '340px',
-      data: 'right click',
-    });
+    if (this.isUserLoged) {
+      const dialogRef = this.dialog.open(RemoveFavoriteModalComponent, {
+        width: '340px',
+        data: 'right click',
+      });
 
-    dialogRef.afterClosed().subscribe((isComfirmAction) => {
-      if (isComfirmAction) this.removeGameToFavorite();
-    });
+      dialogRef.afterClosed().subscribe((isComfirmAction) => {
+        if (isComfirmAction) this.removeGameToFavorite();
+      });
+    }
   }
 
   getGameById = (id: string) => {
@@ -87,28 +93,30 @@ export class GamePageDetailsComponent implements OnInit {
   };
 
   addGameToFavorite = (userRatingGameLevel: number) => {
-    if (this.gameById?.id) {
-      this.gameCloud
-        .createOrUpdateGame(
-          {
-            id: this.gameById?.id,
-            picture: this.gameById?.thumbnail,
-            title: this.gameById?.title,
-          },
-          userRatingGameLevel
-        )
-        .pipe(take(1))
-        .subscribe(() => {
-          this.isFavorite = true;
-          this.toastr.success(
-            `Ajout de ${this.gameById?.title} à la liste de vos favoris`
-          );
-        });
+    if (this.isUserLoged) {
+      if (this.gameById?.id) {
+        this.gameCloud
+          .createOrUpdateGame(
+            {
+              id: this.gameById?.id,
+              picture: this.gameById?.thumbnail,
+              title: this.gameById?.title,
+            },
+            userRatingGameLevel
+          )
+          .pipe(take(1))
+          .subscribe(() => {
+            this.isFavorite = true;
+            this.toastr.success(
+              `Ajout de ${this.gameById?.title} à la liste de vos favoris`
+            );
+          });
+      }
     }
   };
 
   removeGameToFavorite = () => {
-    if (this.id)
+    if (this.id && this.isUserLoged) {
       this.gameCloud
         .removeFavoriteUserGame(this.id)
         .pipe(take(1))
@@ -118,5 +126,6 @@ export class GamePageDetailsComponent implements OnInit {
             `Suppression de ${this.gameById?.title} de vos Favoris comfirmé`
           );
         });
+    }
   };
 }
