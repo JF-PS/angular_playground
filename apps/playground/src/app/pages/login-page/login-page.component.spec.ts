@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { TranslateService } from '@ngx-translate/core/';
+import { TranslateModule, TranslateService } from '@ngx-translate/core/';
 import { of } from 'rxjs/internal/observable/of';
 import LoginData from '../../model/login-data';
 import AuthService from '../../services/auth.service';
@@ -9,16 +9,14 @@ describe('LoginPageComponent', () => {
   let component: LoginPageComponent;
   let fixture: ComponentFixture<LoginPageComponent>;
   let authService: AuthService;
-  let translate: TranslateService;
 
   beforeEach(async () => {
     authService = {} as AuthService;
-    translate = {} as TranslateService;
     await TestBed.configureTestingModule({
+      imports : [TranslateModule.forRoot()],
       declarations: [LoginPageComponent],
       providers: [
         {provide: AuthService, useValue: authService},
-        {provide: TranslateService, useValue: translate},
       ]
     }).compileComponents();
 
@@ -43,7 +41,8 @@ describe('LoginPageComponent', () => {
     const loginData : LoginData = {email:'test@test.com', password:'test'};
     authService.login = jest.fn().mockReturnValue( of(true) );
 
+    component.onSubmitLogin(loginData);
     fixture.detectChanges();
-    expect(component.onSubmitLogin(loginData)).toEqual(loginData);
+    expect(authService.login).toHaveBeenCalledWith(loginData.email, loginData.password);
   })
 });

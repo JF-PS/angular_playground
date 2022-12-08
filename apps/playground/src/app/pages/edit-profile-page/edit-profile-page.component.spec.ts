@@ -30,16 +30,16 @@ describe('EditProfilePageComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('test update user', () => {
-    const profilData : ProfileData = {
-      age: '24',
-      login: '',
-      playStyle: '',
-      description: ''
-    };
-    //userCloudService.updateUser = jest.fn().mockReturnValue( of(void) );
+  // it('test update user', () => {
+  //   const profilData : ProfileData = {
+  //     age: '24',
+  //     login: '',
+  //     playStyle: '',
+  //     description: ''
+  //   };
+  //   //userCloudService.updateUser = jest.fn().mockReturnValue( of(void) );
 
-    fixture.detectChanges();
-    expect(component.handleSubmit(profilData)).toEqual(profilData);
-  })
+  //   fixture.detectChanges();
+  //   expect(component.handleSubmit(profilData)).toEqual(profilData);
+  // })
 });
