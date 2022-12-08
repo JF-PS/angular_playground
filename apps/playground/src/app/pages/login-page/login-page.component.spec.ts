@@ -7,21 +7,11 @@ import { LoginPageComponent } from './login-page.component';
 
 describe('LoginPageComponent', () => {
   let component: LoginPageComponent;
-  let fixture: ComponentFixture<LoginPageComponent>;
   let authService: AuthService;
 
-  beforeEach(async () => {
+  beforeEach(() => {
     authService = {} as AuthService;
-    await TestBed.configureTestingModule({
-      imports : [TranslateModule.forRoot()],
-      declarations: [LoginPageComponent],
-      providers: [
-        {provide: AuthService, useValue: authService},
-      ]
-    }).compileComponents();
-
-    fixture = TestBed.createComponent(LoginPageComponent);
-    component = fixture.componentInstance;
+    component = new LoginPageComponent(authService, {} as TranslateService);
   });
 
   it('should create', () => {
@@ -33,8 +23,8 @@ describe('LoginPageComponent', () => {
     const loginData : LoginData = {email:'test@test.com', password:'test'};
     authService.signup = jest.fn().mockReturnValue( of(true) );
 
-    fixture.detectChanges();
-    expect(component.onSubmitRegister(loginData)).toEqual(loginData);
+    component.onSubmitRegister(loginData);
+    expect(authService.signup).toHaveBeenCalledWith(loginData.email, loginData.password);
   })
 
   it('test sign in', () => {
@@ -42,7 +32,6 @@ describe('LoginPageComponent', () => {
     authService.login = jest.fn().mockReturnValue( of(true) );
 
     component.onSubmitLogin(loginData);
-    fixture.detectChanges();
     expect(authService.login).toHaveBeenCalledWith(loginData.email, loginData.password);
   })
 });
