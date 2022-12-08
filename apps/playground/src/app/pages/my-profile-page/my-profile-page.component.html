@@ -27,7 +27,9 @@
     <div class="game__details-infos-tab">
       <mat-tab-group class="label">
         <mat-tab class="label" label="Jeux Favoris">
-          <p *ngIf="!favoritesGames.length">Pas encore de jeux en favoris !</p>
+          <p *ngIf="!favoritesGames.length">
+            {{ 'myProfilePage.noGames' | translate }}
+          </p>
           <div class="players-cards" *ngFor="let game of favoritesGames">
             <project-majeur-card-game
               [game]="game"

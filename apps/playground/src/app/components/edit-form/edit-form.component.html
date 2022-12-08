@@ -1,24 +1,27 @@
 <div id="loginContainer">
-  <h3>Modifier mon profil</h3>
-  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="input-section">
-    <button
-      mat-raised-button
-      class="outline-button"
-      routerLink="/take-photo"
-    >
-      <div routerLink="/take-photo"class="content-camera-button">
-        <mat-icon class="icon-button">photo_camera</mat-icon>
-        <span>Changer ma photo</span>
-      </div>
-    </button>
+  <button mat-raised-button class="outline-button" routerLink="/take-photo">
+    <div class="content-camera-button">
+      <mat-icon class="icon-button">photo_camera</mat-icon>
+      <span>{{ 'editProfilePage.changePictureButton' | translate }}</span>
+    </div>
+  </button>
 
-    <mat-radio-group aria-label="Select an option" formControlName="playStyle" class="radio">
-      <mat-radio-button value="chill">Chill</mat-radio-button>
-      <mat-radio-button value="competitive">Competitive</mat-radio-button>
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="input-section">
+    <mat-radio-group
+      aria-label="Select an option"
+      formControlName="playStyle"
+      class="radio"
+    >
+      <mat-radio-button value="chill">{{
+        'editProfilePage.chill' | translate
+      }}</mat-radio-button>
+      <mat-radio-button value="competitive">{{
+        'editProfilePage.competitive' | translate
+      }}</mat-radio-button>
     </mat-radio-group>
 
     <mat-form-field appearance="outline">
-      <mat-label>Style de jeu</mat-label>
+      <mat-label>{{ 'editProfilePage.playStyle' | translate }}</mat-label>
       <textarea
         matInput
         placeholder="Ex. It makes me feel..."
@@ -37,7 +40,7 @@
     </mat-form-field>
 
     <button mat-raised-button class="save-btn" type="submit">
-      Sauvegarder
+      {{ 'editProfilePage.save' | translate }}
     </button>
   </form>
 </div>

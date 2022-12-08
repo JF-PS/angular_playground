@@ -7,7 +7,18 @@
         loading="lazy"
       />
     </div>
-    <div body *ngIf="currentUser">
+    <div body *ngIf="currentUser" class="mobile-form">
+      <div id="profile-picture">
+        <h3>{{ 'editProfilePage.title' | translate }}</h3>
+        <project-majeur-profile-picture
+          [playerId]="currentUser.id"
+          [alt]="currentUser.login"
+          height="100"
+          width="100"
+          [isCircle]="true"
+        ></project-majeur-profile-picture>
+      </div>
+
       <project-majeur-edit-form
         [currentUser]="currentUser"
         (submitProfile)="handleSubmit($event)"
@@ -29,6 +40,14 @@
     </div>
 
     <div class="form">
+      <h3>{{ 'editProfilePage.title' | translate }}</h3>
+      <project-majeur-profile-picture
+        [playerId]="currentUser.id"
+        [alt]="currentUser.login"
+        height="100"
+        width="100"
+        [isCircle]="true"
+      ></project-majeur-profile-picture>
       <project-majeur-edit-form
         class="form-layout"
         [currentUser]="currentUser"

@@ -34,10 +34,18 @@
   background-color: white;
   border-radius: 50px 0px 0px 50px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   height: 88%;
   align-items: center;
   width: 100%;
+}
+
+#profile-picture {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .img-container {
@@ -50,7 +58,6 @@
 .img-desktop {
   height: 100%;
   width: 90%;
-
 }
 /* responsive */
 .mobile {

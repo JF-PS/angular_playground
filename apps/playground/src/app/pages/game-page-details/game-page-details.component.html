@@ -39,7 +39,9 @@
           <p class="description">{{ gameById?.description }}</p>
         </mat-tab>
         <mat-tab label="Joueurs">
-          <p *ngIf="!playerList.length">Aucun joueur trouver</p>
+          <p *ngIf="!playerList.length">
+            {{ 'gamePage.noUsers' | translate }}
+          </p>
 
           <div *ngFor="let player of playerList">
             <project-majeur-card-profil [player]="player">
@@ -90,7 +92,7 @@
           <p class="description">{{ gameById?.description }}</p>
         </mat-tab>
         <mat-tab label="Joueurs">
-          <p *ngIf="!playerList.length">Aucun joueur trouver</p>
+          <p *ngIf="!playerList.length">{{ 'gamePage.noUsers' | translate }}</p>
 
           <div *ngFor="let player of playerList">
             <project-majeur-card-profil [player]="player">
