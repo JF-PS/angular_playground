@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-const defaultProfilePicture =
-  'https://cengage.force.com/resource/1607465003000/loginIcon';
+const defaultProfilePicture =  'assets/images/profile-icon.svg'
 
 @Component({
   selector: 'project-majeur-profile-picture',

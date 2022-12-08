@@ -25,8 +25,11 @@
   overflow: hidden !important;
 }
 
-.hover:hover {
+.delete-icon-button {
   cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: #354f35;
 }
 
 h3 {

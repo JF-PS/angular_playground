@@ -40,17 +40,17 @@ const routes: Routes = [
       import('./pages/login-page/login-page.module').then(
         (m) => m.LoginPageModule
       ),
-    canActivate: [LoggedUsers],
+    // canActivate: [LoggedUsers],
   },
   {
     path: 'my-profile',
     component: MyProfilePageComponent,
-    canActivate: [LoggedUsers],
+    // canActivate: [LoggedUsers],
   },
   {
     path: 'profile/:id',
     component: MyProfilePageComponent,
-    canActivate: [LoggedUsers],
+    // canActivate: [LoggedUsers],
   },
   {
     path: 'take-photo',
@@ -58,7 +58,7 @@ const routes: Routes = [
       import('./pages/take-photo-page/take-photo-page.module').then(
         (m) => m.TakePhotoPageModule
       ),
-    canActivate: [LoggedUsers],
+    // canActivate: [LoggedUsers],
   },
   {
     path: 'edit-profile',
@@ -66,7 +66,7 @@ const routes: Routes = [
       import('./pages/edit-profile-page/edit-profile-page.module').then(
         (m) => m.EditProfilePageModule
       ),
-    canActivate: [LoggedUsers],
+    // canActivate: [LoggedUsers],
   },
 ];
 
@@ -81,6 +81,7 @@ const routes: Routes = [
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-left',
       messageClass: 'style-toast-message',
+      titleClass: 'style-toast-message',
     }),
 
     AngularFireModule.initializeApp(environment.firebase),
