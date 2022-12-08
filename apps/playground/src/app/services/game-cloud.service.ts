@@ -78,15 +78,10 @@ class GameCloudService {
     );
   }
 
-  getFavoriteGames(): Observable<PlayerGameData[]> {
-    return this.userService.user$.pipe(
-      switchMap((user) => {
-        return this.afs
-          .collection<PlayerGameData>(`user/${user?.uid}/games`)
-          .valueChanges();
-      }),
-      take(1)
-    );
+  getFavoriteGames(userId: string): Observable<PlayerGameData[]> {
+    return this.afs
+      .collection<PlayerGameData>(`user/${userId}/games`)
+      .valueChanges();
   }
 
   getGamePlayers(gameId: string): Observable<UserGameData[]> {

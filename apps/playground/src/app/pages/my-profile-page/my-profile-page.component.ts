@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 // import { Observable } from 'rxjs';
 import { ProfileData, PlayerGameData } from '../../model';
 import {
@@ -29,26 +30,27 @@ export class MyProfilePageComponent implements OnInit {
     private gameCloud: GameCloudService,
     public dialog: MatDialog,
     private route: ActivatedRoute,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private readonly router: Router
   ) {}
 
-  callFavoriteGames(): void {
-    this.gameCloud.getFavoriteGames().subscribe((myGameList) => {
+  callFavoriteGames(userId: string): void {
+    this.gameCloud.getFavoriteGames(userId).subscribe((myGameList) => {
       this.favoritesGames = myGameList;
     });
   }
 
   ngOnInit(): void {
-    this.callFavoriteGames();
-
     this.route.params.subscribe((params) => {
       const { id = null } = params;
       this.userService.profile$.subscribe((userLoged) => {
         if (!id || userLoged?.id === id) {
+          if (userLoged) this.callFavoriteGames(userLoged?.id);
           this.isUserLoged = true;
           this.currentUser = userLoged;
         } else {
           this.userCloudService.getUser(id).subscribe((user) => {
+            if (user?.id) this.callFavoriteGames(user?.id);
             this.isUserLoged = false;
             this.currentUser = user;
           });
@@ -73,7 +75,7 @@ export class MyProfilePageComponent implements OnInit {
               'Le jeu sélectionné à bien été supprimer de la liste',
               'Supression comfirmé'
             );
-            this.callFavoriteGames();
+            if (this.currentUser) this.callFavoriteGames(this.currentUser?.id);
           });
       }
     });

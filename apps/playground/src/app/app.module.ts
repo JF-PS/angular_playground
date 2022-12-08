@@ -49,6 +49,10 @@ const routes: Routes = [
   {
     path: 'profile/:id',
     component: MyProfilePageComponent,
+  },
+  {
+    path: 'profile/:id',
+    component: MyProfilePageComponent,
     canActivate: [LoggedUsers],
   },
   {
