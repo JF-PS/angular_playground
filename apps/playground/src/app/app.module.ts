@@ -78,6 +78,10 @@ const routes: Routes = [
     HttpClientModule,
     TranslateModule.forRoot(),
     RouterModule.forRoot(routes),
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-left',
+      messageClass: 'style-toast-message',
+    }),
 
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
@@ -94,8 +98,6 @@ const routes: Routes = [
     SearchByTagPageModule,
     GamePageDetailsModule,
     MyProfilePageModule,
-    // EditProfilePageModule,
-    ToastrModule.forRoot(),
   ],
 
   declarations: [AppComponent],
