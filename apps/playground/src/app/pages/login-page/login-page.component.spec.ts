@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TranslateModule, TranslateService } from '@ngx-translate/core/';
+import { ToastrService } from 'ngx-toastr/toastr/toastr.service';
 import { of } from 'rxjs/internal/observable/of';
 import LoginData from '../../model/login-data';
 import AuthService from '../../services/auth.service';
@@ -11,7 +12,7 @@ describe('LoginPageComponent', () => {
 
   beforeEach(() => {
     authService = {} as AuthService;
-    component = new LoginPageComponent(authService, {} as TranslateService);
+    component = new LoginPageComponent(authService, {} as TranslateService, {} as ToastrService);
   });
 
   it('should create', () => {
@@ -20,15 +21,15 @@ describe('LoginPageComponent', () => {
 
 
   it('test sign up', () => {
-    const loginData : LoginData = {email:'test@test.com', password:'test'};
+    const loginData : LoginData = {email:'test@test.com', password:'test', login:"register"};
     authService.signup = jest.fn().mockReturnValue( of(true) );
 
     component.onSubmitRegister(loginData);
-    expect(authService.signup).toHaveBeenCalledWith(loginData.email, loginData.password);
+    expect(authService.signup).toHaveBeenCalledWith(loginData.email, loginData.password, loginData.login);
   })
 
   it('test sign in', () => {
-    const loginData : LoginData = {email:'test@test.com', password:'test'};
+    const loginData : LoginData = {email:'test@test.com', password:'test', login:null};
     authService.login = jest.fn().mockReturnValue( of(true) );
 
     component.onSubmitLogin(loginData);
