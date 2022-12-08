@@ -12,9 +12,12 @@ import { ProfileData } from '../model';
 class UserService {
   user$: Observable<firebase.User | null> = this.auth.user;
   profile$: Observable<ProfileData | undefined> = this.user$.pipe(
-    switchMap((user) =>
-      this.afs.doc<ProfileData>(`user/${user?.uid}`).valueChanges()
-    )
+    switchMap((user) => {
+      const profile = this.afs
+        .doc<ProfileData>(`user/${user?.uid}`)
+        .valueChanges();
+      return profile;
+    })
   );
 
   constructor(

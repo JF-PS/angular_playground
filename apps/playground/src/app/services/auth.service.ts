@@ -5,6 +5,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import UserCredential = firebase.auth.UserCredential;
 import { Router } from '@angular/router';
 import { UserCloudService } from '.';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,8 @@ class AuthService {
   constructor(
     private readonly auth: AngularFireAuth,
     private readonly userCloud: UserCloudService,
-    private readonly router: Router
+    private readonly router: Router,
+    private toastr: ToastrService
   ) {}
 
   login(email: string, password: string): Observable<boolean> {
@@ -25,10 +27,13 @@ class AuthService {
     );
   }
 
-  signup(email: string, password: string): Observable<boolean> {
+  signup(email: string, password: string, login: string): Observable<boolean> {
     return from(this.auth.createUserWithEmailAndPassword(email, password)).pipe(
       map((res: UserCredential) => {
-        if (res.user) this.userCloud.createUser().subscribe();
+        if (res.user) {
+          this.userCloud.createUser(login).subscribe();
+          this.toastr.success(`Bienvenue ${login}`);
+        }
         return !!res.user;
       }),
       catchError(() => of(false))
@@ -37,7 +42,8 @@ class AuthService {
 
   logout() {
     this.auth.signOut().then(() => {
-      this.router.navigateByUrl('login');
+      this.toastr.success(`Déconnexion réussi avec succès`);
+      this.router.navigateByUrl('/login');
     });
   }
 }

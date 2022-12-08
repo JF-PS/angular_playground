@@ -23,8 +23,8 @@ import { MyProfilePageModule } from './pages/my-profile-page/my-profile-page.mod
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { TakePhotoPageModule } from './pages/take-photo-page/take-photo-page.module';
 import { TakePhotoPageComponent } from './pages/take-photo-page/take-photo-page.component';
-import { EditProfilePageModule } from './pages/edit-profile-page/edit-profile-page.module';
-import { EditProfilePageComponent } from './pages/edit-profile-page/edit-profile-page.component';
+import { ToastrModule } from 'ngx-toastr';
+import { LoggedUsers } from './services/unlogged-users.service';
 
 const routes: Routes = [
   {
@@ -40,23 +40,36 @@ const routes: Routes = [
       import('./pages/login-page/login-page.module').then(
         (m) => m.LoginPageModule
       ),
-    //   // canActivate: [UnloggedUsersOnlyGuard],
   },
-  // { path: 'edit-profile', component: EditProfilePageComponent },
-  { path: 'my-profile', component: MyProfilePageComponent },
-  { path: 'take-photo', component: TakePhotoPageComponent },
+  {
+    path: 'my-profile',
+    component: MyProfilePageComponent,
+    canActivate: [LoggedUsers],
+  },
+  {
+    path: 'profile/:id',
+    component: MyProfilePageComponent,
+  },
+  {
+    path: 'profile/:id',
+    component: MyProfilePageComponent,
+    canActivate: [LoggedUsers],
+  },
+  {
+    path: 'take-photo',
+    loadChildren: () =>
+      import('./pages/take-photo-page/take-photo-page.module').then(
+        (m) => m.TakePhotoPageModule
+      ),
+    canActivate: [LoggedUsers],
+  },
   {
     path: 'edit-profile',
     loadChildren: () =>
       import('./pages/edit-profile-page/edit-profile-page.module').then(
         (m) => m.EditProfilePageModule
       ),
-    // canActivate: [UnloggedUsersOnlyGuard],
-  },
-  {
-    path: 'my-profile',
-    component: MyProfilePageComponent,
-    // canActivate: [UnloggedUsersOnlyGuard],
+    canActivate: [LoggedUsers],
   },
 ];
 
@@ -85,7 +98,7 @@ const routes: Routes = [
     GamePageDetailsModule,
     MyProfilePageModule,
     // EditProfilePageModule,
-    TakePhotoPageModule,
+    ToastrModule.forRoot(),
   ],
 
   declarations: [AppComponent],

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProfileData } from '../../model';
 import { UserService, UserCloudService } from '../../services';
 import { take } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'project-majeur-edit-profile-page',
@@ -13,7 +14,8 @@ export class EditProfilePageComponent implements OnInit {
 
   constructor(
     private readonly userService: UserService,
-    private readonly userCloudService: UserCloudService
+    private readonly userCloudService: UserCloudService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -23,6 +25,14 @@ export class EditProfilePageComponent implements OnInit {
   }
 
   handleSubmit = (data: ProfileData) => {
-    this.userCloudService.updateUser(data).pipe(take(1)).subscribe();
+    this.userCloudService
+      .updateUser(data)
+      .pipe(take(1))
+      .subscribe(() => {
+        this.toastr.success(
+          'Mise à jour comfirmé',
+          'Vos donnée utilisateur ont bien été modifier'
+        );
+      });
   };
 }

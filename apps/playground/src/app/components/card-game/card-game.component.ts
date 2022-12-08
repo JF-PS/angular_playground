@@ -1,18 +1,23 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { UserGameData } from '../../model';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { PlayerGameData } from '../../model';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'project-majeur-card-profil',
-  templateUrl: './card-profil.component.html',
-  styleUrls: ['./card-profil.component.css'],
+  selector: 'project-majeur-card-game',
+  templateUrl: './card-game.component.html',
+  styleUrls: ['./card-game.component.css'],
 })
-export class CardProfilComponent implements OnInit {
-  @Input() player: UserGameData = {
+export class CardGameComponent implements OnInit {
+  @Output() deleteGameById = new EventEmitter<number>();
+  @Input() isEdition = false;
+  @Input() game: PlayerGameData = {
     id: 'pending...',
-    login: 'pending...',
-    levelRating: 1,
+    picture: 'pending...',
+    title: 'pending...',
+    levelRating: 0,
   };
+
+  rating!: number;
   selectedRating = 0;
 
   stars = [
@@ -58,11 +63,15 @@ export class CardProfilComponent implements OnInit {
     this.selectedRating = value;
   }
 
-  goToProfileUser = () => {
-    this.router.navigate([`profile/${this.player?.id}`]);
+  deleteGame(): void {
+    if (this.isEdition) this.deleteGameById.emit(+this.game.id);
+  }
+
+  goToGame = () => {
+    this.router.navigate([`games/${this.game.id}`]);
   };
 
   ngOnInit(): void {
-    this.selectStar(this.player.levelRating);
+    this.selectStar(this.game.levelRating);
   }
 }

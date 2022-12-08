@@ -21,7 +21,7 @@ class UserCloudService {
     private readonly pictureService: PictureService
   ) {}
 
-  createUser = (): Observable<void> => {
+  createUser = (login: string): Observable<void> => {
     return this.userService.user$.pipe(
       switchMap((user) => {
         return from(
@@ -30,7 +30,7 @@ class UserCloudService {
             .doc(user?.uid)
             .set({
               id: `${user?.uid}`,
-              login: `${user?.email}`,
+              login: login,
               ...initUser,
             })
         );
@@ -47,6 +47,10 @@ class UserCloudService {
           .update({ ...data });
       })
     );
+  }
+
+  getUser(userId: string): Observable<ProfileData | undefined> {
+    return this.afs.doc<ProfileData>(`user/${userId}`).valueChanges();
   }
 }
 

@@ -2,29 +2,40 @@
   <div class="user-infos" top>
     <div class="topContainer">
       <div class="imgContainer">
-        <div class="img">
-          <!-- {{currentUser?.picture}} -->
+        <div class="img" *ngIf="currentUser">
+          <project-majeur-profile-picture
+            [playerId]="currentUser.id"
+            [alt]="currentUser.login"
+            height="100"
+            width="100"
+            [isCircle]="true"
+          ></project-majeur-profile-picture>
         </div>
         <div class="pseudoPart">
-          <h2>{{currentUser?.login}}</h2>
+          <h2>{{ currentUser?.login }}</h2>
           <div class="tags">
-            <div class="tag">{{currentUser?.playStyle}}</div>
-            <div class="tag">{{currentUser?.age}}</div>
+            <div class="tag">{{ currentUser?.playStyle }}</div>
+            <div class="tag">{{ currentUser?.age }}</div>
           </div>
         </div>
       </div>
-      <p class="description">{{currentUser?.description}}</p>
+      <p class="description">{{ currentUser?.description }}</p>
     </div>
   </div>
 
   <div body>
     <div class="game__details-infos-tab">
       <mat-tab-group class="label">
-        <mat-tab class="label" label="Mes jeux">
-          <p>Retrouve ici tous les jeux auxquels tu joues ! </p>
-        </mat-tab>
-        <mat-tab class="label" label="Mes ami.es">
-          <p>Retrouve ici tes ami.es ! </p>
+        <mat-tab class="label" label="Jeux Favoris">
+          <p *ngIf="!favoritesGames.length">Pas encore de jeux en favoris !</p>
+          <div class="players-cards" *ngFor="let game of favoritesGames">
+            <project-majeur-card-game
+              [game]="game"
+              [isEdition]="isUserLoged"
+              (deleteGameById)="removeGameToFavorite($event)"
+            >
+            </project-majeur-card-game>
+          </div>
         </mat-tab>
       </mat-tab-group>
     </div>

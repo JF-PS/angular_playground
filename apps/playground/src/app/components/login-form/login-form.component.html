@@ -1,5 +1,15 @@
 <div id="loginContainer">
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline" *ngIf="!isLoginForm">
+      <mat-label>Login</mat-label>
+      <input
+        type="text"
+        matInput
+        type="text"
+        formControlName="login"
+        placeholder="login.."
+      />
+    </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Email</mat-label>
       <input

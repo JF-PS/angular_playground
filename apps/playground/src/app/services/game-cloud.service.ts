@@ -41,16 +41,16 @@ class GameCloudService {
     profileData: ProfileData | undefined,
     levelRating: number
   ): Observable<void> {
-    return this.userService.user$.pipe(
+    return this.userService.profile$.pipe(
       switchMap((user) => {
         if (user)
-          this.AddGameToUserLogin({ ...gameData, levelRating }, user.uid);
+          this.AddGameToUserLogin({ ...gameData, levelRating }, user.id);
         return from(
           this.afs
-            .doc<UserGameData>(`game/${gameData?.id}/users/${user?.uid}`)
+            .doc<UserGameData>(`game/${gameData?.id}/users/${user?.id}`)
             .set({
-              id: `${user?.uid}`,
-              login: `${user?.email}`,
+              id: `${user?.id}`,
+              login: `${user?.login}`,
               levelRating,
               // profileData?.login === undefined ? '' : profileData?.login
             })
@@ -78,15 +78,10 @@ class GameCloudService {
     );
   }
 
-  getFavoriteGames(): Observable<PlayerGameData[]> {
-    return this.userService.user$.pipe(
-      switchMap((user) => {
-        return this.afs
-          .collection<PlayerGameData>(`user/${user?.uid}/games`)
-          .valueChanges();
-      }),
-      take(1)
-    );
+  getFavoriteGames(userId: string): Observable<PlayerGameData[]> {
+    return this.afs
+      .collection<PlayerGameData>(`user/${userId}/games`)
+      .valueChanges();
   }
 
   getGamePlayers(gameId: string): Observable<UserGameData[]> {

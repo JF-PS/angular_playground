@@ -1,0 +1,33 @@
+<div class="card-game">
+  <div (click)="goToGame()" class="hover">
+    <img class="game-picture" [src]="game.picture" [alt]="game.title" />
+  </div>
+
+  <div (click)="goToGame()" class="hover">
+    <h3>{{ game.title }}</h3>
+
+    <div
+      class="star-rating-container star-rating-animation"
+      fxLayout="row"
+      fxLayoutAlign="start center"
+    >
+      <div *ngFor="let star of stars" [ngClass]="[star.class]">
+        <mat-icon
+          aria-hidden="false"
+          aria-label="star icon"
+          fontIcon="{{ star.icon }}"
+        ></mat-icon>
+      </div>
+    </div>
+  </div>
+
+  <button
+    mat-fab
+    color="primary"
+    (click)="deleteGame()"
+    class="hover"
+    *ngIf="isEdition"
+  >
+    <mat-icon>delete</mat-icon>
+  </button>
+</div>

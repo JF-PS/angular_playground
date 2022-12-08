@@ -3,9 +3,10 @@
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 import { Component } from '@angular/core';
 import { take } from 'rxjs';
-import { LoginData } from '../../model';
+import { LoginData, ProfileData } from '../../model';
 import { AuthService } from '../../services';
 import { TranslateService } from '@ngx-translate/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'project-majeur-login-page',
@@ -18,7 +19,8 @@ export class LoginPageComponent {
 
   constructor(
     private readonly authService: AuthService,
-    private readonly translate: TranslateService // private readonly snackbar: MatSnackBar
+    private readonly translate: TranslateService,
+    private toastr: ToastrService
   ) {}
 
   handleSubmit = (data: LoginData) => {
@@ -36,7 +38,7 @@ export class LoginPageComponent {
       .pipe(take(1))
       .subscribe((res) => {
         if (res) {
-          console.log(res);
+          this.toastr.success(`Vous nous aviez manqué.`);
           history.back();
         } else {
           console.error('Errors occured');
@@ -45,16 +47,17 @@ export class LoginPageComponent {
   };
 
   onSubmitRegister = (data: LoginData) => {
-    this.authService
-      .signup(data.email, data.password)
-      .pipe(take(1))
-      .subscribe((res) => {
-        if (res) {
-          console.log(res);
-          history.back();
-        } else {
-          console.error('Errors occured');
-        }
-      });
+    if (data?.login) {
+      this.authService
+        .signup(data.email, data.password, data?.login)
+        .pipe(take(1))
+        .subscribe((res) => {
+          if (res) {
+            history.back();
+          } else {
+            console.error('Errors occured');
+          }
+        });
+    }
   };
 }

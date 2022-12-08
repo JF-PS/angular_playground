@@ -13,23 +13,25 @@
       <div class="game-details-infos">
         <h2 class="title">{{ gameById?.title }}</h2>
 
-        <button
-          *ngIf="!isFavorite"
-          mat-raised-button
-          class="addGame"
-          (click)="openAddFavoriteModal()"
-        >
-          Ajouter
-        </button>
+        <div *ngIf="isUserLoged">
+          <button
+            *ngIf="!isFavorite"
+            mat-raised-button
+            class="addGame"
+            (click)="openAddFavoriteModal()"
+          >
+            Ajouter
+          </button>
 
-        <button
-          *ngIf="isFavorite"
-          mat-raised-button
-          class="removeGame"
-          (click)="openRemoveFavoriteModal()"
-        >
-          Retirer
-        </button>
+          <button
+            *ngIf="isFavorite"
+            mat-raised-button
+            class="removeGame"
+            (click)="openRemoveFavoriteModal()"
+          >
+            Retirer
+          </button>
+        </div>
       </div>
 
       <mat-tab-group>
@@ -39,7 +41,7 @@
         <mat-tab label="Joueurs">
           <p *ngIf="!playerList.length">Aucun joueur trouver</p>
 
-          <div class="players-cards" *ngFor="let player of playerList">
+          <div *ngFor="let player of playerList">
             <project-majeur-card-profil [player]="player">
             </project-majeur-card-profil>
           </div>
@@ -62,23 +64,25 @@
       <div class="game-details-infos">
         <h2 class="title">{{ gameById?.title }}</h2>
 
-        <button
-          *ngIf="!isFavorite"
-          mat-raised-button
-          class="addGame"
-          (click)="openAddFavoriteModal()"
-        >
-          Ajouter
-        </button>
+        <div *ngIf="isUserLoged">
+          <button
+            *ngIf="!isFavorite"
+            mat-raised-button
+            class="addGame"
+            (click)="openAddFavoriteModal()"
+          >
+            Ajouter
+          </button>
 
-        <button
-          *ngIf="isFavorite"
-          mat-raised-button
-          class="removeGame"
-          (click)="openRemoveFavoriteModal()"
-        >
-          Retirer
-        </button>
+          <button
+            *ngIf="isFavorite"
+            mat-raised-button
+            class="removeGame"
+            (click)="openRemoveFavoriteModal()"
+          >
+            Retirer
+          </button>
+        </div>
       </div>
 
       <mat-tab-group>
@@ -88,7 +92,7 @@
         <mat-tab label="Joueurs">
           <p *ngIf="!playerList.length">Aucun joueur trouver</p>
 
-          <div class="players-cards" *ngFor="let player of playerList">
+          <div *ngFor="let player of playerList">
             <project-majeur-card-profil [player]="player">
             </project-majeur-card-profil>
           </div>
