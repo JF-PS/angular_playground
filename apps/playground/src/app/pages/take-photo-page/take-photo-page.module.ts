@@ -19,8 +19,13 @@ import { ProfilePictureModule } from '../../components/profile-picture/profile-p
     LayoutModule,
     WebcamModule,
     MatButtonModule,
-    RouterModule,
     ProfilePictureModule,
+    RouterModule.forChild([
+      {
+        path: '',
+        component: TakePhotoPageComponent,
+      },
+    ]),
   ],
 
   exports: [TakePhotoPageComponent],

@@ -4,8 +4,8 @@
       <div class="imgContainer">
         <div class="img" *ngIf="currentUser">
           <project-majeur-profile-picture
-            [playerId]="currentUser?.id"
-            [alt]="currentUser?.login"
+            [playerId]="currentUser.id"
+            [alt]="currentUser.login"
             height="100"
             width="100"
             [isCircle]="true"
