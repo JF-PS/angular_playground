@@ -55,34 +55,7 @@ describe('HomePageComponent', () => {
     },
     ];
 
-    gameListService.getGameList = jest.fn().mockReturnValue( of(
-      [{
-        developer: 'a',
-        freetogame_profile_url: 'a',
-        game_url: 'a',
-        genre: 'a',
-        id: 1,
-        platform: 'a',
-        publisher: 'a',
-        release_date: 'a',
-        short_description: 'a',
-        thumbnail: 'a',
-        title: 'a' 
-      },
-      {
-        developer: 'b',
-        freetogame_profile_url: 'b',
-        game_url: 'b',
-        genre: 'b',
-        id: 2,
-        platform: 'b',
-        publisher: 'b',
-        release_date: 'b',
-        short_description: 'b',
-        thumbnail: 'b',
-        title: 'b' 
-      },]
-    ) );
+    gameListService.getGameList = jest.fn().mockReturnValue( of(result) );
 
     fixture.detectChanges();
     expect(component.popularGames).toEqual(result);
