@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-// import { Observable } from 'rxjs';
 import { ProfileData, PlayerGameData } from '../../model';
 import {
   UserService,
@@ -20,7 +19,6 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class MyProfilePageComponent implements OnInit {
   currentUser: ProfileData | undefined = undefined;
-  // profile$: Observable<ProfileData | undefined> = this.userService.profile$;
   favoritesGames: PlayerGameData[] = [];
   isUserLoged = false;
 

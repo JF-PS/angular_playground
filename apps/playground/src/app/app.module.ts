@@ -38,7 +38,6 @@ const routes: Routes = [
       import('./pages/login-page/login-page.module').then(
         (m) => m.LoginPageModule
       ),
-    canActivate: [LoggedUsers],
   },
   {
     path: 'my-profile',

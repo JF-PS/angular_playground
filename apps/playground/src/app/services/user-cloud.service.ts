@@ -8,7 +8,6 @@ const initUser = {
   playStyle: 'competitive',
   description: 'Lorem ipsum ...',
   age: '10',
-  // picture: 'https://cengage.force.com/resource/1607465003000/loginIcon',
 };
 
 @Injectable({
