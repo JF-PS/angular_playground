@@ -52,7 +52,6 @@ class GameCloudService {
               id: `${user?.id}`,
               login: `${user?.login}`,
               levelRating,
-              // profileData?.login === undefined ? '' : profileData?.login
             })
         );
       })

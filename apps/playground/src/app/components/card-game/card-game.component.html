@@ -21,13 +21,11 @@
     </div>
   </div>
 
-  <button
-    mat-fab
-    color="primary"
+  <mat-icon
     (click)="deleteGame()"
-    class="hover"
+    class="delete-icon-button"
     *ngIf="isEdition"
   >
-    <mat-icon>delete</mat-icon>
-  </button>
+    delete
+  </mat-icon>
 </div>

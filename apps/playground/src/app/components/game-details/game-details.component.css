@@ -6,9 +6,9 @@
     .mat-card {height: 205px;}
 }
 
-@media only screen and (min-device-width: 960px) {
+/* @media only screen and (min-device-width: 960px) {
     .mat-card {height: 330px;}
-}
+} */
 
 .mat-card:hover {
   cursor: pointer;

@@ -3,10 +3,12 @@ export const en = {
     title: 'The Playground',
   },
   homePage: {
-    title: 'The Home Page',
+    title: 'Choisi ta catégorie',
+    subTitle: 'Populaires',
   },
   gamePage: {
     title: 'The Game Page',
+    noUsers: 'Aucun joueur trouver',
   },
   loginPage: {
     title: 'Se connecter',
@@ -26,9 +28,16 @@ export const en = {
   },
   signUpPage: { title: 'Créer un compte' },
   editProfilePage: {
-    title: 'The Edit Profile Page',
+    title: 'Modifier mon profil',
+    changePictureButton: 'Changer ma photo',
+    chill: 'tranquille',
+    competitive: 'compétitife',
+    playStyle: 'Style de jeu',
+    age: 'Âge',
+    save: 'Sauvegarder',
   },
   myProfilePage: {
     title: 'My Profile Page',
+    noGames: 'Pas encore de jeux en favoris !',
   },
 };

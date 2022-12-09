@@ -21,8 +21,6 @@ import { SearchByTagPageModule } from './pages/search-by-tag-page/search-by-tag-
 import { GamePageDetailsModule } from './pages/game-page-details/game-page-details.module';
 import { MyProfilePageModule } from './pages/my-profile-page/my-profile-page.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { TakePhotoPageModule } from './pages/take-photo-page/take-photo-page.module';
-import { TakePhotoPageComponent } from './pages/take-photo-page/take-photo-page.component';
 import { ToastrModule } from 'ngx-toastr';
 import { LoggedUsers } from './services/unlogged-users.service';
 
@@ -45,10 +43,6 @@ const routes: Routes = [
     path: 'my-profile',
     component: MyProfilePageComponent,
     canActivate: [LoggedUsers],
-  },
-  {
-    path: 'profile/:id',
-    component: MyProfilePageComponent,
   },
   {
     path: 'profile/:id',
@@ -81,6 +75,11 @@ const routes: Routes = [
     HttpClientModule,
     TranslateModule.forRoot(),
     RouterModule.forRoot(routes),
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-left',
+      messageClass: 'style-toast-message',
+      titleClass: 'style-toast-message',
+    }),
 
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
@@ -97,8 +96,6 @@ const routes: Routes = [
     SearchByTagPageModule,
     GamePageDetailsModule,
     MyProfilePageModule,
-    // EditProfilePageModule,
-    ToastrModule.forRoot(),
   ],
 
   declarations: [AppComponent],

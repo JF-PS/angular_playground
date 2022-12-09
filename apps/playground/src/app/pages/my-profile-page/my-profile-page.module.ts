@@ -21,6 +21,7 @@ import { ProfilePictureModule } from '../../components/profile-picture/profile-p
     MatCardModule,
     MatProgressBarModule,
     MatTabsModule,
+    MatIconModule,
     ProfilePictureModule,
   ],
 

@@ -50,6 +50,7 @@ h2 {
   align-items: center;
   min-height: 28px;
   height: 1px;
+  padding: 4px 6px;
 }
 
 .description {
