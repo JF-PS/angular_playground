@@ -13,6 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { NavbarModule } from '../../components/navbar/navbar.module';
+import { ProfilePictureModule } from '../../components/profile-picture/profile-picture.module';
 
 @NgModule({
   declarations: [EditProfilePageComponent, EditFormComponent],
@@ -39,6 +40,7 @@ import { NavbarModule } from '../../components/navbar/navbar.module';
     MatButtonModule,
     MatIconModule,
     RouterModule,
+    ProfilePictureModule,
   ],
 
   exports: [EditProfilePageComponent],

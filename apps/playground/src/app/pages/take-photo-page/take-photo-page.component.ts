@@ -4,6 +4,7 @@ import { ProfileData } from '../../model';
 import { WebcamImage } from 'ngx-webcam';
 import { PictureService, UserService } from '../../services';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'project-majeur-take-photo-page',
@@ -26,7 +27,8 @@ export class TakePhotoPageComponent implements OnInit {
   constructor(
     private readonly userService: UserService,
     private readonly pictureService: PictureService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private readonly router: Router
   ) {}
 
   ngOnInit(): void {
@@ -64,6 +66,10 @@ export class TakePhotoPageComponent implements OnInit {
     this.toastr.error('Vous n`avez pas choisit de nouvelle photo de profile');
   };
 
+  goBackToEditProfile = () => {
+    this.router.navigateByUrl('/edit-profile');
+  };
+
   SubmitPicture = () => {
     const filename = `${this.currentUser?.id}`;
     if (this.picture) {
@@ -71,12 +77,14 @@ export class TakePhotoPageComponent implements OnInit {
         .uploadPicture(filename, this.picture.base64Img)
         .subscribe(() => {
           this.photoUploadWithSuccess();
+          this.goBackToEditProfile();
         });
     } else if (this.file) {
       this.pictureService
         .uploadFile(`${filename}.jpeg`, this.file)
         .subscribe(() => {
           this.photoUploadWithSuccess();
+          this.goBackToEditProfile();
         });
     } else {
       this.photoUploadError();
